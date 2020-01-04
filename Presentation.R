@@ -162,7 +162,8 @@ pres_val_elements <- pres_assays %>%
   Write Specifications <br><br>
   Code<br><br>
   Design Test Cases<br><br>
-  Evaluate Test Cases
+  Evaluate Test Cases<br><br>
+  Document Results for Final Sign Off
   </div>")
 
 
@@ -170,7 +171,7 @@ pres_val_elements <- pres_assays %>%
 pres_val_specification <- pres_val_elements %>% 
   slide_multipanel(title = tags$div(style = 'width:500px',"Specifications"),
   panel_markdown("
-  ## DO:
+  ## Do:
   
   - Set the goals of the project
   - Define current state
@@ -180,7 +181,7 @@ pres_val_specification <- pres_val_elements %>%
   - Set a time line
   
   <div style ='padding-top:20px'>
-  ![](https://i.imgur.com/Jb6I99E.gif?noredirect)
+  <img src= 'www/hercules_obstacle_success.gif' style = 'height:420px;'/>
   </div>"),
   panel_markdown("
   ## Dont:
@@ -189,8 +190,8 @@ pres_val_specification <- pres_val_elements %>%
   - Define exact process
   - Leave Success metrics up to interpretation
   
-  <div style ='padding-top:120px'>
-  ![](https://assets.teenvogue.com/photos/5952d6552c9db4790715babd/master/w_400%2Cc_limit/hercules-alt.gif)
+  <div style ='padding-top:100px'>
+  <img src= 'https://assets.teenvogue.com/photos/5952d6552c9db4790715babd/master/w_400%2Cc_limit/hercules-alt.gif' style = 'height:420px;'/>
   </div>"),
   panel_markdown("
   ## Documentation
@@ -206,56 +207,99 @@ pres_val_specification <- pres_val_elements %>%
   
   ```
   #' @title Function Specifications 001
-  #' @section edit:
-  #'   10/23/2019 Ellis Hughes
-  
+  #' @section Last updated by:
+  #' Ellis Hughes
+  #' @section Last updated date:
+  #' 2020-1-27
+  #' 
   + _Specifications_
-    + 1.1 File input can be in text or sas7bdat format.
-    + 1.2 Output is a data.frame.
-    + 1.3 If file input is a sas7bdat, the dataset and column attributes are stripped.
+    + 1.1 Presentation must explain validation procedure.
+    + 1.2 Be entertaining.
+    + 1.3 Inform and document each step necessary for success.
+    + 1.4 Fame and Glamour.
   ```
   "))
 
 ## Coding ----
 pres_val_code <- pres_val_specification %>% 
   slide_multipanel(title = tags$div(style = 'width:500px',"Code"),
-                   panel_markdown("
-                   GitHub and Code Review
-                   Unit Testing - Testthat
-                   Roxygen"))
+  panel_markdown("
+  - GitHub and Code Review
+  - Unit Testing - Testthat
+  - Roxygen
+  "))
 
 
-## Test Cases & Code ----
+## Test Cases ----
 pres_val_test <- pres_val_code %>% 
-  slide_multipanel(title = tags$div(style = 'width:500px',"Test Cases & Code"),
-                   panel_markdown("
-                   Specifically test that Code meets Specs
-                   Detailed without writing code
-                   Resolves interpretation errors and improves code"))
+  slide_multipanel(title = tags$div(style = 'width:500px',"Test Cases"),
+  panel_markdown("
+  - Specifically test that Code meets Specs
+  - Detailed without writing code
+  - Resolves interpretation errors and improves code
+  "))
+
+## Test Code ----
+
+pres_val_test_code <- pres_val_test %>% 
+  slide_multipanel(title = tags$div(style = 'width:500px',"Test Cases"),
+  panel_markdown("
+  - Test that format
+  - Combine with Roxygen comments
+  - Breaking out
+      - each family of tests into a file
+      - each sub-test as a testthat case
+  "))
 
 ## Documentation ----
-pres_val_doc <- pres_val_test %>% 
+pres_val_doc <- pres_val_test_code %>% 
   slide_multipanel(title = tags$div(style = 'width:500px',"Final Document"),
-                   panel_markdown("
-                   Record All elements in a single location
-                   Following good programming practices led to
-                     - Scraping functions for author/edits
-                     - separating out specs into files allows for modular extension
-                     - Roxygen to document editing and edit dates
-                     - using testthat like structure led to ability to using testthat reports to document success/failures
-                  Automation is mo betta"))
+  panel_markdown("
+  - Record All elements in a single location
+  
+  - Following good programming practices led to
+    - Scraping functions for author/edits
+    - separating out specs into files allows for modular extension
+    - Roxygen to document editing and edit dates
+    - using testthat like structure led to ability to using testthat reports to document success/failures
+    - Automation is mo betta"))
 
 
-## Conclusion
+## Conclusion ----
+pres_conclusion <- pres_val_doc %>% 
+  slide_multipanel(title = tags$div(style = 'width:500px',"Final Document"),
+  panel_markdown("
+  Many thanks to all involved
+  "),
+  panel_markdown("
+  Fred Hutch, Managers, and Team
+  "))
 
 
-
-
-
-## Save Output ----
+## Final ----
                    
                    
-pres_final <- pres_val_code
+pres_final <- pres_conclusion %>% 
+  slide_markdown( title = tags$div(style = 'width:1600px; font-size: 70px',"Thank You"),"
+   ## Any Questions?
+   
+   
+   <div style = 'margin:auto;padding-top:50px;padding-left:600px;text-align:left; transform: scale(1.5)'>
+   Connect:
+   <ul>
+    <li> <a class=\"fa fa-twitter-square\"></a> @ellis_hughes </li>
+    <li> <a class=\"fa fa-linkedin-square\"></a> linkedin.com/in/ellishughes </li>
+    <li> <a class=\"fa fa-github-square\"></a> github.com/thebioengineer</li>
+   </ul>
+   </div>
+   
+   <div style=\"right: -20%;position: absolute;top: 25%;z-index: 0;opacity: 0.5;\">
+    <img src=\"img/FH_logo.png\"/>
+   </div>
+   
+   ", style = "text-align: center;width:1600px")
+
+## Save Presentation ----
 
 save_sidescroller(pres_final,
                   here("Approaches_to_Assay_Processing_Package_Validation.html"))

@@ -5,3 +5,7 @@ code {
 ul {
   list-style-type: none;
 }
+
+pre code {
+  font-size: 20px;
+}
