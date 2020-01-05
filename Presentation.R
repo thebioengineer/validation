@@ -224,26 +224,105 @@ pres_val_specification <- pres_val_elements %>%
 pres_val_code <- pres_val_specification %>% 
   slide_multipanel(title = tags$div(style = 'width:500px',"Code"),
   panel_markdown("
-  - GitHub and Code Review
-  - Unit Testing - Testthat
-  - Roxygen
-  "))
+  ## Step One
+  
+  - Define function requirements
+  
+  - Modularity
+  
+  *SOME SORT OF IMAGE/GIF*
+  
+  
+  "),
+  panel_markdown("
+  ## Supporting Cast
+  
+  - Roxygen Documentation
+  
+  - Unit Tests
+  
+  *SOME SORT OF IMAGE/GIF*
+  
+  "),
+  panel_markdown("
+  ## Advantages of SCM
+  
+  - Branching
+  
+  - Detailed code Review
+    - Style guides
+    
+  <img src='img/GitHub-Mark.png' style='height:400px;'/>
+    
+  "),
+  panel_markdown("
+  ## Documentation
+
+  - Name
+  - Purpose
+  - Arguments
+  - Example
+  - Validation Requirements
+
+  ```r
+  #' @title Function Name
+  #' @description 
+  #'    Description of great function
+  #' @section Last updated by:
+  #' Ellis Hughes
+  #' @section Last updated date:
+  #' 2020-1-27
+  #' @param arg1 argument 1
+  #' @param arg2 argument 2
+  #' @example
+  #' output <- sample_function(1,2)
+  #' 
+  #' @export
+  
+  sample_function <- function(arg1, arg2){
+    temp_object <- arg1 * arg2
+    return(temp_object)
+  }
+  ```
+  ", style = "width: 600px"))
 
 
 ## Test Cases ----
 pres_val_test <- pres_val_code %>% 
   slide_multipanel(title = tags$div(style = 'width:500px',"Test Cases"),
   panel_markdown("
-  - Specifically test that Code meets Specs
+  ## What are they
+  
+  - Not Unit or Regression tests
+
+  - Draw connections between Specifications and Code
+
+  "),
+  panel_markdown("
+  ## How to write
   - Detailed without writing code
-  - Resolves interpretation errors and improves code
+  
+  - How do all the pieces actually work together
   "))
 
 ## Test Code ----
 
 pres_val_test_code <- pres_val_test %>% 
-  slide_multipanel(title = tags$div(style = 'width:500px',"Test Cases"),
+  slide_multipanel(title = tags$div(style = 'width:500px',"Test Case Coding"),
   panel_markdown("
+  ## A case for Test Coding
+  
+  - Resolves interpretation errors in documentation and test cases
+  
+  - 3rd party to code
+    - Does not have preconceived idea of function
+  
+  - Identify improvements
+                 
+  "),
+  panel_markdown("
+  ## Formatting
+  
   - Test that format
   - Combine with Roxygen comments
   - Breaking out
@@ -284,9 +363,12 @@ pres_final <- pres_conclusion %>%
    ## Any Questions?
    
    
-   <div style = 'margin:auto;padding-top:50px;padding-left:600px;text-align:left; transform: scale(1.5)'>
+   <div style = 'margin:auto;padding-top:50px;padding-left:600px;text-align:left; transform: scale(1.2)'>
    Connect:
    <ul>
+    <li> Slides are available at <br>github.com/thebioengineer/RStudio_conf_2020 </li>
+    <br>
+    <br>
     <li> <a class=\"fa fa-twitter-square\"></a> @ellis_hughes </li>
     <li> <a class=\"fa fa-linkedin-square\"></a> linkedin.com/in/ellishughes </li>
     <li> <a class=\"fa fa-github-square\"></a> github.com/thebioengineer</li>
