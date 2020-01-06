@@ -191,22 +191,18 @@ pres_val_specification <- pres_val_elements %>%
   - Leave Success metrics up to interpretation
   
   <div style ='padding-top:100px'>
-  <img src= 'https://assets.teenvogue.com/photos/5952d6552c9db4790715babd/master/w_400%2Cc_limit/hercules-alt.gif' style = 'height:420px;'/>
+  <img src= 'https://assets.teenvogue.com/photos/5952d6552c9db4790715babd/master/w_400%2Cc_limit/hercules-alt.gif' style = 'height:420px;' />
   </div>"),
   panel_markdown("
   ## Documentation
   
-  - 1 Specification Family : 1 file
-  
-  - Record pertinent information
-  
-  - Detail
-      - Spec
-      - Measureables
-      - success
+  - History of Specifications
+  - Specifications
+  - Measureables
+  - success
   
   ```
-  #' @title Function Specifications 001
+  #' @title Specifications For RStudio Conf 2020 Success
   #' @section Last updated by:
   #' Ellis Hughes
   #' @section Last updated date:
@@ -214,9 +210,9 @@ pres_val_specification <- pres_val_elements %>%
   #' 
   + _Specifications_
     + 1.1 Presentation must explain validation procedure.
-    + 1.2 Be entertaining.
+    + 1.2 Be entertaining by causing 3 laughter sessions.
     + 1.3 Inform and document each step necessary for success.
-    + 1.4 Fame and Glamour.
+    + 1.4 (Optional) Fame and Glamour and start branded accessories chain.
   ```
   "))
 
@@ -227,10 +223,15 @@ pres_val_code <- pres_val_specification %>%
   ## Step One
   
   - Define function requirements
-  
+    - Design structure
+    - Measurable goals
+    - Distribute workload
+    
   - Modularity
+    - Update as necessary
+    - Break out of 'validated' processing pipelines as necessary
   
-  *SOME SORT OF IMAGE/GIF*
+  <img src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Tidying_Up_with_Marie_Kondo_title_card.svg/800px-Tidying_Up_with_Marie_Kondo_title_card.svg.png' style = 'height:400px'/>
   
   
   "),
@@ -238,10 +239,12 @@ pres_val_code <- pres_val_specification %>%
   ## Supporting Cast
   
   - Roxygen Documentation
+    - WHAT, WHERE, WHY, HOW
+    - WHO, WHEN
   
   - Unit Tests
   
-  *SOME SORT OF IMAGE/GIF*
+   <img src = 'https://scontent-sea1-1.cdninstagram.com/v/t51.2885-15/e35/50493412_120600352329931_1940690679227552922_n.jpg?_nc_ht=scontent-sea1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=3OI4Ed0iVqAAX-X2QQD&oh=aa897c3623cd0f152f272f56cd7092cf&oe=5E924DDD' style = 'height:400px'/>
   
   "),
   panel_markdown("
@@ -295,14 +298,18 @@ pres_val_test <- pres_val_code %>%
   
   - Not Unit or Regression tests
 
-  - Draw connections between Specifications and Code
+  - Draw connections between specifications and code
+    - Prove Code satisfied Specifications
 
   "),
   panel_markdown("
-  ## How to write
+  ## The Approach
+  
   - Detailed without writing code
   
   - How do all the pieces actually work together
+  
+   <img src = 'https://media1.tenor.com/images/34122c4a5cd9d6695c39b2ac7e816ea3/tenor.gif' style = 'height:400px'/>
   "))
 
 ## Test Code ----
