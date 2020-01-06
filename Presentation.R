@@ -44,15 +44,15 @@ pres_bio <- pres_title %>%
         - Statistical Programmer
            - Statistical Genetics
            - HIV Vaccine Research
-        <br><br>
+        <br>
         - Community:
           - Seattle UseR Organizer
           - Cascadia R Conf Committee
-        <br><br>
+        <br>
         - Seattle Native
         - Cooking!
-        <br><br>
-        - <a class=\"fa fa-twitter-square\"></a> @ellis_hughes
+        <br>
+        - <a href = 'https://twitter.com/ellis_hughes' style = 'text-decoration: none;' class=\"fa fa-twitter-square\"></a> @ellis_hughes
         </div>
         <div style = 'display:inline-block;height:inherit;'>
          <img src = 'https://thebioengineer.github.io/images/r_in_pharma/img/ellis_hughes.jpg' style = '-webkit-transform: rotate(270deg);
@@ -60,7 +60,8 @@ pres_bio <- pres_title %>%
                  -o-transform: rotate(270deg);
                  -ms-transform: rotate(270deg);
                  transform: rotate(270deg);
-                 height:100%'/>
+                 height: 400px;
+                 margin-top: 100px;'/>
         </div>
       </div>")
 
@@ -68,7 +69,7 @@ pres_bio <- pres_title %>%
 pres_background <- pres_bio %>%
   slide_markdown(title = tags$div(style = 'width:500px',"Outline"),
   content = "
-  <div style = 'font-size: 33px;position: absolute;z-index: 2;'>
+  <div style = 'position: absolute;z-index: 2;font-size:40px'>
   - Fred Hutch and SCHARP
   <br><br>
   - Assay Pipelines
@@ -158,7 +159,7 @@ pres_assays <- pres_FH_scharp %>%
 pres_val_elements <- pres_assays %>% 
   slide_markdown(title = tags$div(style = 'width:500px',"Validation"),"
   <div style='font-size: 33px;'>
-  <br><br>
+  <br>
   Write Specifications <br><br>
   Code<br><br>
   Design Test Cases<br><br>
@@ -239,7 +240,9 @@ pres_val_code <- pres_val_specification %>%
   ## Supporting Cast
   
   - Roxygen Documentation
+  
     - WHAT, WHERE, WHY, HOW
+    
     - WHO, WHEN
   
   - Unit Tests
@@ -260,12 +263,6 @@ pres_val_code <- pres_val_specification %>%
   "),
   panel_markdown("
   ## Documentation
-
-  - Name
-  - Purpose
-  - Arguments
-  - Example
-  - Validation Requirements
 
   ```r
   #' @title Function Name
@@ -331,7 +328,9 @@ pres_val_test_code <- pres_val_test %>%
   ## Formatting
   
   - Test that format
+  
   - Combine with Roxygen comments
+  
   - Breaking out
       - each family of tests into a file
       - each sub-test as a testthat case
@@ -370,15 +369,15 @@ pres_final <- pres_conclusion %>%
    ## Any Questions?
    
    
-   <div style = 'margin:auto;padding-top:50px;padding-left:600px;text-align:left; transform: scale(1.2)'>
+   <div style = 'margin:auto;padding-top:50px;padding-left:600px;text-align:left; transform: scale(1.2); z-index: 1;'>
    Connect:
    <ul>
     <li> Slides are available at <br>github.com/thebioengineer/RStudio_conf_2020 </li>
     <br>
     <br>
-    <li> <a class=\"fa fa-twitter-square\"></a> @ellis_hughes </li>
-    <li> <a class=\"fa fa-linkedin-square\"></a> linkedin.com/in/ellishughes </li>
-    <li> <a class=\"fa fa-github-square\"></a> github.com/thebioengineer</li>
+    <li> <a href = 'https://twitter.com/ellis_hughes' style = 'text-decoration: none;'  class=\"fa fa-twitter-square\"></a> @ellis_hughes </li>
+    <li> <a href = 'https://linkedin.com/in/ellishughes' style = 'text-decoration: none;' class=\"fa fa-linkedin-square\"></a> linkedin.com/in/ellishughes </li>
+    <li> <a href = 'https://github.com/thebioengineer' style = 'text-decoration: none;' class=\"fa fa-github-square\"></a> github.com/thebioengineer</li>
    </ul>
    </div>
    
