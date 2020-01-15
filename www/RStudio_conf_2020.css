@@ -7,5 +7,15 @@ ul {
 }
 
 pre code {
-  font-size: 20px;
+  font-size: 25px;
+}
+
+body {
+  font-family: 'Darker Grotesque',Arial;
+  font-weight: 500;
+  font-size: 35px;
+}
+
+.slide_container{
+  font-size: 30px;
 }

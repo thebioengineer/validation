@@ -48,7 +48,7 @@ pres_bio <- pres_title %>%
         - Community:
           - Seattle UseR Organizer
           - Cascadia R Conf Committee
-        <br>
+        <br><br>
         - Seattle Native
         - Cooking!
         <br>
@@ -66,32 +66,33 @@ pres_bio <- pres_title %>%
       </div>")
 
 ## Background ----
-pres_background <- pres_bio %>%
-  slide_markdown(title = tags$div(style = 'width:500px',"Outline"),
-  content = "
-  <div style = 'position: absolute;z-index: 2;font-size:40px'>
-  - Fred Hutch and SCHARP
-  <br><br>
-  - Assay Pipelines
-  <br><br>
-  - Validation
-  </div>",
-  HTML("
-  <div style=\"right: -30%;position: absolute;top: 25%;z-index: 0;opacity: 0.5;\">
-  <img src=\"img/FH_logo.png\"/>
-  </div>
-  "))
+# pres_background <- pres_bio %>%
+#   slide_markdown(title = tags$div(style = 'width:500px',"Outline"),
+#   content = "
+#   <div style = 'position: absolute;z-index: 2;font-size:40px'>
+#   - Fred Hutch and SCHARP
+#   <br><br>
+#   - Assay Pipelines
+#   <br><br>
+#   - Validation
+#   </div>",
+#   HTML("
+#   <div style=\"right: -30%;position: absolute;top: 25%;z-index: 0;opacity: 0.5;\">
+#   <img src=\"img/FH_logo.png\"/>
+#   </div>
+#   "), style = "width: 700px")
 
 ## Fred Hutch and SCHARP ----
-pres_FH_scharp <- pres_background %>% 
+pres_FH_scharp <- pres_bio %>% 
   slide_multipanel(title = "Fred Hutch and SCHARP",
                    ## Fred Hutch ----
-                   panel(HTML("<div style=\"display:inline-block;padding-top:100px\">
+  panel(HTML("<div style=\"display:inline-block;padding-top:100px;z-index: 100;position: relative;\">
                     <style type=\"text/css\">
                       .fhcrc_info_container{
                       	width: 375px;
                       	display:inline-block;
                       	margin:auto;
+                      	
                       }
                     </style>
     				        <div class=\"fhcrc_info_container\">
@@ -114,7 +115,7 @@ pres_FH_scharp <- pres_background %>%
     				        </div>				
     				      </div>
     			        
-    				      <div>
+    				      <div style = 'z-index: 100;position: relative;'>
     				        <div style=\"margin:auto;width:70%\">
     				        <div class=\"fhcrc_info_container\">
     				        	<div>
@@ -130,9 +131,13 @@ pres_FH_scharp <- pres_background %>%
     				        	<h4 style=\"text-align: center;\">Tumor-Specific Translational Research</h4>  
     				        </div>
     				        </div>
-    				      </div>")),
-                   ## SCHARP ----
-                   panel(HTML("<ul style=\"list-style-type: none;\">
+    				      </div>",
+    				      HTML("
+    				      <div style=\"right: -30%;position: absolute;top: 25%;z-index: 0;opacity: 0.5;\">
+    				      <img src=\"img/FH_logo.png\"/>
+    				      </div>"))),
+   ## SCHARP ----
+   panel(HTML("<ul style=\"list-style-type: none;\">
             					<li><img src=\"img/logos/scharp.png\" style=\"max-width:800px;margin-top:100px;margin-bottom:50px;\"/></li>
             					<li> <b>Established 1992</b> </li><br>
             					<li> <b>Worldwide-impact in the fight against cancer,<br/> HIV/AIDS and other infectious diseases.</b> </li><br>
@@ -143,53 +148,63 @@ pres_FH_scharp <- pres_background %>%
 
 ## Prompted Task ----
 pres_assays <- pres_FH_scharp %>% 
-  slide_multipanel(title = "Assay Processing Pipelines",
+  slide_multipanel(title = tags$div(style = 'padding-right: 100px;',"Assay Processing Pipelines"),
       panel(HTML("<img src=\"img/scharp_world.jpeg\"/>"), style = "padding-top:100px"),
       panel(HTML("<img src=\"https://storage.needpix.com/rsynced_images/crowd-2045498_1280.jpg\"  style=\"max-height:500px;max-width:800px\"/>
 			            <p style=\"font-size:20px\">image source: https://storage.needpix.com/rsynced_images/crowd-2045498_1280.jpg </p>")),
       panel(HTML("<img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:200px\"/>")),
-      panel(HTML("<img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:200px; position: relative;z-index: 10;\"/>
-                  <img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:180px; padding-left: 30px;position: relative;z-index: 8; margin-top:-500px;\"/>
-                  <img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:180px; padding-left: 60px;position: relative; z-index: 6; margin-top:-500px;\"/>")),
-      panel(HTML("<img src=\"img/thinker.PNG\"  style=\"max-height:600px;\"/>")),
+      # panel(HTML("<img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:200px; position: relative;z-index: 10;\"/>
+      #             <img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:180px; padding-left: 30px;position: relative;z-index: 8; margin-top:-500px;\"/>
+      #             <img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:180px; padding-left: 60px;position: relative; z-index: 6; margin-top:-500px;\"/>")),
+      # panel(HTML("<img src=\"img/thinker.PNG\"  style=\"max-height:600px;\"/>")),
       panel(HTML("<img src=\"img/assaying.PNG\"  style=\"max-height:600px;\"/>")),
-      panel(HTML("<img src=\"img/visc.PNG\"  style=\"max-height:600px;margin-top:100px\"/>")))
+      panel(HTML("<img src=\"img/visc.PNG\"  style=\"max-height:600px;margin-top:100px\"/>")),
+      panel(HTML("<div class = \"slide_title\" style=\"padding: 20px;\">
+                  <h1 style=\"font-size:60px;;margin-top:100px\"\"> 
+                      We need a validated pipeline that is rigid enough to provide form and consistency between studies,
+                      but flexible enough to handle potential changes
+                  </h1>
+                  </div>
+                 "), style = "width: 800px;"))
+
+pres_assays2 <- pres_assays %>% 
+  slide_wide(title = NULL,
+  HTML("
+    <div style = 'margin:auto;height:150%;'>
+    <img src='img/busybusybusy.gif' style = 'width:60%;margin:auto'/>
+    </div>"))
+
 
 ## Validation ----
-pres_val_elements <- pres_assays %>% 
+pres_val_elements <- pres_assays2 %>% 
   slide_markdown(title = tags$div(style = 'width:500px',"Validation"),"
-  <div style='font-size: 33px;'>
+  <div style='font-size: 35px;'>
   <br>
-  Write Specifications <br><br>
+  Specifications <br><br>
   Code<br><br>
-  Design Test Cases<br><br>
-  Evaluate Test Cases<br><br>
-  Document Results for Final Sign Off
-  </div>")
+  Test Cases<br><br>
+  Test Case Code<br><br>
+  Documentation
+  </div>", style = "width:800px;")
 
 
 ## Specifications ----
 pres_val_specification <- pres_val_elements %>% 
   slide_multipanel(title = tags$div(style = 'width:500px',"Specifications"),
   panel_markdown("
-  ## Do:
-  
+
   - Set the goals of the project
   - Define current state
-  - Specific Features
   - System agnostic
   - Define success
-  - Set a time line
-  
+
   <div style ='padding-top:20px'>
   <img src= 'www/hercules_obstacle_success.gif' style = 'height:420px;'/>
   </div>"),
   panel_markdown("
-  ## Dont:
-  
-  - Leave ambiguity final product
-  - Define exact process
-  - Leave Success metrics up to interpretation
+  - Dont 
+      - Define exact process
+      - Leave Success metrics up to interpretation
   
   <div style ='padding-top:100px'>
   <img src= 'https://assets.teenvogue.com/photos/5952d6552c9db4790715babd/master/w_400%2Cc_limit/hercules-alt.gif' style = 'height:420px;' />
@@ -207,7 +222,7 @@ pres_val_specification <- pres_val_elements %>%
   #' @section Last updated by:
   #' Ellis Hughes
   #' @section Last updated date:
-  #' 2020-1-27
+  #' 2020/01/29
   #' 
   + _Specifications_
     + 1.1 Presentation must explain validation procedure.
@@ -215,98 +230,132 @@ pres_val_specification <- pres_val_elements %>%
     + 1.3 Inform and document each step necessary for success.
     + 1.4 (Optional) Fame and Glamour and start branded accessories chain.
   ```
+  "),
+  panel_markdown("
+  ## Modular Specifications
+  
+  - Easily shift and update
+  - De-couple Specifications
   "))
 
 ## Coding ----
 pres_val_code <- pres_val_specification %>% 
   slide_multipanel(title = tags$div(style = 'width:500px',"Code"),
   panel_markdown("
-  ## Step One
+  ## Getting Down to Business
   
   - Define function requirements
-    - Design structure
-    - Measurable goals
-    - Distribute workload
-    
-  - Modularity
-    - Update as necessary
-    - Break out of 'validated' processing pipelines as necessary
-  
+  - Document first approach
+  - Assign Tasks
+
   <img src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Tidying_Up_with_Marie_Kondo_title_card.svg/800px-Tidying_Up_with_Marie_Kondo_title_card.svg.png' style = 'height:400px'/>
-  
-  
+
   "),
   panel_markdown("
   ## Supporting Cast
   
   - Roxygen Documentation
+    - Standard Roclets: what, where, why, how
+    - 'Unique' Validation Roclets: who, when
   
-    - WHAT, WHERE, WHY, HOW
-    
-    - WHO, WHEN
+  - Unit Testing
   
-  - Unit Tests
-  
-   <img src = 'https://scontent-sea1-1.cdninstagram.com/v/t51.2885-15/e35/50493412_120600352329931_1940690679227552922_n.jpg?_nc_ht=scontent-sea1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=3OI4Ed0iVqAAX-X2QQD&oh=aa897c3623cd0f152f272f56cd7092cf&oe=5E924DDD' style = 'height:400px'/>
+   <img src = 'https://i.giphy.com/media/uWzDsAsRm2X9qULHLs/giphy.webp' style = 'height:400px'/>
   
   "),
   panel_markdown("
   ## Advantages of SCM
-  
+
   - Branching
-  
+
   - Detailed code Review
     - Style guides
-    
+
   <img src='img/GitHub-Mark.png' style='height:400px;'/>
-    
+
   "),
   panel_markdown("
   ## Documentation
 
   ```r
-  #' @title Function Name
+  #' @title Deliver Jokes
   #' @description 
-  #'    Description of great function
+  #'    Deliver jokes with punchlines. Wait 3 seconds for the punchline.
+  #' @param Setup Joke setup
+  #' @param Punchline Joke punchline
+  #' @example
+  #' joke('To the person who stole my presentation -','I hope you do not Excel.')
+  #'      
   #' @section Last updated by:
   #' Ellis Hughes
   #' @section Last updated date:
-  #' 2020-1-27
-  #' @param arg1 argument 1
-  #' @param arg2 argument 2
-  #' @example
-  #' output <- sample_function(1,2)
+  #' 2020/01/29
   #' 
   #' @export
-  
-  sample_function <- function(arg1, arg2){
-    temp_object <- arg1 * arg2
-    return(temp_object)
+  joke <- function(Setup, Punchline){
+    print(Setup)
+    Sys.sleep(3)
+    print(Punchline)
   }
   ```
-  ", style = "width: 600px"))
+  ", style = "width: 1200px"),
+  panel_markdown("
+  ## Modular Function Documentation
+  
+  - Track Progress
+  - Meet Regularly to discuss roadblocks
+  - Ensure high quality code
+  "))
 
 
 ## Test Cases ----
 pres_val_test <- pres_val_code %>% 
-  slide_multipanel(title = tags$div(style = 'width:500px',"Test Cases"),
+  slide_multipanel(title = tags$div(style = 'width:500px',"A Case for Test Cases"),
   panel_markdown("
-  ## What are they
+  ## Purpose
   
-  - Not Unit or Regression tests
-
   - Draw connections between specifications and code
-    - Prove Code satisfied Specifications
-
+  - Show that Code satisfied Specifications
+    
+    <img src = 'https://nc3t.com/wp-content/uploads/2014/10/How-to-find-innovation.jpg' style = 'height:400px'/>
   "),
   panel_markdown("
   ## The Approach
   
-  - Detailed without writing code
-  
-  - How do all the pieces actually work together
+  - Detail Task and Steps
+  - No Code
+  - Describe how do all the pieces actually work together
   
    <img src = 'https://media1.tenor.com/images/34122c4a5cd9d6695c39b2ac7e816ea3/tenor.gif' style = 'height:400px'/>
+  "),
+  panel_markdown("
+  ## Documentation
+  
+  ```r
+  #' @title RStudio Conf 2020 Success Test Cases 001
+  #' @section Last updated by: 
+  #' Ellis Hughes
+  #' @section Last update date:
+  #' 2020/01/29
+
+  + _Test Cases_
+
+  + Setup: Create RStudio::Conf 2020 Presentation 
+    
+  + T1.1 Test that specifications 1.2, 1.2, and 1.3 by practicing presentation on unsuspecting co-workers
+  
+    - Present to a captive audience of coworkers and later your significant other
+    +  T1.1.1 Test that the presentation was informative by asking what your audience learned.
+    +  T1.1.2 Test that you were entertaining by counting the amount of chuckles (>3)
+        + T1.1.2.1 Alternatively, groans from your significant other at your jokes (>4)
+  ```
+  ", style = "width: 1400px"),
+  panel_markdown("
+  ## Modular Test Case Documentation
+  
+  - Easily shift and update
+  - Easily assign Test Cases
+  - Track updates
   "))
 
 ## Test Code ----
@@ -314,62 +363,121 @@ pres_val_test <- pres_val_code %>%
 pres_val_test_code <- pres_val_test %>% 
   slide_multipanel(title = tags$div(style = 'width:500px',"Test Case Coding"),
   panel_markdown("
-  ## A case for Test Coding
+  ## Benefits
   
-  - Resolves interpretation errors in documentation and test cases
-  
-  - 3rd party to code
-    - Does not have preconceived idea of function
+  - Resolves interpretation errors
+      - documentation
+      - test cases
   
   - Identify improvements
                  
   "),
   panel_markdown("
-  ## Formatting
+  ## Approach
   
-  - Test that format
+  - testthat format
   
   - Combine with Roxygen comments
   
-  - Breaking out
-      - each family of tests into a file
-      - each sub-test as a testthat case
+  <div>
+  <img src='https://github.com/r-lib/testthat/raw/master/man/figures/logo.png' style='width: 49%;display:inline-block;'/>
+  <img src='https://github.com/r-lib/roxygen2/raw/master/man/figures/logo.png' style='width: 49%;display:inline-block;'/>
+  </div>
+
+  "),
+  
+  panel_markdown("
+  ## Documentation
+  
+  ```r
+  context('RStudio Conf 2020 Success')
+  
+  #' @title RStudio Conf 2020 Success 
+  #' @section Last updated by: 
+  #' Ellis Hughes
+  #' @section Last update date:
+  #' 2020/01/29
+  #' 
+  testthat('T1.1.1',{
+    
+    joke_result <- joke('What do you call a fake noodle?','An Impasta')
+    expect_true(is_dad_joke(joke_result))
+    
+  })
+  
+  ```
+  "),
+  panel_markdown("
+  On evaluation of the file a Reporter object is created
+  
+  Records success of expectations as 'As Expected'
+  
+  Records failures with the code that fails
+  
+  <img src='img/test_table_example.PNG' style='width: 700px'/>
+  "),
+  panel_markdown("
+  ## Modular Test Code Documentation
+  
+  - Easily update Test Code and expectations
+  - Track updates
   "))
 
 ## Documentation ----
+
 pres_val_doc <- pres_val_test_code %>% 
   slide_multipanel(title = tags$div(style = 'width:500px',"Final Document"),
   panel_markdown("
-  - Record All elements in a single location
+  ## What we have so far
   
-  - Following good programming practices led to
-    - Scraping functions for author/edits
-    - separating out specs into files allows for modular extension
-    - Roxygen to document editing and edit dates
-    - using testthat like structure led to ability to using testthat reports to document success/failures
-    - Automation is mo betta"))
+  - Documents for each Specification in markdown
+  - Roxygen documentation for Code
+  - Documents for Test Cases in markdown
+  - Test Case Code augmented with Roxygen documentation
+  "),
+  panel(HTML("<img src='img/captain_planet.gif' style = 'height:90%;width:90%;margins:auto' />"),
+    style = "width: 600px;"),
+  panel_markdown("
+  ## Master Document that 
+  
+  - Record all elements in a single location
+  
+  - Scraping for Author and Edit Dates
+  - Separating out specs into files allows for modular extension
+  - Roxygen to document editing and edit dates
+  - Testthat to evaluate and record test case code results"),
+  panel_markdown("
+  # EXAMPLE OF PDF
+  "))
 
 
 ## Conclusion ----
 pres_conclusion <- pres_val_doc %>% 
-  slide_multipanel(title = tags$div(style = 'width:500px',"Final Document"),
+  slide_multipanel(title = NULL,
   panel_markdown("
-  Many thanks to all involved
-  "),
-  panel_markdown("
-  Fred Hutch, Managers, and Team
+  # Many thanks to all involved
+  
+  - Marie Vendettuoli
+  - Anthony Williams
+  - Jimmy Fulp 
+  - Bharathi Lakshminarayanan
+  - Alicia Sato
+  - Shannon Grant
+  - Paul Stutzman
+  - Kate Ostbye
+  
   "))
 
 
 ## Final ----
                    
                    
-pres_final <- pres_conclusion %>% 
+pres_final <- pres_conclusion %>%  
   slide_markdown( title = tags$div(style = 'width:1600px; font-size: 70px',"Thank You"),"
-   ## Any Questions?
+   ## Questions?
    
    
-   <div style = 'margin:auto;padding-top:50px;padding-left:600px;text-align:left; transform: scale(1.2); z-index: 1;'>
+   <div style = 'margin:auto;padding-top:50px;padding-left:500px;text-align:left; transform: scale(1.2); z-index:21; position: relative;'>
    Connect:
    <ul>
     <li> Slides are available at <br>github.com/thebioengineer/RStudio_conf_2020 </li>
@@ -385,7 +493,7 @@ pres_final <- pres_conclusion %>%
     <img src=\"img/FH_logo.png\"/>
    </div>
    
-   ", style = "text-align: center;width:1600px")
+   ", style = "text-align: center;width:1600px; back")
 
 ## Save Presentation ----
 
