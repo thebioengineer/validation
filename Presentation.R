@@ -18,7 +18,8 @@ pres <- sidescroller(
     name = "RStudio_pres",
     version = "1.0",
     src = c(href = here("www")),
-    stylesheet = "RStudio_conf_2020.css")))
+    script = c("prism-helper.js","prism.js"),
+    stylesheet = c("RStudio_conf_2020.css","prism.css"))))
 
 ## Title ----
 pres_title <- pres %>% 
@@ -153,10 +154,10 @@ pres_assays <- pres_FH_scharp %>%
       panel(HTML("<img src=\"https://storage.needpix.com/rsynced_images/crowd-2045498_1280.jpg\"  style=\"max-height:500px;max-width:800px\"/>
 			            <p style=\"font-size:20px\">image source: https://storage.needpix.com/rsynced_images/crowd-2045498_1280.jpg </p>")),
       panel(HTML("<img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:200px\"/>")),
-      # panel(HTML("<img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:200px; position: relative;z-index: 10;\"/>
-      #             <img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:180px; padding-left: 30px;position: relative;z-index: 8; margin-top:-500px;\"/>
-      #             <img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:180px; padding-left: 60px;position: relative; z-index: 6; margin-top:-500px;\"/>")),
-      # panel(HTML("<img src=\"img/thinker.PNG\"  style=\"max-height:600px;\"/>")),
+      panel(HTML("<img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:200px; position: relative;z-index: 10;\"/>
+                  <img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:180px; padding-left: 30px;position: relative;z-index: 8; margin-top:-500px;\"/>
+                  <img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:180px; padding-left: 60px;position: relative; z-index: 6; margin-top:-500px;\"/>")),
+      panel(HTML("<img src=\"img/thinker.PNG\"  style=\"max-height:600px;\"/>")),
       panel(HTML("<img src=\"img/assaying.PNG\"  style=\"max-height:600px;\"/>")),
       panel(HTML("<img src=\"img/visc.PNG\"  style=\"max-height:600px;margin-top:100px\"/>")),
       panel(HTML("<div class = \"slide_title\" style=\"padding: 20px;\">
@@ -169,10 +170,7 @@ pres_assays <- pres_FH_scharp %>%
 
 pres_assays2 <- pres_assays %>% 
   slide_wide(title = NULL,
-  HTML("
-    <div style = 'margin:auto;height:150%;'>
-    <img src='img/busybusybusy.gif' style = 'width:60%;margin:auto'/>
-    </div>"))
+  HTML("<img src='img/busybusybusy.gif' style = 'width:60%;margin:auto'/>"))
 
 
 ## Validation ----
@@ -193,31 +191,32 @@ pres_val_specification <- pres_val_elements %>%
   slide_multipanel(title = tags$div(style = 'width:500px',"Specifications"),
   panel_markdown("
 
-  - Set the goals of the project
-  - Define current state
+  - Assess current state
   - System agnostic
+  
+  <div style ='padding-top:20px'>
+  <img src= 'https://66.media.tumblr.com/91ad717cd3585e96f22705abe72e6f4b/tumblr_osvrktrJDd1qe6vjyo1_500.gifv' style = 'height:420px;'/>
+  </div>"),
+  panel_markdown("
   - Define success
+  - Set the goals of the project
 
   <div style ='padding-top:20px'>
   <img src= 'www/hercules_obstacle_success.gif' style = 'height:420px;'/>
   </div>"),
   panel_markdown("
-  - Dont 
-      - Define exact process
-      - Leave Success metrics up to interpretation
+  - Don't be perscriptive
+  - Don't be abiguous in success measurements
   
-  <div style ='padding-top:100px'>
-  <img src= 'https://assets.teenvogue.com/photos/5952d6552c9db4790715babd/master/w_400%2Cc_limit/hercules-alt.gif' style = 'height:420px;' />
+  <div style ='padding-top:20px'>
+  <img src= 'https://66.media.tumblr.com/62aa49e2504ed9d1af0253a10ceae0de/tumblr_o2agxpicGU1ub6o1yo1_500.gifv' style = 'height:420px;'/>
   </div>"),
+  # <img src= 'https://assets.teenvogue.com/photos/5952d6552c9db4790715babd/master/w_400%2Cc_limit/hercules-alt.gif' style = 'height:420px;' />
+    
   panel_markdown("
   ## Documentation
   
-  - History of Specifications
-  - Specifications
-  - Measureables
-  - success
-  
-  ```
+  ```{r eval=FALSE, echo = TRUE}
   #' @title Specifications For RStudio Conf 2020 Success
   #' @section Last updated by:
   #' Ellis Hughes
@@ -248,9 +247,11 @@ pres_val_code <- pres_val_specification %>%
   - Document first approach
   - Assign Tasks
 
-  <img src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Tidying_Up_with_Marie_Kondo_title_card.svg/800px-Tidying_Up_with_Marie_Kondo_title_card.svg.png' style = 'height:400px'/>
+  <img src = 'https://miro.medium.com/max/694/1*G45BFLThPqHFW9C16TNx5Q.gif' style = 'height:400px'/>
 
   "),
+  #  <img src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Tidying_Up_with_Marie_Kondo_title_card.svg/800px-Tidying_Up_with_Marie_Kondo_title_card.svg.png' style = 'height:400px'/>
+  
   panel_markdown("
   ## Supporting Cast
   
@@ -264,10 +265,9 @@ pres_val_code <- pres_val_specification %>%
   
   "),
   panel_markdown("
-  ## Advantages of SCM
+  ## Teamwork and SCM
 
   - Branching
-
   - Detailed code Review
     - Style guides
 
@@ -277,7 +277,7 @@ pres_val_code <- pres_val_specification %>%
   panel_markdown("
   ## Documentation
 
-  ```r
+  ```{r eval=FALSE, echo = TRUE}
   #' @title Deliver Jokes
   #' @description 
   #'    Deliver jokes with punchlines. Wait 3 seconds for the punchline.
@@ -298,7 +298,7 @@ pres_val_code <- pres_val_specification %>%
     print(Punchline)
   }
   ```
-  ", style = "width: 1200px"),
+  ", style = "width: 1400px"),
   panel_markdown("
   ## Modular Function Documentation
   
@@ -331,7 +331,7 @@ pres_val_test <- pres_val_code %>%
   panel_markdown("
   ## Documentation
   
-  ```r
+  ```{r eval=FALSE, echo = TRUE}
   #' @title RStudio Conf 2020 Success Test Cases 001
   #' @section Last updated by: 
   #' Ellis Hughes
@@ -342,12 +342,12 @@ pres_val_test <- pres_val_code %>%
 
   + Setup: Create RStudio::Conf 2020 Presentation 
     
-  + T1.1 Test that specifications 1.2, 1.2, and 1.3 by practicing presentation on unsuspecting co-workers
+  + T 1.1 Test that specifications 1.2, 1.2, and 1.3 by practicing presentation on unsuspecting co-workers
   
     - Present to a captive audience of coworkers and later your significant other
-    +  T1.1.1 Test that the presentation was informative by asking what your audience learned.
-    +  T1.1.2 Test that you were entertaining by counting the amount of chuckles (>3)
-        + T1.1.2.1 Alternatively, groans from your significant other at your jokes (>4)
+    +  T 1.1.1 Test that the presentation was informative by asking what your audience learned.
+    +  T 1.1.2 Test that you were entertaining by counting the amount of chuckles (>3)
+        + T 1.1.2.1 Alternatively, groans from your significant other at your jokes (>4)
   ```
   ", style = "width: 1400px"),
   panel_markdown("
@@ -389,7 +389,7 @@ pres_val_test_code <- pres_val_test %>%
   panel_markdown("
   ## Documentation
   
-  ```r
+  ```{r eval=FALSE, echo = TRUE}
   context('RStudio Conf 2020 Success')
   
   #' @title RStudio Conf 2020 Success 
@@ -398,21 +398,23 @@ pres_val_test_code <- pres_val_test %>%
   #' @section Last update date:
   #' 2020/01/29
   #' 
-  testthat('T1.1.1',{
+  testthat('T1.1',{
     
     joke_result <- joke('What do you call a fake noodle?','An Impasta')
     expect_true(is_dad_joke(joke_result))
+    expect_true(caused_laugher(joke_result))
+    expect_true(embarrased_offspring(joke_result))
     
   })
   
   ```
   "),
   panel_markdown("
-  On evaluation of the file a Reporter object is created
+  ## Evaluation 
   
-  Records success of expectations as 'As Expected'
-  
-  Records failures with the code that fails
+  - testthat `reporter` object is created
+    - success of expectations as 'As Expected'
+    - failures with the code that fails
   
   <img src='img/test_table_example.PNG' style='width: 700px'/>
   "),
