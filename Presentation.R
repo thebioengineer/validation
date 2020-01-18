@@ -17,7 +17,7 @@ pres <- sidescroller(
   htmltools::htmlDependency(
     name = "RStudio_pres",
     version = "1.0",
-    src = c(href = here("www")),
+    src = c(href = "www"),
     script = c("prism-helper.js","prism.js"),
     stylesheet = c("RStudio_conf_2020.css","prism.css"))))
 
@@ -140,11 +140,11 @@ pres_FH_scharp <- pres_bio %>%
    ## SCHARP ----
    panel(HTML("<ul style=\"list-style-type: none;\">
             					<li><img src=\"img/logos/scharp.png\" style=\"max-width:800px;margin-top:100px;margin-bottom:50px;\"/></li>
-            					<li> <b>Established 1992</b> </li><br>
+            					<!-- <li> <b>Established 1992</b> </li><br>
             					<li> <b>Worldwide-impact in the fight against cancer,<br/> HIV/AIDS and other infectious diseases.</b> </li><br>
             					<li><b>Clinical Data Management</b></li>
             					<li><b>Laboratory Data Management</b></li>
-            					<li><b>Statistical Support and Analysis</b></li>
+            					<li><b>Statistical Support and Analysis</b></li> -->
             				</ul>")))
 
 ## Prompted Task ----
@@ -205,8 +205,8 @@ pres_val_specification <- pres_val_elements %>%
   <img src= 'www/hercules_obstacle_success.gif' style = 'height:420px;'/>
   </div>"),
   panel_markdown("
-  - Don't be perscriptive
-  - Don't be abiguous in success measurements
+  - Don't be perscriptive in how to complete task
+  - Don't be ambiguous in success measurements
   
   <div style ='padding-top:20px'>
   <img src= 'https://66.media.tumblr.com/62aa49e2504ed9d1af0253a10ceae0de/tumblr_o2agxpicGU1ub6o1yo1_500.gifv' style = 'height:420px;'/>
@@ -271,7 +271,7 @@ pres_val_code <- pres_val_specification %>%
   - Detailed code Review
     - Style guides
 
-  <img src='img/GitHub-Mark.png' style='height:400px;'/>
+  <img src='img/GitHub-Mark-Light-120px-plus.png' style='height:400px;'/>
 
   "),
   panel_markdown("

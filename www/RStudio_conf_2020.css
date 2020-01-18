@@ -19,3 +19,9 @@ body {
 .slide_container{
   font-size: 30px;
 }
+
+
+.slide_master{
+  background-color: black;
+  color: white;
+}
