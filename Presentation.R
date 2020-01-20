@@ -18,7 +18,7 @@ pres <- sidescroller(
     name = "RStudio_pres",
     version = "1.0",
     src = c(href = "www"),
-    script = c("prism-helper.js","prism.js"),
+    script = c("rstudio_conf_2020.js","prism.js"),
     stylesheet = c("RStudio_conf_2020.css","prism.css"))))
 
 ## Title ----
@@ -37,54 +37,85 @@ pres_title <- pres %>%
     text_align = "left"
   )
 
-## Bio ----
-pres_bio <- pres_title %>% 
-  slide_markdown(title = tags$div(style = 'width:500px',"Ellis Hughes"),"
-      <div style = 'height:100%'>
-        <div style = 'display:inline-block; vertical-align: top; padding-right:20px; font-size: 30px;'>
-        - Statistical Programmer
-           - Statistical Genetics
-           - HIV Vaccine Research
-        <br>
-        - Community:
-          - Seattle UseR Organizer
-          - Cascadia R Conf Committee
-        <br><br>
-        - Seattle Native
-        - Cooking!
-        <br>
-        - <a href = 'https://twitter.com/ellis_hughes' style = 'text-decoration: none;' class=\"fa fa-twitter-square\"></a> @ellis_hughes
-        </div>
-        <div style = 'display:inline-block;height:inherit;'>
-         <img src = 'https://thebioengineer.github.io/images/r_in_pharma/img/ellis_hughes.jpg' style = '-webkit-transform: rotate(270deg);
-                 -moz-transform: rotate(270deg);
-                 -o-transform: rotate(270deg);
-                 -ms-transform: rotate(270deg);
-                 transform: rotate(270deg);
-                 height: 400px;
-                 margin-top: 100px;'/>
-        </div>
-      </div>")
 
-## Background ----
-# pres_background <- pres_bio %>%
-#   slide_markdown(title = tags$div(style = 'width:500px',"Outline"),
-#   content = "
-#   <div style = 'position: absolute;z-index: 2;font-size:40px'>
-#   - Fred Hutch and SCHARP
-#   <br><br>
-#   - Assay Pipelines
-#   <br><br>
-#   - Validation
-#   </div>",
-#   HTML("
-#   <div style=\"right: -30%;position: absolute;top: 25%;z-index: 0;opacity: 0.5;\">
-#   <img src=\"img/FH_logo.png\"/>
-#   </div>
-#   "), style = "width: 700px")
+## Intro To Validation ----
+
+pres_val_intro <- pres_title %>% 
+  slide_multipanel(title = NULL,
+  panel(tags$div(
+    tags$p("VALIDATION",
+           style="color: red; font-size: 300px; margin:auto;"),
+    class = "center_content")),
+  panel(tags$div(
+    tags$img(src = "img/Rlogo.png", 
+             style = "height:500px; margin:auto;"), 
+    class = "center_content")),
+  panel(tags$div(
+    tags$div( style = "margin:auto;",
+    tags$img(src = "img/step_brothers_best_friends.webp", 
+             style = "height:450px; margin:auto;"), 
+    tags$p("https://bethgittings.tumblr.com/post/34641171446",
+           style = "font-size:10px;")),
+    class = "center_content")))
+
+pres_val_explained <- pres_val_intro %>% 
+  
+  slide_multipanel(title = tags$div(style = "font-weight:200","What is Validation?"),
+                   
+  panel(tags$div( tags$div(
+  markdown_to_html("
+  Establishing documentation that a
+  
+    - Procedure
+    - Process
+    - Activity
+  
+  is in compliance.
+  ")),class = "center_content"), style = "margin-top: 100px; font-size: 50px;"),
+  
+  panel(tags$div(tags$div(
+  markdown_to_html("
+  Record proof that it does what we expect it to do             
+  "),style= "margin:auto"),class = "center_content"), style = "margin-top: 100px; font-size: 50px;"),
+  
+  panel(tags$div(tags$div(
+  markdown_to_html("
+  Improves Safey And Quality
+  ")),class = "center_content"),
+  style = "margin-top: 100px; font-size: 50px;"))
+  
+# ## Bio ----
+# pres_bio <- pres_val_intro %>% 
+#   slide_markdown(title = tags$div(style = 'width:500px',"Ellis Hughes"),"
+#       <div style = 'height:100%'>
+#         <div style = 'display:inline-block; vertical-align: top; padding-right:20px; font-size: 30px;'>
+#         - Statistical Programmer
+#            - Statistical Genetics
+#            - HIV Vaccine Research
+#         <br>
+#         - Community:
+#           - Seattle UseR Organizer
+#           - Cascadia R Conf Committee
+#         <br><br>
+#         - Seattle Native
+#         - Cooking!
+#         <br>
+#         - <a href = 'https://twitter.com/ellis_hughes' style = 'text-decoration: none;' class=\"fa fa-twitter-square\"></a> @ellis_hughes
+#         </div>
+#         <div style = 'display:inline-block;height:inherit;'>
+#          <img src = 'https://thebioengineer.github.io/images/r_in_pharma/img/ellis_hughes.jpg' style = '-webkit-transform: rotate(270deg);
+#                  -moz-transform: rotate(270deg);
+#                  -o-transform: rotate(270deg);
+#                  -ms-transform: rotate(270deg);
+#                  transform: rotate(270deg);
+#                  height: 400px;
+#                  margin-top: 100px;'/>
+#         </div>
+#       </div>")
 
 ## Fred Hutch and SCHARP ----
-pres_FH_scharp <- pres_bio %>% 
+pres_FH_scharp <- pres_val_explained %>% 
+  
   slide_multipanel(title = "Fred Hutch and SCHARP",
                    ## Fred Hutch ----
   panel(HTML("<div style=\"display:inline-block;padding-top:100px;z-index: 100;position: relative;\">
@@ -157,24 +188,35 @@ pres_assays <- pres_FH_scharp %>%
       panel(HTML("<img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:200px; position: relative;z-index: 10;\"/>
                   <img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:180px; padding-left: 30px;position: relative;z-index: 8; margin-top:-500px;\"/>
                   <img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:180px; padding-left: 60px;position: relative; z-index: 6; margin-top:-500px;\"/>")),
-      panel(HTML("<img src=\"img/thinker.PNG\"  style=\"max-height:600px;\"/>")),
+      panel(HTML("<img src=\"img/antibody_thinker.PNG\"  style=\"max-height:600px;\"/>")),
       panel(HTML("<img src=\"img/assaying.PNG\"  style=\"max-height:600px;\"/>")),
-      panel(HTML("<img src=\"img/visc.PNG\"  style=\"max-height:600px;margin-top:100px\"/>")),
-      panel(HTML("<div class = \"slide_title\" style=\"padding: 20px;\">
-                  <h1 style=\"font-size:60px;;margin-top:100px\"\"> 
-                      We need a validated pipeline that is rigid enough to provide form and consistency between studies,
-                      but flexible enough to handle potential changes
-                  </h1>
-                  </div>
-                 "), style = "width: 800px;"))
+      panel(HTML("<img src=\"img/visc.PNG\"  style=\"max-height:600px;margin-top:100px\"/>")))
 
-pres_assays2 <- pres_assays %>% 
+
+
+pres_prompt <- pres_assays %>% 
+  slide_wide(title = NULL,
+  HTML("<div class = \"slide_title\" style=\"padding: 20px;\">
+  <h1 style=\"font-size:60px;;margin-top:100px\"\"> 
+  We need a validated pipeline that is rigid enough to provide form and consistency between studies,
+  but flexible enough to handle potential changes
+  </h1></div>"))
+
+pres_assays2 <- pres_prompt %>% 
   slide_wide(title = NULL,
   HTML("<img src='img/busybusybusy.gif' style = 'width:60%;margin:auto'/>"))
 
+pres_prompt2 <- pres_assays2 %>% 
+  slide_wide(title = NULL,
+  HTML("<div class = \"slide_title\" style=\"padding: 20px;\">
+  <h1 style=\"font-size:60px;;margin-top:100px\"\"> 
+  We need a <span style = 'color:red'>validated</span> pipeline that is rigid enough to provide form and consistency between studies,
+  but flexible enough to handle potential changes
+  </h1></div>"))
+
 
 ## Validation ----
-pres_val_elements <- pres_assays2 %>% 
+pres_val_elements <- pres_prompt2 %>% 
   slide_markdown(title = tags$div(style = 'width:500px',"Validation"),"
   <div style='font-size: 35px;'>
   <br>
@@ -185,36 +227,88 @@ pres_val_elements <- pres_assays2 %>%
   Documentation
   </div>", style = "width:800px;")
 
+pres_val_elements2 <- pres_val_elements %>% 
+  slide(title = tags$div(style = 'width:800px',"Package Validation"),
+  panel(
+  tags$pre(
+    tags$code( class = "language-dir","
+    -- DESCRIPTION
+    -- man
+       |__hello.Rd
+    -- NAMESPACE
+    -- R
+       |__jokes.R
+    -- tests
+       |__testthat
+       |__testthat.R
+    -- vignettes
+      |__Validate.Rmd
+      |__Validation
+        |__Specifications
+          |__specification_001.Rmd
+        |__Test_Cases
+          |__test_case_001.R
+        |__Test_Case_Code
+          |__test_test_case_001.R"))))
+
 
 ## Specifications ----
-pres_val_specification <- pres_val_elements %>% 
-  slide_multipanel(title = tags$div(style = 'width:500px',"Specifications"),
+pres_val_specification <- pres_val_elements2 %>% 
+  slide_multipanel(title = tags$div(style = 'width:700px',"Specifications"),
+  panel_markdown("
+  
+  What are the requirements of the package?
+  
+    - Goals that must be attained
+    - QC's to run
+    - Expected endpoints
+  
+  **Note that writing good specifications is hard**
+  
+  <div>
+  <img src = 'img/herc_flex.webp' style = 'height:420px;'/>
+  <p style = 'font-size: 10px'>https://66.media.tumblr.com/a0ce2e276be1616c5c512e22a1fcae9f/tumblr_nzvf5y44ln1uggb2ao1_500.gifv'</p>
+  </div>
+  ", style = "font-size: 35px; margin-top: 70px;"),
+  panel_markdown("
+  
+  ## Example
+  
+  ```
+  - My RStudio::Conference presentation will educate attendees
+    - Cover the 5 Elements of Validation
+    - Be 15-20 minutes long.
+  ```
+  ", style = "font-size: 35px; margin-top: 70px;"),
   panel_markdown("
 
   - Assess current state
-  - System agnostic
+  - Language agnostic
   
   <div style ='padding-top:20px'>
-  <img src= 'https://66.media.tumblr.com/91ad717cd3585e96f22705abe72e6f4b/tumblr_osvrktrJDd1qe6vjyo1_500.gifv' style = 'height:420px;'/>
-  </div>"),
+  <img src= 'img/Herc_current_state.webp' style = 'height:420px;'/>
+  <p style = 'font-size: 10px'>https://66.media.tumblr.com/91ad717cd3585e96f22705abe72e6f4b/tumblr_osvrktrJDd1qe6vjyo1_500.gifv</p>
+  </div>
+  ", style = "font-size: 35px;"),
   panel_markdown("
   - Define success
   - Set the goals of the project
 
   <div style ='padding-top:20px'>
   <img src= 'www/hercules_obstacle_success.gif' style = 'height:420px;'/>
-  </div>"),
+  </div>", style = "font-size: 35px;"),
   panel_markdown("
-  - Don't be perscriptive in how to complete task
+  - Don't be too perscriptive in how to complete task
   - Don't be ambiguous in success measurements
   
   <div style ='padding-top:20px'>
-  <img src= 'https://66.media.tumblr.com/62aa49e2504ed9d1af0253a10ceae0de/tumblr_o2agxpicGU1ub6o1yo1_500.gifv' style = 'height:420px;'/>
-  </div>"),
+  <img src= 'img/hercules_im_a_hero.gif' style = 'height:420px;'/>
+  <p style = 'font-size: 10px'> https://66.media.tumblr.com/62aa49e2504ed9d1af0253a10ceae0de/tumblr_o2agxpicGU1ub6o1yo1_500.gifv </p>
+  </div>", style = "font-size: 35px;"),
   # <img src= 'https://assets.teenvogue.com/photos/5952d6552c9db4790715babd/master/w_400%2Cc_limit/hercules-alt.gif' style = 'height:420px;' />
     
   panel_markdown("
-  ## Documentation
+  ## Example
   
   ```{r eval=FALSE, echo = TRUE}
   #' @title Specifications For RStudio Conf 2020 Success
@@ -222,7 +316,7 @@ pres_val_specification <- pres_val_elements %>%
   #' Ellis Hughes
   #' @section Last updated date:
   #' 2020/01/29
-  #' 
+  
   + _Specifications_
     + 1.1 Presentation must explain validation procedure.
     + 1.2 Be entertaining by causing 3 laughter sessions.
@@ -233,39 +327,97 @@ pres_val_specification <- pres_val_elements %>%
   panel_markdown("
   ## Modular Specifications
   
+  - Single file / idea
   - Easily shift and update
   - De-couple Specifications
-  "))
+  
+  ```
+  -- vignettes
+      |__Validate.Rmd
+      |__Validation
+        |__Specifications
+          |__specification_001.Rmd
+  ```
+  ", style = "font-size: 35px;"))
+
+
 
 ## Coding ----
 pres_val_code <- pres_val_specification %>% 
   slide_multipanel(title = tags$div(style = 'width:500px',"Code"),
+                   
+  panel(tags$div(tags$div(
+    tags$img(src = "img/I_dont_need_help.gif", 
+             style = "height:500px"),
+    tags$p(style = "font-size:10px","https://imgur.com/gallery/QC6Nllw")
+    ,style = "margin:auto;"), 
+    class = "center_content")),
+  
+  panel(tags$div(tags$div(
+    markdown_to_html("
+  Dont worry, I won't be telling you how to code            
+  "),style= "margin:auto"),class = "center_content"), style = "margin-top: 100px; font-size: 50px;"),
+  
   panel_markdown("
-  ## Getting Down to Business
+  ## Do it for your future self
   
   - Define function requirements
-  - Document first approach
   - Assign Tasks
 
+  <div>
   <img src = 'https://miro.medium.com/max/694/1*G45BFLThPqHFW9C16TNx5Q.gif' style = 'height:400px'/>
+  <p style = 'font-size:10px;'>https://miro.medium.com/max/694/1*G45BFLThPqHFW9C16TNx5Q.gif</p>
+  </div>
+  "),
+  
+  panel_markdown("
+  
+  ### What is the purpose of this function?
+  
+  ```r  
+  foo <- function(bar,baz){
+    print(bar)
+    Sys.sleep(3)
+    print(baz)
+  }
+  ```
+  "),
+  
+  panel_markdown("
+  ## Document your code
+  <div style = 'display: flex;vertical-align: top;'>
+  <div style = 'display:inline-block'>
+  - Standard Roxygen Documentation
+    - @title
+    - @description
+    - @param
+    - @output
+    - @example
+  </div>
+  <div style = 'display:inline-block;'>
+  - 'Unique' Validation tags
+    - @section Last Edited By
+    - @section Last Edit Date
+  </div>
+  </div>
 
   "),
-  #  <img src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Tidying_Up_with_Marie_Kondo_title_card.svg/800px-Tidying_Up_with_Marie_Kondo_title_card.svg.png' style = 'height:400px'/>
   
   panel_markdown("
-  ## Supporting Cast
+  ## Unit Test your code
   
-  - Roxygen Documentation
-    - Standard Roclets: what, where, why, how
-    - 'Unique' Validation Roclets: who, when
+  - As the function author, does it behave as you expect
+  - Protection from accidental changes
   
-  - Unit Testing
-  
-   <img src = 'https://i.giphy.com/media/uWzDsAsRm2X9qULHLs/giphy.webp' style = 'height:400px'/>
+  - testthat
+    - test expectations around your code
+    - check errors are fired
+    - Check outputs are consistent
   
   "),
+
   panel_markdown("
-  ## Teamwork and SCM
+  ## Github
 
   - Branching
   - Detailed code Review
@@ -290,8 +442,7 @@ pres_val_code <- pres_val_specification %>%
   #' Ellis Hughes
   #' @section Last updated date:
   #' 2020/01/29
-  #' 
-  #' @export
+  
   joke <- function(Setup, Punchline){
     print(Setup)
     Sys.sleep(3)
@@ -305,6 +456,17 @@ pres_val_code <- pres_val_specification %>%
   - Track Progress
   - Meet Regularly to discuss roadblocks
   - Ensure high quality code
+  
+  
+  ```
+  -- R
+    |__jokes.R
+  -- man
+    |__hello.Rd
+  -- tests
+    |__testthat
+    |__testthat.R
+  ```
   "))
 
 
@@ -312,21 +474,47 @@ pres_val_code <- pres_val_specification %>%
 pres_val_test <- pres_val_code %>% 
   slide_multipanel(title = tags$div(style = 'width:500px',"A Case for Test Cases"),
   panel_markdown("
-  ## Purpose
-  
-  - Draw connections between specifications and code
-  - Show that Code satisfied Specifications
-    
-    <img src = 'https://nc3t.com/wp-content/uploads/2014/10/How-to-find-innovation.jpg' style = 'height:400px'/>
+  Draw connections between specifications and functions
+
+  <div>
+  <img src = 'img/How-to-find-innovation.jpg' style = 'height:400px'/>
+  <p style = 'font-size:10px'>https://nc3t.com/wp-content/uploads/2014/10/How-to-find-innovation.jpg</p>
+  </div>
   "),
   panel_markdown("
-  ## The Approach
+  # Goal
+
+  What Specifications are being satistified by the test passing
   
-  - Detail Task and Steps
-  - No Code
-  - Describe how do all the pieces actually work together
+  setup
+  inputs
+  steps to follow
+  expectations of results
   
-   <img src = 'https://media1.tenor.com/images/34122c4a5cd9d6695c39b2ac7e816ea3/tenor.gif' style = 'height:400px'/>
+  "),
+  
+  panel(tags$div(
+    tags$div( style = "margin:auto;",
+              tags$img(src = "img/owl_how_to2.jpg", 
+                       style = "height:450px; margin:auto;"), 
+              tags$p("https://thevirtualinstructor.com/blog/wp-content/uploads/2019/01/how-step-by-step-drawing-tutorials-can-lead-you-astray.jpg",
+                     style = "font-size:10px;")),
+    class = "center_content")),
+  
+  panel(tags$div(
+    tags$div( style = "margin:auto;",
+              tags$img(src = "img/owl_how_to_good.jpg", 
+                       style = "height:450px; margin:auto;"), 
+              tags$p("  https://thegraphicsfairy.com/wp-content/uploads/blogger/-D9oAqKr5JNU/TYocayndzhI/AAAAAAAALY8/T9igMEmEnII/s1600/draw-owls-gfairysm.jpg",
+                     style = "font-size:10px;")),
+    class = "center_content")),
+  
+  panel_markdown("
+  ## How to Document Test Cases
+  
+  - Document the required data
+  - Record the step to run without writing the code
+  - Detail the expectations that need to be tested and how
   "),
   panel_markdown("
   ## Documentation
@@ -356,6 +544,14 @@ pres_val_test <- pres_val_code %>%
   - Easily shift and update
   - Easily assign Test Cases
   - Track updates
+  
+  ```
+  -- vignettes
+      |__Validate.Rmd
+      |__Validation
+        |__Test_Cases
+          |__test_case_001.R
+  ```
   "))
 
 ## Test Code ----

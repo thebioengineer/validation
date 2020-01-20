@@ -25,3 +25,15 @@ body {
   background-color: black;
   color: white;
 }
+
+a:visited { text-decoration: none; color:black; }
+a:hover { text-decoration: none; color:blue; }
+a:focus { text-decoration: none; color:black; }
+a:hover, a:active { text-decoration: none; color:black }
+
+.center_content {
+  height: inherit;
+  display: flex;
+  vertical-align: middle;
+}
+
