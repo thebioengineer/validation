@@ -306,8 +306,8 @@ pres_val_specification <- pres_val_elements2 %>%
   
   Don't be ambiguous in success measurements
   "),
-  div(style ='padding-top:10px',
-  img(src= 'img/hercules_acti5on_figure.webp',style = 'height:420px;'),
+  div(style ='padding-top:105px',
+  img(src= 'img/hercules_action_figure.webp',style = 'height:420px;'),
   p(style = 'font-size: 10px; color: grey;','https://66.media.tumblr.com/bd477e3a43c29a52e44de3e94922dbc8/tumblr_inline_pjzw6s6xFu1qzz5g3_500.gif'))),
   style = "font-size: 35px;"),
 
@@ -474,14 +474,17 @@ pres_val_code <- pres_val_specification %>%
 ## Test Cases ----
 pres_val_test <- pres_val_code %>% 
   slide_multipanel(title = tags$div(style = 'width:500px',"A Case for Test Cases"),
-  panel_markdown("
+  panel(div(markdown_to_html("
+  
   Draw connections between specifications and functions
-
-  <div>
-  <img src = 'img/How-to-find-innovation.jpg' style = 'height:400px'/>
-  <p style = 'font-size:10px;color:grey'>https://nc3t.com/wp-content/uploads/2014/10/How-to-find-innovation.jpg</p>
-  </div>
-  ", style = "margin-top: 100px;font-size: 50px"),
+  "),
+   div(
+     img(src = 'img/How-to-find-innovation.jpg',style = 'height:400px;'),
+     p(style = 'font-size: 10px; color: grey;','https://nc3t.com/wp-content/uploads/2014/10/How-to-find-innovation.jpg'))
+   ),
+   style = "margin-top: 100px;font-size: 50px") %>% 
+  
+  
   panel_markdown("
   # Goal
 
