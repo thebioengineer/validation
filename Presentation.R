@@ -77,7 +77,7 @@ pres_val_explained <- pres_val_intro %>%
   panel(tags$div(tags$div(
   markdown_to_html("
   Record proof that it does what we expect it to do             
-  "),style= "margin:auto"),class = "center_content"), style = "margin-top: 100px; font-size: 70px; width: 1200px"),
+  "),style= "margin:auto"),class = "center_content"), style = "margin-top: 100px; font-size: 70px; width: 1300px"),
   
   panel(tags$div(tags$div(
   markdown_to_html("
@@ -263,12 +263,13 @@ pres_val_specification <- pres_val_elements2 %>%
   ", style = "font-size: 35px; margin-top: 70px;"),
   panel_markdown("
   
-  My Specifications for this presentation:
+  My specifications for this presentation:
   
   ```
-  - My RStudio::Conf presentation will educate attendees
-    - The presentation be 15-20 minutes long.
+  - My RStudio::Conf presentation will 
+    - Educate attendees
     - The contents will cover my approach to Validation
+    - The presentation be 15-20 minutes long.
     
   - The presentation will be entertaining 
   
@@ -281,7 +282,7 @@ pres_val_specification <- pres_val_elements2 %>%
     - Processes
     - Scripts
   "),
-  div(style ='padding-top:70px',
+  div(style ='padding-top:55px',
   img(src= 'img/Herc_current_state.webp',style = 'height:420px;'),
   p(style = 'font-size: 10px; color: grey;','https://66.media.tumblr.com/91ad717cd3585e96f22705abe72e6f4b/tumblr_osvrktrJDd1qe6vjyo1_500.gifv'))),
   style = "font-size: 35px;"),
@@ -305,8 +306,8 @@ pres_val_specification <- pres_val_elements2 %>%
   
   Don't be ambiguous in success measurements
   "),
-  div(style ='padding-top:90px',
-  img(src= 'img/hercules_action_figure.webp',style = 'height:420px;'),
+  div(style ='padding-top:10px',
+  img(src= 'img/hercules_acti5on_figure.webp',style = 'height:420px;'),
   p(style = 'font-size: 10px; color: grey;','https://66.media.tumblr.com/bd477e3a43c29a52e44de3e94922dbc8/tumblr_inline_pjzw6s6xFu1qzz5g3_500.gif'))),
   style = "font-size: 35px;"),
 
@@ -316,7 +317,7 @@ pres_val_specification <- pres_val_elements2 %>%
   Record Specifications in Rmarkdown
   
     - 1 file per specification
-    - Number Specifications and details
+    - Number specifications and details
   
   Augment Rmarkdown with Roxygen 
   
@@ -715,8 +716,8 @@ pres_val_doc2 <- pres_val_doc %>%
   slide_wide(title = NULL,
     tags$div(
     tags$img(src = "img/val_and_R_forever.png", 
-             style = "height:500px; margin:auto;"), 
-    class = "center_content"))
+             style = "height:100%; margin:auto;"), 
+    class = "center_content", style = "height: 110%"))
 
 
 ## Conclusion ----
