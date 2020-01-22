@@ -300,9 +300,8 @@ pres_val_specification <- pres_val_elements2 %>%
   
   Set success criteria
 
-  Language agnostic
   "),
-  div(
+  div( style="margin-top:130px;",
     img(src= 'img/hercules_im_a_hero.gif',style = 'height:300px;'),
     p(style = 'font-size: 10px; color: grey;','https://66.media.tumblr.com/62aa49e2504ed9d1af0253a10ceae0de/tumblr_o2agxpicGU1ub6o1yo1_500.gifv'))
   ),
@@ -310,11 +309,13 @@ pres_val_specification <- pres_val_elements2 %>%
   
   panel(div(div(markdown_to_html("
   
-  Don't be perscriptive in how to complete task
+  Be language agnostic
   
-  Don't be ambiguous in success measurements
+  Leave details in how to complete task out
   
-  "), style = "margin:auto;font-size: 40px;"), class = "center_content"),
+  Be specific in success measurements
+  
+  "), style = "margin:auto;font-size: 50px; font-weight: 600"), class = "center_content"),
   style = "font-size: 35px; color: red;"),
   
   panel_markdown("
@@ -757,6 +758,8 @@ pres_conclusion <- pres_val_doc2 %>%
   - Shannon Grant
   - Paul Stutzman
   - Kate Ostbye
+  
+  - Many many more people
   "))
 
 

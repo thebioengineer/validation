@@ -6,6 +6,10 @@ ul {
   list-style-type: none;
 }
 
+.panel li > p {
+  margin-bottom: 5px;
+}
+
 pre code {
   font-size: 25px;
 }
