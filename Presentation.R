@@ -57,6 +57,12 @@ pres_val_intro <- pres_title %>%
              style = "height:450px; margin:auto;"), 
     tags$p("https://bethgittings.tumblr.com/post/34641171446",
            style = "font-size:10px;color:grey")),
+    class = "center_content")),
+  panel(tags$div(
+    tags$div(style = "margin:auto;",
+              tags$img(src = "img/rmarkdown_testthat_roxygen2.png", 
+                       style = "height:600px; margin:auto;")
+             ),
     class = "center_content")))
 
 pres_val_explained <- pres_val_intro %>% 
@@ -65,23 +71,23 @@ pres_val_explained <- pres_val_intro %>%
                    
   panel(tags$div( tags$div(
   markdown_to_html("
-  Establishing documentation that your
+  Establishing documentary evidence that your
   
     - Procedure
     - Process
     - Activity
   
-  is in compliance.
+  is carried out in compliance with a high degree of assurance
   ")),class = "center_content"), style = "margin-top: 100px; font-size: 50px;"),
   
   panel(tags$div(tags$div(
   markdown_to_html("
-  Record proof that it does what we expect it to do             
+  Record proof that it does what we expect it to do and are reasonably sure it will continue to.
   "),style= "margin:auto"),class = "center_content"), style = "margin-top: 100px; font-size: 70px; width: 1300px"),
   
   panel(tags$div(tags$div(
   markdown_to_html("
-  Improved Quality<br>and Safey
+  Improved Quality<br>and Safety
   "), style = "font-size: 80px;margin:auto"),class = "center_content"),
   style = "margin-top: 100px; font-size: 50px;"))
   
@@ -166,7 +172,7 @@ pres_FH_scharp <- pres_bio %>%
     				        </div>
     				      </div>",
     				      HTML("
-    				      <div style='right: -30%;position: absolute;top: 25%;z-index: 0;opacity: 0.2;'>
+    				      <div style='right: -30%;position: absolute;top: 25%;z-index: 0;opacity: 0.3;'>
     				      <img src='img/FH_logo_improved.png'/>
     				      </div>"))),
    ## SCHARP ----
@@ -382,8 +388,7 @@ pres_val_code <- pres_val_specification %>%
 
   "),
   div(img(src= 'img/kondo_calm.gif', style = 'height:400px'),
-  p(style = 'font-size: 10px; color: grey;','https://miro.medium.com/max/694/1*G45BFLThPqHFW9C16TNx5Q.gif')))
-  ),
+  p(style = 'font-size: 10px; color: grey;','https://miro.medium.com/max/694/1*G45BFLThPqHFW9C16TNx5Q.gif')))),
   
   panel_markdown("
   ## Document your code
@@ -394,7 +399,7 @@ pres_val_code <- pres_val_specification %>%
     - @description
     - @param
     - @output
-    - @example
+    - @examples
   </div>
   <div style = 'display:inline-block;'>
   - 'Unique' Validation tags
@@ -405,7 +410,7 @@ pres_val_code <- pres_val_specification %>%
   
   Use comments to describe what a chunk does
 
-  "),
+  ", style = "width:1000px"),
   
   panel_markdown("
   ## Unit Test your code
@@ -474,15 +479,13 @@ pres_val_code <- pres_val_specification %>%
 ## Test Cases ----
 pres_val_test <- pres_val_code %>% 
   slide_multipanel(title = tags$div(style = 'width:500px',"A Case for Test Cases"),
+                   
   panel(div(markdown_to_html("
-  
   Draw connections between specifications and functions
-  "),
-   div(
-     img(src = 'img/How-to-find-innovation.jpg',style = 'height:400px;'),
-     p(style = 'font-size: 10px; color: grey;','https://nc3t.com/wp-content/uploads/2014/10/How-to-find-innovation.jpg'))
-   ),
-   style = "margin-top: 100px;font-size: 50px") %>% 
+  ")),
+   div(img(src = 'img/How-to-find-innovation.jpg',style = 'height:400px;'),
+     p(style = 'font-size: 10px; color: grey;','https://nc3t.com/wp-content/uploads/2014/10/How-to-find-innovation.jpg')),
+   style = "margin-top: 100px;font-size: 50px"),
   
   
   panel_markdown("
@@ -568,7 +571,7 @@ pres_val_test <- pres_val_code %>%
   -- vignettes
       |__Validation
         |__Test_Cases
-          |__test_case_001.R
+          |__test_case_001.Rmd
   ```
   "))
 
@@ -583,6 +586,8 @@ pres_val_test_code <- pres_val_test %>%
   Record results
   
   Third Party 
+  
+  Not Unit Tests
   ", style = "margin-top:100px; font-size: 50px;"),
   panel_markdown("
   ## Benefits
@@ -650,6 +655,7 @@ pres_val_test_code <- pres_val_test %>%
     - Reports Success
     - Records Failure mode
   
+  Using a custom print function:
   <img src='img/test_table_example.PNG' style='width: 700px'/>
   "),
   
@@ -687,33 +693,43 @@ pres_val_doc <- pres_val_test_code %>%
 
   - Rmarkdown
     - Record Specifications and Test Cases
+    - Generate Final Validation Document
     
-  - Testthat Reporter
+  - Testthat
     - Record results of test code
   "),
   
-  panel(HTML("<img src='img/captain_planet.gif' style = 'height:90%;width:90%;margins:auto' />"),
-    style = "width: 600px;"),
-
-  panel_markdown("
-  ## Master Document that 
-  
-  - Record all elements in a single location
-  - Scraping for Author and Edit Dates
-  - Separating out specs into files allows for modular extension
-  - Roxygen to document editing and edit dates
-  - Testthat to evaluate and record test case code results"),
-  
-  panel(tags$iframe(src = "img/Validate.pdf", style = "width: 1200px; height: 100%", frameborder="0", marginwidth="0")),
+  panel(HTML("<img src='img/captain_planet.gif' style = 'height:800px;margins:auto' />")),
   
   panel_markdown("
-  ## Validation Documentation
+  Single Rmarkdown 
+    - gather all the information
+    - run all the tests
+    - Generate the Report
+  "),
   
+  panel_markdown("
   ```
+  -- DESCRIPTION
+  -- man
+  -- NAMESPACE
+  -- tests
+  -- R
+    |__jokes.R
   -- vignettes
-      |__Validation.Rmd
-  ```
-  "))
+    |__Validation.Rmd
+    |__Validation.pdf
+    |__Validation
+      |__Specifications
+        |__specification_001.Rmd
+      |__Test_Cases
+        |__test_case_001.Rmd
+      |__Test_Code
+        |__test_code_001.R
+  ```               
+  "),
+  
+  panel(tags$iframe(src = "img/Validate.pdf", style = "width: 1200px; height: 100%", frameborder="0", marginwidth="0")))
   
 pres_val_doc2 <- pres_val_doc %>% 
   slide_wide(title = NULL,
@@ -733,6 +749,7 @@ pres_conclusion <- pres_val_doc2 %>%
   - Anthony Williams
   - Jimmy Fulp 
   - Bharathi Lakshminarayanan
+  - Rafael Kuttner
   - Alicia Sato
   - Shannon Grant
   - Paul Stutzman
