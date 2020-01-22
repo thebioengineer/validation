@@ -77,17 +77,27 @@ pres_val_explained <- pres_val_intro %>%
     - Process
     - Activity
   
-  is carried out in compliance with a high degree of assurance
+  is carried out in compliance with a high degree of assurance.
   ")),class = "center_content"), style = "margin-top: 100px; font-size: 50px;"),
   
   panel(tags$div(tags$div(
   markdown_to_html("
-  Record proof that it does what we expect it to do and are reasonably sure it will continue to.
-  "),style= "margin:auto"),class = "center_content"), style = "margin-top: 100px; font-size: 70px; width: 1300px"),
+  Record proof that our code:
+  
+    - Returns the Expected Values
+    - Returns Errors when data is outside the specifications
+    - Consistently returns the same values
+    - Been tested to a high degree of confidence
+  "),style= "margin:auto"),class = "center_content"), style = "margin-top: 100px; font-size: 60px; width: 1300px"),
   
   panel(tags$div(tags$div(
   markdown_to_html("
-  Improved Quality<br>and Safety
+  Improved Quality and Safety
+  
+  Faster Results
+  
+  Increased Trust
+  
   "), style = "font-size: 80px;margin:auto"),class = "center_content"),
   style = "margin-top: 100px; font-size: 50px;"))
   
@@ -95,7 +105,7 @@ pres_val_explained <- pres_val_intro %>%
 pres_bio <- pres_val_explained %>%
   slide_markdown(title = tags$div(style = 'width:500px',"Ellis Hughes"),"
       <div style = 'height:100%'>
-        <div style = 'display:inline-block; vertical-align: top; padding-right:20px; font-size: 30px;'>
+        <div style = 'display:inline-block; vertical-align: top; padding-right:20px; font-size: 45px;'>
         - Statistical Programmer
            - Statistical Genetics
            - HIV Vaccine Research
@@ -177,16 +187,8 @@ pres_FH_scharp <- pres_bio %>%
     				      </div>"))),
    ## SCHARP ----
    panel(HTML("
-   <!-- <ul style='list-style-type: none;'>
-   <li> -->
    <div class = 'center_content'><img src='img/logos/scharp.png' style='max-width:800px;margin: auto;'/></div>
-   <!--</li>
-   <li> <b>Established 1992</b> </li><br>
-   <li> <b>Worldwide-impact in the fight against cancer,<br/> HIV/AIDS and other infectious diseases.</b> </li><br>
-   <li><b>Clinical Data Management</b></li>
-   <li><b>Laboratory Data Management</b></li>
-   <li><b>Statistical Support and Analysis</b></li>
-    </ul> -->")))
+   ")))
 
 ## Prompted Task ----
 pres_assays <- pres_FH_scharp %>% 
@@ -266,59 +268,57 @@ pres_val_specification <- pres_val_elements2 %>%
   - What will the package do?
   - What are the expected ouputs?
 
-  ", style = "font-size: 35px; margin-top: 70px;"),
+  ", style = "font-size: 45px; margin-top: 70px;"),
   panel_markdown("
-  
-  My specifications for this presentation:
   
   ```
   - My RStudio::Conf presentation will 
-    - Educate attendees
-    - The contents will cover my approach to Validation
-    - The presentation be 15-20 minutes long.
-    
-  - The presentation will be entertaining 
+    - The contents will cover an approach to validation
+    - Be 15-20 minutes long
+    - Be entertaining 
   
   ```
-  ", style = "font-size: 35px; margin-top: 130px;"),
+  ", style = "font-size: 40px; margin-top: 150px;"),
+  
   panel(div(markdown_to_html("
   
   Assess current state
   
-    - Processes
-    - Scripts
+  Processes and Agreements already in place
+  
+  Consult Subject Matter Experts
   "),
-  div(style ='padding-top:55px',
-  img(src= 'img/Herc_current_state.webp',style = 'height:420px;'),
-  p(style = 'font-size: 10px; color: grey;','https://66.media.tumblr.com/91ad717cd3585e96f22705abe72e6f4b/tumblr_osvrktrJDd1qe6vjyo1_500.gifv'))),
-  style = "font-size: 35px;"),
+  div(
+    img(src= 'img/Herc_current_state.webp',style = 'height:300px;'),
+    p(style = 'font-size: 10px; color: grey;','https://66.media.tumblr.com/91ad717cd3585e96f22705abe72e6f4b/tumblr_osvrktrJDd1qe6vjyo1_500.gifv'))
+  ),
+  style = "font-size: 40px; width: "),
   
   panel(div(markdown_to_html("
+  
+  Detail the goals of the project
   
   Set success criteria
-  
-    - Describe goals of the project
-    
+
   Language agnostic
   "),
-  div(style ='padding-top:20px',
-  img(src= 'img/hercules_im_a_hero.gif',style = 'height:420px;'),
-  p(style = 'font-size: 10px; color: grey;','https://66.media.tumblr.com/62aa49e2504ed9d1af0253a10ceae0de/tumblr_o2agxpicGU1ub6o1yo1_500.gifv'))),
-  style = "font-size: 35px;"),
+  div(
+    img(src= 'img/hercules_im_a_hero.gif',style = 'height:300px;'),
+    p(style = 'font-size: 10px; color: grey;','https://66.media.tumblr.com/62aa49e2504ed9d1af0253a10ceae0de/tumblr_o2agxpicGU1ub6o1yo1_500.gifv'))
+  ),
+  style = "font-size: 40px;"),
   
-  panel(div(markdown_to_html("
+  panel(div(div(markdown_to_html("
   
   Don't be perscriptive in how to complete task
   
   Don't be ambiguous in success measurements
-  "),
-  div(style ='padding-top:105px',
-  img(src= 'img/hercules_action_figure.webp',style = 'height:420px;'),
-  p(style = 'font-size: 10px; color: grey;','https://66.media.tumblr.com/bd477e3a43c29a52e44de3e94922dbc8/tumblr_inline_pjzw6s6xFu1qzz5g3_500.gif'))),
-  style = "font-size: 35px;"),
-
+  
+  "), style = "margin:auto;font-size: 40px;"), class = "center_content"),
+  style = "font-size: 35px; color: red;"),
+  
   panel_markdown("
-  ## Documenting Specifications
+  ## How to Record Specifications
   
   Record Specifications in Rmarkdown
   
@@ -329,7 +329,7 @@ pres_val_specification <- pres_val_elements2 %>%
   
     - Specifcation Title
     - Record who and when
-  "),
+  ", style = "font-size: 40px;"),
   
   panel_markdown("
   ## Example
@@ -343,11 +343,11 @@ pres_val_specification <- pres_val_elements2 %>%
   
   + _Specifications_
     + 1.1 Presentation must explain validation procedure.
-    + 1.2 Be entertaining by causing 3 laughter sessions.
-    + 1.3 Inform and document each step necessary for success.
+    + 1.2 Inform and document each step necessary for success.
+    + 1.3 Be entertaining by causing at least 3 people to laugh.
     + 1.4 (Optional) Fame and Glamour and start branded accessories chain.
   ```
-  "),
+  ",style = "font-size: 40px;"),
   panel_markdown("
   ## Modular Specifications
   
@@ -359,7 +359,7 @@ pres_val_specification <- pres_val_elements2 %>%
          |__Validation
            |__Specifications
              |__specification_001.Rmd
-  ```",style = "font-size: 35px;"))
+  ```",style = "font-size: 40px;"))
 
 
 
@@ -384,11 +384,11 @@ pres_val_code <- pres_val_specification %>%
   
   - Follow Good Programming Practices
   - Define function requirements
-  - Assign tasks amongst team
-
-  "),
-  div(img(src= 'img/kondo_calm.gif', style = 'height:400px'),
-  p(style = 'font-size: 10px; color: grey;','https://miro.medium.com/max/694/1*G45BFLThPqHFW9C16TNx5Q.gif')))),
+  
+  ")),
+  # div(img(src= 'img/kondo_calm.gif', style = 'height:400px'),
+  # p(style = 'font-size: 10px; color: grey;','https://miro.medium.com/max/694/1*G45BFLThPqHFW9C16TNx5Q.gif')))
+  style = "font-size: 40px"),
   
   panel_markdown("
   ## Document your code
@@ -410,30 +410,19 @@ pres_val_code <- pres_val_specification %>%
   
   Use comments to describe what a chunk does
 
-  ", style = "width:1000px"),
+  ", style = "width:1000px;font-size: 40px"),
   
   panel_markdown("
-  ## Unit Test your code
+  ```{r eval=FALSE, echo = TRUE}
+  foo <- function(bar, baz){
+    print(bar)
+    Sys.sleep(3)
+    print(baz)
+  }
+  ```
+  ", style = "width: 1400px"),
   
-  - As the function author, does it behave as you expect
-  - Protection from accidental changes
-  
-  <img src='https://github.com/r-lib/testthat/raw/master/man/figures/logo.png' style='height:200px;margin:auto'/>
-  "),
-
   panel_markdown("
-  ## Github
-
-  - Branching
-  - Detailed code Review
-    - Style guides
-
-  <img src='img/GitHub-Mark-Light-120px-plus.png' style='height:200px;margin:auto;'/>
-
-  "),
-  panel_markdown("
-  ## Documentation
-
   ```{r eval=FALSE, echo = TRUE}
   #' @title Deliver Jokes
   #' @description 
@@ -450,18 +439,36 @@ pres_val_code <- pres_val_specification %>%
   
   joke <- function(Setup, Punchline){
     print(Setup)
+    #Pause for the punchline
     Sys.sleep(3)
     print(Punchline)
   }
   ```
   ", style = "width: 1400px"),
+  
   panel_markdown("
-  ## Modular Function Documentation
+  ## Unit Test your code
   
-  - Track Progress
-  - Meet Regularly to discuss roadblocks
-  - Ensure high quality code
+  - As the function author, does it behave as you expect
+  - Protection from accidental changes
   
+  <img src='https://github.com/r-lib/testthat/raw/master/man/figures/logo.png' style='height:200px;margin:auto'/>
+  
+  ",style = "font-size: 40px"),
+
+  panel_markdown("
+  ## Github
+
+  - Branching
+  - Pull Requests
+  - Visually Track Progress
+
+  <img src='img/GitHub-Mark-Light-120px-plus.png' style='height:200px;margin:auto;'/>
+
+  ",style = "font-size: 40px"),
+  
+  panel_markdown("
+  ## Modular Functions, Documentation and Tests
   
   ```
   -- R
@@ -473,7 +480,7 @@ pres_val_code <- pres_val_specification %>%
     |__testthat
         |__test_joke.R
   ```
-  "))
+  ",style = "font-size: 40px"))
 
 
 ## Test Cases ----
@@ -487,18 +494,15 @@ pres_val_test <- pres_val_code %>%
      p(style = 'font-size: 10px; color: grey;','https://nc3t.com/wp-content/uploads/2014/10/How-to-find-innovation.jpg')),
    style = "margin-top: 100px;font-size: 50px"),
   
+  panel(div(div(markdown_to_html("
   
-  panel_markdown("
-  # Goal
-
-  What Specifications are being satistified by the test passing
+  <span style='color:red'>Distinct from Unit Tests</span>
   
-  setup
-  inputs
-  steps to follow
-  expectations of results
+  A single test case can satisfy multiple specifications
   
-  "),
+  Every single specification must map to at least one test case
+                 
+  "),style = "margin:auto"),class = "center_content"),style = "font-size: 50px;"),
   
   panel_markdown("
   ## How to Document Test Cases
@@ -506,7 +510,8 @@ pres_val_test <- pres_val_code %>%
   - Specify the required data
   - Record the steps needed without writing the code
   - Detail the expectations that need to be tested and how
-  "),
+
+  ",style = "font-size: 40px;"),
   
   panel(tags$div(
     tags$div( style = "margin:auto;",
@@ -536,11 +541,9 @@ pres_val_test <- pres_val_code %>%
   
     - Specifcation Title
     - Record who and when
-  "),
+  ",style = "font-size: 40px;"),
   
   panel_markdown("
-  ## Documentation
-  
   ```{r eval=FALSE, echo = TRUE}
   #' @title RStudio Conf 2020 Success Test Cases 001
   #' @section Last updated by: 
@@ -573,7 +576,7 @@ pres_val_test <- pres_val_code %>%
         |__Test_Cases
           |__test_case_001.Rmd
   ```
-  "))
+  ",style = "font-size: 40px;"))
 
 ## Test Code ----
 
@@ -587,7 +590,6 @@ pres_val_test_code <- pres_val_test %>%
   
   Third Party 
   
-  Not Unit Tests
   ", style = "margin-top:100px; font-size: 50px;"),
   panel_markdown("
   ## Benefits
@@ -598,7 +600,7 @@ pres_val_test_code <- pres_val_test %>%
   
   - Identify improvements
                  
-  "),
+  ",style = "font-size: 40px;"),
   panel_markdown("
   ## Approach
   <br>
@@ -608,7 +610,7 @@ pres_val_test_code <- pres_val_test %>%
   <img src='https://github.com/r-lib/testthat/raw/master/man/figures/logo.png' style='width: 49%;display:inline-block;'/>
   <img src='https://github.com/r-lib/roxygen2/raw/master/man/figures/logo.png' style='width: 49%;display:inline-block;'/>
   </div></div>
-  ", style = "width: 500px"),
+  ", style = "width: 500px;font-size: 40px;"),
   
   panel_markdown("
   ## Documenting Test Code
@@ -620,7 +622,7 @@ pres_val_test_code <- pres_val_test %>%
   
     - Specifcation Title
     - Record who and when
-  "),
+  ",style = "font-size: 40px;"),
   
 
   panel_markdown("
@@ -649,7 +651,7 @@ pres_val_test_code <- pres_val_test %>%
   
   panel_markdown("
   
-  # testthat Reporter Objects
+  ## testthat Reporter Objects
   
     - Track each test and expectation
     - Reports Success
@@ -657,7 +659,7 @@ pres_val_test_code <- pres_val_test %>%
   
   Using a custom print function:
   <img src='img/test_table_example.PNG' style='width: 700px'/>
-  "),
+  ",style = "font-size: 40px;"),
   
   panel_markdown("
   ## Modular Test Code Documentation
@@ -671,7 +673,7 @@ pres_val_test_code <- pres_val_test %>%
         |__Test_Code
           |__test_code_001.R
   ```
-  "))
+  ",style = "font-size: 40px;"))
 
 ## Documentation ----
 
@@ -685,28 +687,31 @@ pres_val_doc <- pres_val_test_code %>%
   - Roxygen documentation for Code
   - Documents for Test Cases in markdown
   - Test Case Code augmented with Roxygen documentation
-  "),
+  ",style = "font-size: 40px;"),
   
   panel_markdown("
-  - Roxygen2
+  ## Roxygen2
     - Generate list of ownership of all documentation
 
-  - Rmarkdown
+  ## Rmarkdown
     - Record Specifications and Test Cases
     - Generate Final Validation Document
     
-  - Testthat
+  ## Testthat
     - Record results of test code
-  "),
+  ",style = "font-size: 40px;"),
   
-  panel(HTML("<img src='img/captain_planet.gif' style = 'height:800px;margins:auto' />")),
+  panel(div(HTML("<img src='img/captain_planet.gif' style = 'height:800px;margins:auto' />"),class = "center_content")),
   
   panel_markdown("
-  Single Rmarkdown 
+  # Single Rmarkdown 
+  
     - gather all the information
     - run all the tests
     - Generate the Report
-  "),
+  ",style = "font-size: 40px;"),
+  
+  panel(tags$iframe(src = "img/Validate.pdf", style = "width: 1200px; height: 100%", frameborder="0", marginwidth="0")),
   
   panel_markdown("
   ```
@@ -727,14 +732,12 @@ pres_val_doc <- pres_val_test_code %>%
       |__Test_Code
         |__test_code_001.R
   ```               
-  "),
-  
-  panel(tags$iframe(src = "img/Validate.pdf", style = "width: 1200px; height: 100%", frameborder="0", marginwidth="0")))
+  ",style = "font-size: 40px;"))
   
 pres_val_doc2 <- pres_val_doc %>% 
   slide_wide(title = NULL,
     tags$div(
-    tags$img(src = "img/val_and_R_forever.png", 
+    tags$img(src = "img/val_and_R_forever2.png", 
              style = "height:100%; margin:auto;"), 
     class = "center_content", style = "height: 110%"))
 
@@ -761,18 +764,18 @@ pres_conclusion <- pres_val_doc2 %>%
                    
                    
 pres_final <- pres_conclusion %>%  
-  slide_markdown( title = tags$div(style = 'width:1600px; font-size: 80px',"Thank You"),"
+  slide_markdown( title = tags$div(style = 'width:1600px; font-size: 120px',"Thank You"),"
    ## Many Thanks to the folks at RStudio for organizing this great event!
    
    
-   <div style = 'margin:auto;padding-top:50px;text-align:left; transform: scale(1.2); z-index:21; position: relative;'>
+   <div style = 'margin:auto;padding-top:50px;text-align:left; z-index:21; position: relative;'>
    <br>
-   <div style = 'background-color: #f9f9f9;opacity: .2;border-radius: 10px;width: 900px;padding: 20px;font-size: 50px;margin:auto;color: black;'>
-    <p style = 'margin-bottom: 0;'>Slides are available at <br>github.com/thebioengineer/RStudio_conf_2020</p>
+   <div style = 'background-color: #ffffff;opacity: .5;border-radius: 10px;width: 900px;padding: 20px;font-size: 40px;margin:auto;color: black;'>
+    <p style = 'margin-bottom: 0; font-size: 50px;'>Slides are available at <br>github.com/thebioengineer/RStudio_conf_2020</p>
     <br>
-    <p style = 'margin-bottom: 0;'><a href = 'https://twitter.com/ellis_hughes' style = 'text-decoration: none;'  class='fa fa-twitter-square'></a> @ellis_hughes</p>
-    <p style = 'margin-bottom: 0;'><a href = 'https://linkedin.com/in/ellishughes' style = 'text-decoration: none;' class='fa fa-linkedin'></a> linkedin.com/in/ellishughes </p>
-    <p style = 'margin-bottom: 0;'><a href = 'https://github.com/thebioengineer' style = 'text-decoration: none;' class='fa fa-github-square'></a> github.com/thebioengineer </p>
+    <p style = 'margin-bottom: 0;'><i href = 'https://twitter.com/ellis_hughes' style = 'text-decoration: none;'  class='fa fa-twitter-square'></a> @ellis_hughes</p>
+    <p style = 'margin-bottom: 0;'><i href = 'https://linkedin.com/in/ellishughes' style = 'text-decoration: none;' class='fa fa-linkedin-square'></a> linkedin.com/in/ellishughes </p>
+    <p style = 'margin-bottom: 0;'><i href = 'https://github.com/thebioengineer' style = 'text-decoration: none;' class='fa fa-github-square'></a> github.com/thebioengineer </p>
     </div>
    </div>
    
