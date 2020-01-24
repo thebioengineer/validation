@@ -146,7 +146,7 @@ pres_pain <-pres_val_explained %>%
     div(class = "center_content",
         div( style = "margin: auto; height: 130%;",
              img(src = "img/mario_game_over.gif", style = "height:100%"),
-             p("https://media1.tenor.com/images/3267a92e265348c0cc435a7989d65e23/tenor.gif", style = "font-size:10px;color:grey")
+             p("https://thumbs.gfycat.com/EarnestGiganticDorado-mobile.mp4", style = "font-size:10px;color:grey")
         )),
     style = "padding-left: 500px;padding-right: 500px;")
   )
@@ -197,11 +197,9 @@ pres_bio <- pres_Friends %>%
            - Statistical Genetics
            - HIV Vaccine Research
         <br>
-        - Community:
+        - Community
           - Seattle UseR Organizer
           - Cascadia R Conf Committee
-        <br>
-        - <i href = 'https://twitter.com/ellis_hughes' style = 'text-decoration: none; color: white' class='fa fa-twitter-square'></i> @ellis_hughes
         </div>
         <div style = 'display:inline-block;height:inherit;'>
          <img src = 'https://thebioengineer.github.io/images/r_in_pharma/img/ellis_hughes.jpg' style = '-webkit-transform: rotate(270deg);
@@ -209,73 +207,73 @@ pres_bio <- pres_Friends %>%
                  -o-transform: rotate(270deg);
                  -ms-transform: rotate(270deg);
                  transform: rotate(270deg);
-                 height: 400px;
+                 height: 500px;
                  margin-top: 100px;'/>
         </div>
       </div>")
-# 
-# ## Fred Hutch and SCHARP ----
-# pres_FH_scharp <- pres_bio %>% 
-#   
-#   slide_multipanel(title = "Fred Hutch and SCHARP",
-#    ## Fred Hutch ----
-#   panel(HTML("<div style='display:inline-block;padding-top:100px;z-index: 100;position: relative;'>
-#                     <style type='text/css'>
-#                       .fhcrc_info_container{
-#                       	width: 375px;
-#                       	display:inline-block;
-#                       	margin:auto;
-#                       	
-#                       }
-#                     </style>
-#     				        <div class='fhcrc_info_container'>
-#     				        	<div>
-#     				        		<img src='img/Cellular_Therapy.png' alt='Icon depicting blood stem cell transplantation and immunotherapy' style='margin:auto'/>
-#     				        	</div>
-#     				        	<h4 style='text-align: center;'>Blood Stem Cell Transplantation<br>and Immunotherapy</h4>  
-#     				        </div>
-#     				        <div class='fhcrc_info_container'>
-#     				        	<div>
-#     				        		<img src='img/Risk_Factors.png' style='margin:auto'/>
-#     				        	</div>
-#     				        	<h4 style='text-align: center;'>Cancer Risk Factors, and Causes,<br>Prevention and Outcomes</h4>  
-#     				        </div>
-#     				        <div class='fhcrc_info_container'>
-#     				        	<div>
-#     				        		<img src='img/Vaccine_Development.png' style='margin:auto'/>
-#     				        	</div>
-#     				        	<h4 style='text-align: center;'>Vaccine Development<br>and Virus-Associated Cancers</h4>  
-#     				        </div>				
-#     				      </div>
-#     			        
-#     				      <div style = 'z-index: 100;position: relative;'>
-#     				        <div style='margin:auto;width:70%'>
-#     				        <div class='fhcrc_info_container'>
-#     				        	<div>
-#     				        		<img src='img/Molecular_Underpinnings.png' style='margin:auto'/>
-#     				        	</div>
-#     				        	<h4 style='text-align: center;'>Molecular Underpinnings of Cancer</h4>  
-#     				        </div>
-#             
-#     				        <div class='fhcrc_info_container'>
-#     				        	<div>
-#     				        		<img src='img/Tumor_Specific.png' style='margin:auto'/>
-#     				        	</div>
-#     				        	<h4 style='text-align: center;'>Tumor-Specific Translational Research</h4>  
-#     				        </div>
-#     				        </div>
-#     				      </div>",
-#     				      HTML("
-#     				      <div style='right: -30%;position: absolute;top: 25%;z-index: 0;opacity: 0.3;'>
-#     				      <img src='img/FH_logo_improved.png'/>
-#     				      </div>"))),
-#    ## SCHARP ----
-#    panel(HTML("
-#    <div class = 'center_content'>
-#    <img src='img/logos/scharp.png' style='max-width:800px;margin: auto;'/>
-#    <p style='font-size: 50px'> Worldwide Impact on HIV/AIDS Vaccine Research </p> 
-#    </div>
-#    ")))
+
+## Fred Hutch and SCHARP ----
+pres_FH_scharp <- pres_bio %>%
+
+  slide_multipanel(title = "Fred Hutch and SCHARP",
+   ## Fred Hutch ----
+  panel(HTML("<div style='display:inline-block;padding-top:100px;z-index: 100;position: relative;'>
+                    <style type='text/css'>
+                      .fhcrc_info_container{
+                      	width: 375px;
+                      	display:inline-block;
+                      	margin:auto;
+
+                      }
+                    </style>
+    				        <div class='fhcrc_info_container'>
+    				        	<div>
+    				        		<img src='img/Cellular_Therapy.png' alt='Icon depicting blood stem cell transplantation and immunotherapy' style='margin:auto'/>
+    				        	</div>
+    				        	<h4 style='text-align: center;'>Blood Stem Cell Transplantation<br>and Immunotherapy</h4>
+    				        </div>
+    				        <div class='fhcrc_info_container'>
+    				        	<div>
+    				        		<img src='img/Risk_Factors.png' style='margin:auto'/>
+    				        	</div>
+    				        	<h4 style='text-align: center;'>Cancer Risk Factors, and Causes,<br>Prevention and Outcomes</h4>
+    				        </div>
+    				        <div class='fhcrc_info_container'>
+    				        	<div>
+    				        		<img src='img/Vaccine_Development.png' style='margin:auto'/>
+    				        	</div>
+    				        	<h4 style='text-align: center;'>Vaccine Development<br>and Virus-Associated Cancers</h4>
+    				        </div>
+    				      </div>
+
+    				      <div style = 'z-index: 100;position: relative;'>
+    				        <div style='margin:auto;width:70%'>
+    				        <div class='fhcrc_info_container'>
+    				        	<div>
+    				        		<img src='img/Molecular_Underpinnings.png' style='margin:auto'/>
+    				        	</div>
+    				        	<h4 style='text-align: center;'>Molecular Underpinnings of Cancer</h4>
+    				        </div>
+
+    				        <div class='fhcrc_info_container'>
+    				        	<div>
+    				        		<img src='img/Tumor_Specific.png' style='margin:auto'/>
+    				        	</div>
+    				        	<h4 style='text-align: center;'>Tumor-Specific Translational Research</h4>
+    				        </div>
+    				        </div>
+    				      </div>",
+    				      HTML("
+    				      <div style='right: -30%;position: absolute;top: 25%;z-index: 0;opacity: 0.3;'>
+    				      <img src='img/FH_logo_improved.png'/>
+    				      </div>"))),
+   ## SCHARP ----
+   panel(HTML("
+   <div class = 'center_content'>
+   <img src='img/logos/scharp.png' style='max-width:800px;margin: auto;'/>
+   <p style='font-size: 50px'> Worldwide Impact on HIV/AIDS Vaccine Research </p>
+   </div>
+   ")))
 
 ## Prompted Task ----
 # pres_assays <- pres_FH_scharp %>% 
@@ -318,7 +316,7 @@ pres_bio <- pres_Friends %>%
 
 
 ## Validation ----
-pres_val_elements <- pres_bio %>% 
+pres_val_elements <- pres_FH_scharp %>% 
   slide_markdown(title = tags$div(style = 'width:500px',"Validation"),"
   <div style='font-size: 60px;'>
   <br>
@@ -375,7 +373,7 @@ pres_val_specification <- pres_val_elements2 %>%
   Consult Subject Matter Experts
   "),
   div(
-    img(src = 'img/Herc_current_state.webp', style = 'height:300px;'),
+    img(src = 'img/Herc_current_state.webp', style = 'height:400px;'),
     p(style = 'font-size: 10px; color: grey;', 'https://66.media.tumblr.com/91ad717cd3585e96f22705abe72e6f4b/tumblr_osvrktrJDd1qe6vjyo1_500.gifv'))
   ),
   style = "font-size: 40px; width: "),
@@ -388,7 +386,7 @@ pres_val_specification <- pres_val_elements2 %>%
 
   "),
   div( style = "margin-top:130px;",
-    img(src = 'img/hercules_im_a_hero.gif', style = 'height:300px;'),
+    img(src = 'img/hercules_im_a_hero.gif', style = 'height:400px;'),
     p(style = 'font-size: 10px; color: grey;', 'https://66.media.tumblr.com/62aa49e2504ed9d1af0253a10ceae0de/tumblr_o2agxpicGU1ub6o1yo1_500.gifv'))
   ),
   style = "font-size: 40px;"),
@@ -399,7 +397,7 @@ pres_val_specification <- pres_val_elements2 %>%
   
   Leave details in how to complete task out
   
-  Be specific in success measurements
+  Use specific success measurements
   
   "), style = "margin:auto;font-size: 50px; font-weight: 600"), class = "center_content"),
   style = "font-size: 35px; color: red;"),
