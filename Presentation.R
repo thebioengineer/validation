@@ -10,6 +10,11 @@ pres <- sidescroller(
       src = c(href = "https://fonts.googleapis.com/css?family=Darker+Grotesque&display=swap"),
       stylesheet = ""),
     htmltools::htmlDependency(
+      name = "VT323",
+      version = "1.0",
+      src = c(href = "https://fonts.googleapis.com/css?family=VT323&display=swap"),
+      stylesheet = ""),
+    htmltools::htmlDependency(
       name = "font-awesome",
       version = "4.7.0",
       src = c(href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/"),
@@ -38,19 +43,83 @@ pres_title <- pres %>%
     text_align = "left"
   )
 
+## Intro to the Pain
+
+pres_val_explained <- pres_title %>% 
+  slide_multipanel(title = NULL,
+                   
+  panel(tags$div(tags$div(style = "font-weight:200;margin:auto;font-size: 80px", class = "slide_title",
+      h2("What is Computer System Validation?")),
+      class = "center_content")),
+  
+  panel(tags$div( tags$div(markdown_to_html("
+  Establishing documentary evidence that your
+  
+    - Procedure
+    - Process
+    - Activity
+  
+  is carried out in compliance with a high degree of assurance.
+  ")),class = "center_content"), style = "margin-top: 100px"),
+  
+  panel(tags$div(tags$div(markdown_to_html("
+  Required by Federal Law<br><span style = 'color:orange'>21 CFR 11</span>
+  "), style = "margin:auto"),class = "center_content"),
+  style = "width: 1000px; margin-top: 100px;"),  
+        
+  panel(tags$div(tags$div(markdown_to_html("
+  Improved Quality and Safety
+  
+  Faster Results
+  
+  Increased Trust
+  "), style = "margin:auto"),class = "center_content"),style = "margin-top: 100px;"),
+        
+  panel(tags$div(tags$div(markdown_to_html("
+  Software Validation =/= Verification
+  
+  Does the system behave as we expect
+  
+    - Returns the correct value
+    - Throws an error when values are unexpected
+  "), style = "margin:auto"),class = "center_content"),style = "margin-top: 100px;"),     
+  
+  style = "font-size: 60px;")
+
+pres_val_elements <- pres_val_explained %>% 
+  slide_markdown(title = tags$div(style = 'width:500px',"Elements Validation"),"
+  <div style='font-size: 60px;'>
+  <br>
+  Specifications <br>
+  Code<br>
+  Test Cases<br>
+  Test Case Code<br>
+  Documentation
+  </div>", style = "width:600px;")
+
+pres_pain <-pres_val_elements %>% 
+  slide_multipanel(title = NULL,
+  panel(),
+  panel(
+    div(class = "center_content",
+        div( style = "margin: auto; height: 130%;",
+        img(src = "img/jim_carrey_file.gif", style = "height:100%"),
+        p("https://media1.tenor.com/images/3267a92e265348c0cc435a7989d65e23/tenor.gif", style = "font-size:10px;color:grey")
+  ))))
+
 
 ## Intro To Validation ----
 
-pres_val_intro <- pres_title %>% 
+pres_Friends <- pres_pain %>% 
   slide_multipanel(title = NULL,
   panel(tags$div(
-    tags$p("VALIDATION",
-           style="color: red; font-size: 300px; margin:auto;"),
+    tags$p("VALIDATION",style = "color: red; font-size: 400px; margin:auto; font-family: 'VT323', monospace;"),
     class = "center_content")),
   panel(tags$div(
-    tags$img(src = "img/Rlogo.png", 
-             style = "height:500px; margin:auto;"), 
-    class = "center_content")),
+    tags$div(style = "margin: auto;display: inline-flex; font-family: monospace;",
+             p("+", style = "font-size: 400px;margin-bottom:50px"),
+             tags$img(src = "img/Rlogo.png",style = "height:500px;"), 
+    ),class = "center_content")),
   panel(tags$div(
     tags$div( style = "margin:auto;",
     tags$img(src = "img/step_brothers_best_friends.webp", 
@@ -65,44 +134,10 @@ pres_val_intro <- pres_title %>%
              ),
     class = "center_content")))
 
-pres_val_explained <- pres_val_intro %>% 
+
   
-  slide_multipanel(title = tags$div(style = "font-weight:200","What is Validation?"),
-                   
-  panel(tags$div( tags$div(
-  markdown_to_html("
-  Establishing documentary evidence that your
-  
-    - Procedure
-    - Process
-    - Activity
-  
-  is carried out in compliance with a high degree of assurance.
-  ")),class = "center_content"), style = "margin-top: 100px; font-size: 50px;"),
-  
-  panel(tags$div(tags$div(
-  markdown_to_html("
-  Record proof that our code:
-  
-    - Returns the Expected Values
-    - Returns Errors when data is outside the specifications
-    - Consistently returns the same values
-    - Been tested to a high degree of confidence
-  "),style= "margin:auto"),class = "center_content"), style = "margin-top: 100px; font-size: 60px; width: 1300px"),
-  
-  panel(tags$div(tags$div(
-  markdown_to_html("
-  Improved Quality and Safety
-  
-  Faster Results
-  
-  Increased Trust
-  
-  "), style = "font-size: 80px;margin:auto"),class = "center_content"),
-  style = "margin-top: 100px; font-size: 50px;"))
-  
-## Bio ----
-pres_bio <- pres_val_explained %>%
+# ## Bio ----
+pres_bio <- pres_Friends %>%
   slide_markdown(title = tags$div(style = 'width:500px',"Ellis Hughes"),"
       <div style = 'height:100%'>
         <div style = 'display:inline-block; vertical-align: top; padding-right:20px; font-size: 45px;'>
@@ -117,7 +152,7 @@ pres_bio <- pres_val_explained %>%
         - Seattle Native
         - Cooking!
         <br>
-        - <a href = 'https://twitter.com/ellis_hughes' style = 'text-decoration: none;' class='fa fa-twitter-square'></a> @ellis_hughes
+        - <i href = 'https://twitter.com/ellis_hughes' style = 'text-decoration: none; color: white' class='fa fa-twitter-square'></i> @ellis_hughes
         </div>
         <div style = 'display:inline-block;height:inherit;'>
          <img src = 'https://thebioengineer.github.io/images/r_in_pharma/img/ellis_hughes.jpg' style = '-webkit-transform: rotate(270deg);
@@ -129,110 +164,112 @@ pres_bio <- pres_val_explained %>%
                  margin-top: 100px;'/>
         </div>
       </div>")
-
-## Fred Hutch and SCHARP ----
-pres_FH_scharp <- pres_bio %>% 
-  
-  slide_multipanel(title = "Fred Hutch and SCHARP",
-                   ## Fred Hutch ----
-  panel(HTML("<div style='display:inline-block;padding-top:100px;z-index: 100;position: relative;'>
-                    <style type='text/css'>
-                      .fhcrc_info_container{
-                      	width: 375px;
-                      	display:inline-block;
-                      	margin:auto;
-                      	
-                      }
-                    </style>
-    				        <div class='fhcrc_info_container'>
-    				        	<div>
-    				        		<img src='img/Cellular_Therapy.png' alt='Icon depicting blood stem cell transplantation and immunotherapy' style='margin:auto'/>
-    				        	</div>
-    				        	<h4 style='text-align: center;'>Blood Stem Cell Transplantation<br>and Immunotherapy</h4>  
-    				        </div>
-    				        <div class='fhcrc_info_container'>
-    				        	<div>
-    				        		<img src='img/Risk_Factors.png' style='margin:auto'/>
-    				        	</div>
-    				        	<h4 style='text-align: center;'>Cancer Risk Factors, and Causes,<br>Prevention and Outcomes</h4>  
-    				        </div>
-    				        <div class='fhcrc_info_container'>
-    				        	<div>
-    				        		<img src='img/Vaccine_Development.png' style='margin:auto'/>
-    				        	</div>
-    				        	<h4 style='text-align: center;'>Vaccine Development<br>and Virus-Associated Cancers</h4>  
-    				        </div>				
-    				      </div>
-    			        
-    				      <div style = 'z-index: 100;position: relative;'>
-    				        <div style='margin:auto;width:70%'>
-    				        <div class='fhcrc_info_container'>
-    				        	<div>
-    				        		<img src='img/Molecular_Underpinnings.png' style='margin:auto'/>
-    				        	</div>
-    				        	<h4 style='text-align: center;'>Molecular Underpinnings of Cancer</h4>  
-    				        </div>
-            
-    				        <div class='fhcrc_info_container'>
-    				        	<div>
-    				        		<img src='img/Tumor_Specific.png' style='margin:auto'/>
-    				        	</div>
-    				        	<h4 style='text-align: center;'>Tumor-Specific Translational Research</h4>  
-    				        </div>
-    				        </div>
-    				      </div>",
-    				      HTML("
-    				      <div style='right: -30%;position: absolute;top: 25%;z-index: 0;opacity: 0.3;'>
-    				      <img src='img/FH_logo_improved.png'/>
-    				      </div>"))),
-   ## SCHARP ----
-   panel(HTML("
-   <div class = 'center_content'><img src='img/logos/scharp.png' style='max-width:800px;margin: auto;'/></div>
-   ")))
+# 
+# ## Fred Hutch and SCHARP ----
+# pres_FH_scharp <- pres_bio %>% 
+#   
+#   slide_multipanel(title = "Fred Hutch and SCHARP",
+#    ## Fred Hutch ----
+#   panel(HTML("<div style='display:inline-block;padding-top:100px;z-index: 100;position: relative;'>
+#                     <style type='text/css'>
+#                       .fhcrc_info_container{
+#                       	width: 375px;
+#                       	display:inline-block;
+#                       	margin:auto;
+#                       	
+#                       }
+#                     </style>
+#     				        <div class='fhcrc_info_container'>
+#     				        	<div>
+#     				        		<img src='img/Cellular_Therapy.png' alt='Icon depicting blood stem cell transplantation and immunotherapy' style='margin:auto'/>
+#     				        	</div>
+#     				        	<h4 style='text-align: center;'>Blood Stem Cell Transplantation<br>and Immunotherapy</h4>  
+#     				        </div>
+#     				        <div class='fhcrc_info_container'>
+#     				        	<div>
+#     				        		<img src='img/Risk_Factors.png' style='margin:auto'/>
+#     				        	</div>
+#     				        	<h4 style='text-align: center;'>Cancer Risk Factors, and Causes,<br>Prevention and Outcomes</h4>  
+#     				        </div>
+#     				        <div class='fhcrc_info_container'>
+#     				        	<div>
+#     				        		<img src='img/Vaccine_Development.png' style='margin:auto'/>
+#     				        	</div>
+#     				        	<h4 style='text-align: center;'>Vaccine Development<br>and Virus-Associated Cancers</h4>  
+#     				        </div>				
+#     				      </div>
+#     			        
+#     				      <div style = 'z-index: 100;position: relative;'>
+#     				        <div style='margin:auto;width:70%'>
+#     				        <div class='fhcrc_info_container'>
+#     				        	<div>
+#     				        		<img src='img/Molecular_Underpinnings.png' style='margin:auto'/>
+#     				        	</div>
+#     				        	<h4 style='text-align: center;'>Molecular Underpinnings of Cancer</h4>  
+#     				        </div>
+#             
+#     				        <div class='fhcrc_info_container'>
+#     				        	<div>
+#     				        		<img src='img/Tumor_Specific.png' style='margin:auto'/>
+#     				        	</div>
+#     				        	<h4 style='text-align: center;'>Tumor-Specific Translational Research</h4>  
+#     				        </div>
+#     				        </div>
+#     				      </div>",
+#     				      HTML("
+#     				      <div style='right: -30%;position: absolute;top: 25%;z-index: 0;opacity: 0.3;'>
+#     				      <img src='img/FH_logo_improved.png'/>
+#     				      </div>"))),
+#    ## SCHARP ----
+#    panel(HTML("
+#    <div class = 'center_content'>
+#    <img src='img/logos/scharp.png' style='max-width:800px;margin: auto;'/>
+#    <p style='font-size: 50px'> Worldwide Impact on HIV/AIDS Vaccine Research </p> 
+#    </div>
+#    ")))
 
 ## Prompted Task ----
-pres_assays <- pres_FH_scharp %>% 
-  slide_multipanel(title = tags$div(style = 'padding-right: 100px;',"Assay Processing Pipelines"),
-      panel(tags$div(tags$img(src = 'img/scharp_world.jpeg', style = "height:500px; margin:auto;"), class = "center_content")),
-      panel(tags$div(tags$img(src = 'img/crowd_of_people.png', style = "height:300px; margin:auto;"), class = "center_content")),
-      panel(HTML("<img src='img/sample_coll.png'  style='max-height:600px; padding-top:200px'/>")),
-      panel(tags$div(tags$img(src = 'img/ab.png', style = "height:300px; margin:auto;"), class = "center_content")),
-      panel(HTML("<img src='img/sample_coll.png'  style='max-height:600px; padding-top:200px; position: relative;z-index: 10;'/>
-                  <img src='img/sample_coll.png'  style='max-height:600px; padding-top:180px; padding-left: 30px;position: relative;z-index: 8; margin-top:-500px;'/>
-                  <img src='img/sample_coll.png'  style='max-height:600px; padding-top:180px; padding-left: 60px;position: relative; z-index: 6; margin-top:-500px;'/>")),
-      panel(tags$div(tags$img(src = 'img/antibody_thinker.PNG', style = "height:600px; margin:auto;"), class = "center_content")),
-      panel(tags$div(tags$img(src = 'img/assaying_clear.png', style = "height:500px; margin:auto;"), class = "center_content")),
-      panel(tags$div(tags$img(src = 'img/visc.PNG', style = "height:500px; margin:auto;"), class = "center_content")))
-
-
-
-pres_prompt <- pres_assays %>% 
-  slide_wide(title = NULL,
-  markdown_to_html("
-  Need a validated pipeline
-  
-  - -rigid enough to provide form and consistency
-  - -flexible enough to handle potential changes
-  
-  "), style = "font-size: 60px")
-
-pres_assays2 <- pres_prompt %>% 
-  slide_wide(title = NULL,
-             tags$div(tags$img(src = 'img/busybusybusy.gif', style = "height:600px; margin:auto;"), class = "center_content"))
-
-pres_prompt2 <- pres_assays2 %>% 
-  slide_wide(title = NULL,
-  markdown_to_html("
-  We need a <span style = 'color:red;font-size: 80px'>validated</span> pipeline
-  
-  - -rigid enough to provide form and consistency
-  - -flexible enough to handle potential changes
-  
-  "), style = "font-size: 60px")
+# pres_assays <- pres_FH_scharp %>% 
+#   slide_multipanel(title = tags$div(style = 'padding-right: 100px;',"Assay Processing Pipelines"),
+#       panel(tags$div(tags$img(src = 'img/scharp_world.jpeg', style = "height:500px; margin:auto;"), class = "center_content")),
+#       panel(tags$div(tags$img(src = 'img/crowd_of_people.png', style = "height:300px; margin:auto;"), class = "center_content")),
+#       panel(HTML("<img src='img/sample_coll.png'  style='max-height:600px; padding-top:200px'/>")),
+#       panel(tags$div(tags$img(src = 'img/ab.png', style = "height:300px; margin:auto;"), class = "center_content")),
+#       panel(HTML("<img src='img/sample_coll.png'  style='max-height:600px; padding-top:200px; position: relative;z-index: 10;'/>
+#                   <img src='img/sample_coll.png'  style='max-height:600px; padding-top:180px; padding-left: 30px;position: relative;z-index: 8; margin-top:-500px;'/>
+#                   <img src='img/sample_coll.png'  style='max-height:600px; padding-top:180px; padding-left: 60px;position: relative; z-index: 6; margin-top:-500px;'/>")),
+#       panel(tags$div(tags$img(src = 'img/antibody_thinker.PNG', style = "height:600px; margin:auto;"), class = "center_content")),
+#       panel(tags$div(tags$img(src = 'img/assaying_clear.png', style = "height:500px; margin:auto;"), class = "center_content")),
+#       panel(tags$div(tags$img(src = 'img/visc.PNG', style = "height:500px; margin:auto;"), class = "center_content")))
+# 
+# 
+# pres_prompt <- pres_assays %>% 
+#   slide_wide(title = NULL,
+#   markdown_to_html("
+#   Need a validated pipeline
+#   
+#   - -rigid enough to provide form and consistency
+#   - -flexible enough to handle potential changes
+#   
+#   "), style = "font-size: 60px")
+# 
+# pres_assays2 <- pres_prompt %>% 
+#   slide_wide(title = NULL,
+#              tags$div(tags$img(src = 'img/busybusybusy.gif', style = "height:600px; margin:auto;"), class = "center_content"))
+# 
+# pres_prompt2 <- pres_assays2 %>% 
+#   slide_wide(title = NULL,
+#   markdown_to_html("
+#   We need a <span style = 'color:red;font-size: 80px'>validated</span> pipeline
+#   
+#   - -rigid enough to provide form and consistency
+#   - -flexible enough to handle potential changes
+#   
+#   "), style = "font-size: 60px")
 
 
 ## Validation ----
-pres_val_elements <- pres_prompt2 %>% 
+pres_val_elements <- pres_bio %>% 
   slide_markdown(title = tags$div(style = 'width:500px',"Validation"),"
   <div style='font-size: 60px;'>
   <br>
@@ -289,8 +326,8 @@ pres_val_specification <- pres_val_elements2 %>%
   Consult Subject Matter Experts
   "),
   div(
-    img(src= 'img/Herc_current_state.webp',style = 'height:300px;'),
-    p(style = 'font-size: 10px; color: grey;','https://66.media.tumblr.com/91ad717cd3585e96f22705abe72e6f4b/tumblr_osvrktrJDd1qe6vjyo1_500.gifv'))
+    img(src = 'img/Herc_current_state.webp', style = 'height:300px;'),
+    p(style = 'font-size: 10px; color: grey;', 'https://66.media.tumblr.com/91ad717cd3585e96f22705abe72e6f4b/tumblr_osvrktrJDd1qe6vjyo1_500.gifv'))
   ),
   style = "font-size: 40px; width: "),
   
@@ -301,9 +338,9 @@ pres_val_specification <- pres_val_elements2 %>%
   Set success criteria
 
   "),
-  div( style="margin-top:130px;",
-    img(src= 'img/hercules_im_a_hero.gif',style = 'height:300px;'),
-    p(style = 'font-size: 10px; color: grey;','https://66.media.tumblr.com/62aa49e2504ed9d1af0253a10ceae0de/tumblr_o2agxpicGU1ub6o1yo1_500.gifv'))
+  div( style = "margin-top:130px;",
+    img(src = 'img/hercules_im_a_hero.gif', style = 'height:300px;'),
+    p(style = 'font-size: 10px; color: grey;', 'https://66.media.tumblr.com/62aa49e2504ed9d1af0253a10ceae0de/tumblr_o2agxpicGU1ub6o1yo1_500.gifv'))
   ),
   style = "font-size: 40px;"),
   
@@ -328,7 +365,7 @@ pres_val_specification <- pres_val_elements2 %>%
   
   Augment Rmarkdown with Roxygen 
   
-    - Specifcation Title
+    - Specification Title
     - Record who and when
   ", style = "font-size: 40px;"),
   
@@ -379,22 +416,22 @@ pres_val_code <- pres_val_specification %>%
     markdown_to_html("
   Dont worry, I won't be telling you how to code            
   "),style= "margin:auto"),class = "center_content"), style = "margin-top: 100px; font-size: 50px;"),
-  
-  panel(div(markdown_to_html("
-  ## Team Coding Principals
-  
-  - Follow Good Programming Practices
-  - Define function requirements
-  
-  ")),
-  # div(img(src= 'img/kondo_calm.gif', style = 'height:400px'),
-  # p(style = 'font-size: 10px; color: grey;','https://miro.medium.com/max/694/1*G45BFLThPqHFW9C16TNx5Q.gif')))
-  style = "font-size: 40px"),
+  # 
+  # panel(div(markdown_to_html("
+  # ## Team Coding Principals
+  # 
+  # - Follow Good Programming Practices
+  # - Define function requirements
+  # 
+  # ")),
+  # # div(img(src= 'img/kondo_calm.gif', style = 'height:400px'),
+  # # p(style = 'font-size: 10px; color: grey;','https://miro.medium.com/max/694/1*G45BFLThPqHFW9C16TNx5Q.gif')))
+  # style = "font-size: 40px"),
   
   panel_markdown("
-  ## Document your code
+  ## Roxygenize
   <div style = 'display: flex;vertical-align: top;'>
-  <div style = 'display:inline-block'>
+  <div style = 'display:inline-block; color: light:grey'>
   - Standard Roxygen Documentation
     - @title
     - @description
@@ -404,24 +441,11 @@ pres_val_code <- pres_val_specification %>%
   </div>
   <div style = 'display:inline-block;'>
   - 'Unique' Validation tags
-    - @section Last Edited By
-    - @section Last Edit Date
+    - @section Last updated by:
+    - @section Last updated date
   </div>
   </div>
-  
-  Use comments to describe what a chunk does
-
   ", style = "width:1000px;font-size: 40px"),
-  
-  panel_markdown("
-  ```{r eval=FALSE, echo = TRUE}
-  foo <- function(bar, baz){
-    print(bar)
-    Sys.sleep(3)
-    print(baz)
-  }
-  ```
-  ", style = "width: 1400px"),
   
   panel_markdown("
   ```{r eval=FALSE, echo = TRUE}
@@ -433,7 +457,7 @@ pres_val_code <- pres_val_specification %>%
   #' @example
   #' joke('To the person who stole my presentation -','I hope you do not Excel.')
   #'      
-  #' @section Last updated by:
+  #' @section Last Eed by:
   #' Ellis Hughes
   #' @section Last updated date:
   #' 2020/01/29
@@ -457,16 +481,16 @@ pres_val_code <- pres_val_specification %>%
   
   ",style = "font-size: 40px"),
 
-  panel_markdown("
-  ## Github
-
-  - Branching
-  - Pull Requests
-  - Visually Track Progress
-
-  <img src='img/GitHub-Mark-Light-120px-plus.png' style='height:200px;margin:auto;'/>
-
-  ",style = "font-size: 40px"),
+  # panel_markdown("
+  # ## Github
+  # 
+  # - Branching
+  # - Pull Requests
+  # - Visually Track Progress
+  # 
+  # <img src='img/GitHub-Mark-Light-120px-plus.png' style='height:200px;margin:auto;'/>
+  # 
+  # ",style = "font-size: 40px"),
   
   panel_markdown("
   ## Modular Functions, Documentation and Tests
@@ -540,7 +564,7 @@ pres_val_test <- pres_val_code %>%
   
   Augment Rmarkdown with Roxygen 
   
-    - Specifcation Title
+    - Specification Title
     - Record who and when
   ",style = "font-size: 40px;"),
   
@@ -556,7 +580,7 @@ pres_val_test <- pres_val_code %>%
 
   + Setup: Create RStudio::Conf 2020 Presentation 
     
-  + T 1.1 Test that specifications 1.2, 1.2, and 1.3 by practicing presentation on unsuspecting co-workers
+  + T 1.1 Test that specifications 1.2, 1.2, and 1.3 are met by practicing presentation on unsuspecting co-workers
   
     - Present to a captive audience of coworkers and later your significant other
     +  T 1.1.1 Test that the presentation was informative by asking what your audience learned.
@@ -621,7 +645,7 @@ pres_val_test_code <- pres_val_test %>%
   
   Augment Rmarkdown with Roxygen 
   
-    - Specifcation Title
+    - Specification Title
     - Record who and when
   ",style = "font-size: 40px;"),
   
