@@ -30,8 +30,8 @@ pres <- sidescroller(
 pres_title <- pres %>% 
   title_slide(
     title = tags$div(style = "font-weight:200","Approaches to Assay Processing Package Validation"),
-    subtitle = c("Ellis Hughes",
-                 "@ellis_hughes",
+    subtitle = list("Ellis Hughes",
+                 HTML("<p class='subtitle_text'><i href = 'https://twitter.com/ellis_hughes' style = 'text-decoration: none; color: white' class='fa fa-twitter'></i> @ellis_hughes</p>"),
                  "Fred Hutch Cancer Research Center - SCHARP - VISC",
                  "rstudio::conf(2020L)"
                  ),
@@ -48,78 +48,125 @@ pres_title <- pres %>%
 pres_val_explained <- pres_title %>% 
   slide_multipanel(title = NULL,
                    
-  panel(tags$div(tags$div(style = "font-weight:200;margin:auto;font-size: 80px", class = "slide_title",
-      h2("What is Computer System Validation?")),
+  panel(tags$div(tags$div(style = "font-weight:200;margin:auto;font-size: 80px",
+      p("What is Computer System Validation?")),
       class = "center_content")),
   
   panel(tags$div( tags$div(markdown_to_html("
-  Establishing documentary evidence that your
+  Establishing documentary evidence that your software performs a
   
     - Procedure
     - Process
     - Activity
   
-  is carried out in compliance with a high degree of assurance.
+  in compliance with specifications with a high degree of assurance.
   ")),class = "center_content"), style = "margin-top: 100px"),
+  
+  panel(tags$div(tags$div(markdown_to_html("
+  <p style = 'font-size: 60px'>Validatation</p>
+  
+    - Does the system behave as we expect
+    - Returns the correct value
+    - Throws an error when values are unexpected
+  
+  <p style = 'font-size: 60px'>Verification</p>
+  
+    - Do the outputs match between two approaches
+  "), style = "margin:auto"),class = "center_content")), 
   
   panel(tags$div(tags$div(markdown_to_html("
   Required by Federal Law<br><span style = 'color:orange'>21 CFR 11</span>
   "), style = "margin:auto"),class = "center_content"),
-  style = "width: 1000px; margin-top: 100px;"),  
+  style = "width: 1000px; margin-top: 100px;font-size:70px;" ),  
         
   panel(tags$div(tags$div(markdown_to_html("
   Improved Quality and Safety
   
-  Faster Results
+  Creates Faster Results
   
-  Increased Trust
+  Promotes Trust
   "), style = "margin:auto"),class = "center_content"),style = "margin-top: 100px;"),
-        
-  panel(tags$div(tags$div(markdown_to_html("
-  Software Validation =/= Verification
-  
-  Does the system behave as we expect
-  
-    - Returns the correct value
-    - Throws an error when values are unexpected
-  "), style = "margin:auto"),class = "center_content"),style = "margin-top: 100px;"),     
-  
-  style = "font-size: 60px;")
+  style = "font-size: 50px;")
 
-pres_val_elements <- pres_val_explained %>% 
-  slide_markdown(title = tags$div(style = 'width:500px',"Elements Validation"),"
-  <div style='font-size: 60px;'>
-  <br>
-  Specifications <br>
-  Code<br>
-  Test Cases<br>
-  Test Case Code<br>
-  Documentation
-  </div>", style = "width:600px;")
-
-pres_pain <-pres_val_elements %>% 
-  slide_multipanel(title = NULL,
-  panel(),
+pres_pain <-pres_val_explained %>% 
+  slide_multipanel(title = tags$div(style = 'width:500px',"Validation in Practice"),
+  
+  panel_markdown("
+  
+  <p style = 'font-size: 60px'>Validation can be a high bar</p>
+  
+    - Labor-hours
+    - Progress tracking
+  ", style = "margin-top: 100px; font-size: 50px"),
+  
   panel(
     div(class = "center_content",
         div( style = "margin: auto; height: 130%;",
         img(src = "img/jim_carrey_file.gif", style = "height:100%"),
         p("https://media1.tenor.com/images/3267a92e265348c0cc435a7989d65e23/tenor.gif", style = "font-size:10px;color:grey")
-  ))))
+  ))),
+  
+  panel(div(div(markdown_to_html("
+  Develop and get signoff on specifications"),
+  style = "width: 1100px"),
+  style = "position:fixed;"),
+  style = "margin-top: 100px; font-size: 50px; font-size: 50px; margin-right: 500px;"),
+  
+  panel(div(div(markdown_to_html("
+  Write Code following GPP and record function authorship"),
+  style = "width: 1100px"),
+  style = "position:fixed;"),  
+  style = "margin-top: 200px; font-size: 50px; margin-left: -500px;"),
+  
+  panel(div(div(markdown_to_html("
+  Develop Test Cases and get signoff"), 
+  style = "width: 1100px"),
+  style = "position:fixed;"),
+  style = "margin-top: 300px; font-size: 50px; margin-left: -500px;"),
+  
+  panel(div(div(markdown_to_html("
+  Write Test Code based on Test Cases"),
+  style = "width: 1100px"),
+  style = "position:fixed;"),
+  style = "margin-top: 400px; font-size: 50px; margin-left: -500px;"),
+  
+  panel(div(div(markdown_to_html("
+  Manually evaluate and document test code results"),
+  style = "width: 1100px"),
+  style = "position:fixed;"),
+  style = "margin-top: 500px; font-size: 50px; margin-left: -500px;"),
+  
+  panel(div(div(markdown_to_html("
+  Review documentation and get final signoffs for release"),
+  style = "width: 1100px"),
+  style = "position:fixed;"),
+  style = "margin-top: 600px; font-size: 50px; margin-left: -500px;"),
+  
+  panel(
+    div(class = "center_content",
+        div( style = "margin: auto; height: 130%;",
+             img(src = "img/mario_game_over.gif", style = "height:100%"),
+             p("https://media1.tenor.com/images/3267a92e265348c0cc435a7989d65e23/tenor.gif", style = "font-size:10px;color:grey")
+        )),
+    style = "padding-left: 500px;padding-right: 500px;")
+  )
 
 
 ## Intro To Validation ----
 
 pres_Friends <- pres_pain %>% 
   slide_multipanel(title = NULL,
+                   
   panel(tags$div(
     tags$p("VALIDATION",style = "color: red; font-size: 400px; margin:auto; font-family: 'VT323', monospace;"),
     class = "center_content")),
+  
   panel(tags$div(
     tags$div(style = "margin: auto;display: inline-flex; font-family: monospace;",
              p("+", style = "font-size: 400px;margin-bottom:50px"),
              tags$img(src = "img/Rlogo.png",style = "height:500px;"), 
     ),class = "center_content")),
+  
   panel(tags$div(
     tags$div( style = "margin:auto;",
     tags$img(src = "img/step_brothers_best_friends.webp", 
@@ -127,12 +174,17 @@ pres_Friends <- pres_pain %>%
     tags$p("https://bethgittings.tumblr.com/post/34641171446",
            style = "font-size:10px;color:grey")),
     class = "center_content")),
+  
   panel(tags$div(
     tags$div(style = "margin:auto;",
               tags$img(src = "img/rmarkdown_testthat_roxygen2.png", 
                        style = "height:600px; margin:auto;")
              ),
-    class = "center_content")))
+    class = "center_content")),
+  
+  panel(tags$iframe(src = "img/Validate.pdf", style = "width: 1200px; height: 100%", frameborder="0", marginwidth="0"))
+  
+  )
 
 
   
@@ -148,9 +200,6 @@ pres_bio <- pres_Friends %>%
         - Community:
           - Seattle UseR Organizer
           - Cascadia R Conf Committee
-        <br><br>
-        - Seattle Native
-        - Cooking!
         <br>
         - <i href = 'https://twitter.com/ellis_hughes' style = 'text-decoration: none; color: white' class='fa fa-twitter-square'></i> @ellis_hughes
         </div>
@@ -431,7 +480,7 @@ pres_val_code <- pres_val_specification %>%
   panel_markdown("
   ## Roxygenize
   <div style = 'display: flex;vertical-align: top;'>
-  <div style = 'display:inline-block; color: light:grey'>
+  <div style = 'display:inline-block; color: grey'>
   - Standard Roxygen Documentation
     - @title
     - @description
@@ -472,7 +521,7 @@ pres_val_code <- pres_val_specification %>%
   ", style = "width: 1400px"),
   
   panel_markdown("
-  ## Unit Test your code
+  ## Unit Tests
   
   - As the function author, does it behave as you expect
   - Protection from accidental changes
@@ -658,7 +707,7 @@ pres_val_test_code <- pres_val_test %>%
   
   #' @title RStudio Conf 2020 Success 
   #' @section Last updated by: 
-  #' Ellis Hughes
+  #' Not Ellis Hughes
   #' @section Last update date:
   #' 2020/01/29
   
