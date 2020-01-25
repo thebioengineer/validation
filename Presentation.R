@@ -511,7 +511,7 @@ pres_val_code <- pres_val_specification %>%
   #' @example
   #' joke('To the person who stole my presentation -','I hope you do not Excel.')
   #'      
-  #' @section Last Eed by:
+  #' @section Last Edited by:
   #' Ellis Hughes
   #' @section Last updated date:
   #' 2020/01/29
@@ -535,7 +535,7 @@ pres_val_code <- pres_val_specification %>%
   #' @example
   #' joke('To the person who stole my presentation -','I hope you do not Excel.')
   #'      
-  #' @section Last Eed by:
+  #' @section Last Edited by:
   #' Not Ellis Hughes
   #' @section Last updated date:
   #' 2020/01/30
@@ -820,7 +820,7 @@ pres_val_doc <- pres_val_test_code %>%
     - Record results of test code
   ",style = "font-size: 40px;"),
   
-  panel(div(HTML("<img src='img/captain_planet.gif' style = 'height:800px;margins:auto' />"),class = "center_content")),
+  panel(div(HTML("<img src='img/captain_planet.gif' style = 'height:800px;margin:auto' />"),class = "center_content")),
   
   panel_markdown("
   # Single Rmarkdown 
@@ -890,13 +890,17 @@ pres_final <- pres_conclusion %>%
    <div style = 'margin:auto;padding-top:50px;text-align:left; z-index:21; position: relative;'>
    <br>
    <div style = 'background-color: #ffffff;opacity: .5;border-radius: 10px;width: 900px;padding: 20px;font-size: 40px;margin:auto;color: black;'>
-    <p style = 'margin-bottom: 0; font-size: 50px;'>Slides and a sample package are available at <br>github.com/thebioengineer/RStudio_conf_2020</p>
+    <p style = 'margin-bottom: 0; font-size: 50px;'>Slides and a sample package are available at <br>thebioengineer.github.io/Validation</p>
     <br>
-    <p style = 'margin-bottom: 0;'><i href = 'https://twitter.com/ellis_hughes' style = 'text-decoration: none;'  class='fa fa-twitter-square'></a> @ellis_hughes</p>
-    <p style = 'margin-bottom: 0;'><i href = 'https://linkedin.com/in/ellishughes' style = 'text-decoration: none;' class='fa fa-linkedin-square'></a> linkedin.com/in/ellishughes </p>
-    <p style = 'margin-bottom: 0;'><i href = 'https://github.com/thebioengineer' style = 'text-decoration: none;' class='fa fa-github-square'></a> github.com/thebioengineer </p>
+    <div style = 'margin:auto'>
+    <p style = 'margin-bottom: 0;'><i style = 'text-decoration: none;'  class='fa fa-twitter-square'></i> @ellis_hughes</p>
+    <p style = 'margin-bottom: 0;'><i style = 'text-decoration: none;' class='fa fa-linkedin-square'></i> linkedin.com/in/ellishughes </p>
+    <p style = 'margin-bottom: 0;'><i style = 'text-decoration: none;' class='fa fa-github-square'></i> github.com/thebioengineer </p>
+    </div>
     </div>
    </div>
+   
+   <p style = 'margin-bottom: 0;'> Presentation brought to you by {sidescroller} </p>
    
    <div style='right: -20%;position: absolute;top: 25%;z-index: 0;opacity: 0.5;'>
     <img src='img/FH_logo_improved.png'/>
