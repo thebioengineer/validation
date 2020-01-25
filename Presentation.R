@@ -38,9 +38,9 @@ pres_title <- pres %>%
     style = "font-family: 'Darker Grotesque',Arial;
     font-size: 40px;
     font-weight: 300;
-    background: black;
-    ",
-    text_align = "left"
+    background-image: url(img/rstudio_conf_background.png);
+    background-repeat: no-repeat;
+    background-size: cover;"
   )
 
 ## Intro to the Pain
@@ -76,7 +76,7 @@ pres_val_explained <- pres_title %>%
   "), style = "margin:auto"),class = "center_content"),style = "margin-top: 100px;"),
   
   panel(tags$div(tags$div(markdown_to_html("
-  <p style = 'font-size: 60px'>Validatation</p>
+  <p style = 'font-size: 60px'>Validation</p>
   
     - Does the system behave as we expect
     - Returns the correct value
@@ -84,7 +84,7 @@ pres_val_explained <- pres_title %>%
   
   <p style = 'font-size: 60px'>Verification</p>
   
-    - Do the outputs match between two approaches
+    - Do the outputs match between two independent approaches
   "), style = "margin:auto"),class = "center_content")), 
   
   style = "font-size: 50px;")
@@ -97,7 +97,7 @@ pres_pain <-pres_val_explained %>%
   <p style = 'font-size: 60px'>Validation can be a high bar</p>
   
     - Labor-hours
-    - Progress tracking
+    - Tracking Progess
   ", style = "margin-top: 100px; font-size: 50px"),
   
   panel(
@@ -271,8 +271,10 @@ pres_FH_scharp <- pres_bio %>%
    ## SCHARP ----
    panel(HTML("
    <div class = 'center_content'>
-   <img src='img/logos/scharp.png' style='max-width:800px;margin: auto;'/>
-   <p style='font-size: 50px'> Worldwide Impact on HIV/AIDS Vaccine Research </p>
+    <div style = 'margin:auto'>
+    <img src='img/logos/scharp.png' style='max-width:800px;margin: auto;'/>
+    <p style='font-size: 50px'> Worldwide Impact on HIV/AIDS Vaccine Research </p>
+    </div>
    </div>
    ")))
 
@@ -439,24 +441,6 @@ pres_val_specification <- pres_val_elements2 %>%
   ",style = "font-size: 40px;"),
   
   panel_markdown("
-  ## Example
-  
-  ```{r eval=FALSE, echo = TRUE}
-  #' @title Specifications For RStudio Conf 2020 Success
-  #' @section Last updated by:
-  #' Ellis Hughes
-  #' @section Last update date:
-  #' 2020/01/29
-  
-  + _Specifications_
-    + 1.1 Presentation must explain validation procedure.
-    + 1.2 Inform and document each step necessary for success.
-    + 1.3 Be entertaining by causing at least 3 people to laugh.
-    + 1.4 Fame and Glamour and start branded accessories chain.
-  ```
-  ",style = "font-size: 40px;"),
-  
-  panel_markdown("
   ## Modular Specifications
   
   - Easily shift and update
@@ -534,8 +518,31 @@ pres_val_code <- pres_val_specification %>%
   
   joke <- function(Setup, Punchline){
     print(Setup)
-    #Pause for the punchline
     Sys.sleep(3)
+    print(Punchline)
+  }
+  ```
+  ", style = "width: 1400px"),
+  
+  panel_markdown("
+  ```{r eval=FALSE, echo = TRUE}
+  #' @title Deliver Jokes
+  #' @description 
+  #'    Deliver jokes with punchlines. Wait 3 seconds for the punchline.
+  #' @param Setup Joke setup
+  #' @param Punchline Joke punchline
+  #' @param wait how long to wait to serve the punchline
+  #' @example
+  #' joke('To the person who stole my presentation -','I hope you do not Excel.')
+  #'      
+  #' @section Last Eed by:
+  #' Not Ellis Hughes
+  #' @section Last updated date:
+  #' 2020/01/30
+  
+  joke <- function(Setup, Punchline, wait = 3){
+    print(Setup)
+    Sys.sleep(wait)
     print(Punchline)
   }
   ```
@@ -746,14 +753,31 @@ pres_val_test_code <- pres_val_test %>%
   
   panel_markdown("
   
-  ## testthat Reporter Objects
+  ## testthat 
+  
+    - Familar framework
+    - Can run and developed interactively
+    - Automation
+    
+  ",style = "font-size: 40px;"),
+  
+  panel_markdown("
+  
+  # Reporter Objects
   
     - Track each test and expectation
     - Reports Success
     - Records Failure mode
+    - Easily access contents
+                 
+  ",style = "font-size: 40px;"),
+  
+  panel_markdown("
   
   Using a custom print function:
+
   <img src='img/test_table_example.PNG' style='width: 700px'/>
+  
   ",style = "font-size: 40px;"),
   
   panel_markdown("
@@ -862,9 +886,7 @@ pres_conclusion <- pres_val_doc2 %>%
                    
 pres_final <- pres_conclusion %>%  
   slide_markdown( title = tags$div(style = 'width:1600px; font-size: 120px',"Thank You"),"
-   ## Many Thanks to the folks at RStudio for organizing this great event!
-   
-   
+  
    <div style = 'margin:auto;padding-top:50px;text-align:left; z-index:21; position: relative;'>
    <br>
    <div style = 'background-color: #ffffff;opacity: .5;border-radius: 10px;width: 900px;padding: 20px;font-size: 40px;margin:auto;color: black;'>

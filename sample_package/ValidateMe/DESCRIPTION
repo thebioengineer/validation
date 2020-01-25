@@ -1,11 +1,11 @@
 Package: ValidateMe
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Example case of documenting the validation elements of a package
 Version: 0.1.0
-Author: Who wrote it
+Author: Ellis Hughes
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: This package is for demonstrating the elements required to validate a package. 
+    By providing the package with the functions and setup, anyone can do a validation.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
