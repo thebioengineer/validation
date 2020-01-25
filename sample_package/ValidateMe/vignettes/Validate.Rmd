@@ -5,12 +5,13 @@ date: "2020-01-29"
 output: VISCtemplates::visc_pdf_document
 toc: true
 dropcc: true
+dropVISClogo: true
 vignette: >
-  %\VignetteIndexEntry{scharpbama Function Validation Report}
-  \usepackage[utf8]{inputenc}
+  %\VignetteIndexEntry{Sample Validation Report}
   %\VignetteEngine{knitr::rmarkdown_notangle}
 header-includes:
   - \usepackage[dvipsnames, table]{xcolor}
+  - \usepackage{float}
 ---
 
 \emergencystretch 3em <!--   -->
@@ -23,6 +24,7 @@ library(testthat)
 library(here)
 library(knitr)
 library(kableExtra)
+
 opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -32,13 +34,11 @@ opts_chunk$set(
   message = FALSE,
   tidy = FALSE
 )
+
 test_code_dir <- here("vignettes", "Validation", "Test_Case_Code")
 spec_dir <- here("vignettes","Validation", "Specifications")
 test_case_dir <- here("vignettes","Validation", "Test_Cases")
-testResults <- list()
 
-source(here("vignettes", "evaluate_specification.R")) # deprecated functions
-source(here("vignettes", "SCHARP_evaluate.R"))
 source(here("vignettes", "helper_test_code.R")) # handles environment and access to test_that contents
 source(here("vignettes", "roxy_block_details.R")) # scrapes roxygen block for authorship details
 
