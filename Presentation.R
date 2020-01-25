@@ -50,7 +50,7 @@ pres_val_explained <- pres_title %>%
                    
   panel(tags$div(tags$div(style = "font-weight:200;margin:auto;font-size: 80px",
       p("What is Computer System Validation?")),
-      class = "center_content")),
+      class = "center_content"), style = "width:1200px"),
   
   panel(tags$div( tags$div(markdown_to_html("
   Establishing documentary evidence that your software performs a
@@ -61,6 +61,19 @@ pres_val_explained <- pres_title %>%
   
   in compliance with specifications with a high degree of assurance.
   ")),class = "center_content"), style = "margin-top: 100px"),
+  
+  panel(tags$div(tags$div(markdown_to_html("
+  Required for FDA submission<br><span style = 'color:orange'>21 CFR 11</span><br>General Principles of Software Validation (FDA 2002)
+  "), style = "margin:auto"),class = "center_content"),
+  style = "width: 1000px; margin-top: 100px;font-size:70px;" ),  
+        
+  panel(tags$div(tags$div(markdown_to_html("
+  Improved Quality and Safety
+  
+  Creates Faster Results
+  
+  Promotes Trust
+  "), style = "margin:auto"),class = "center_content"),style = "margin-top: 100px;"),
   
   panel(tags$div(tags$div(markdown_to_html("
   <p style = 'font-size: 60px'>Validatation</p>
@@ -74,18 +87,6 @@ pres_val_explained <- pres_title %>%
     - Do the outputs match between two approaches
   "), style = "margin:auto"),class = "center_content")), 
   
-  panel(tags$div(tags$div(markdown_to_html("
-  Required by Federal Law<br><span style = 'color:orange'>21 CFR 11</span>
-  "), style = "margin:auto"),class = "center_content"),
-  style = "width: 1000px; margin-top: 100px;font-size:70px;" ),  
-        
-  panel(tags$div(tags$div(markdown_to_html("
-  Improved Quality and Safety
-  
-  Creates Faster Results
-  
-  Promotes Trust
-  "), style = "margin:auto"),class = "center_content"),style = "margin-top: 100px;"),
   style = "font-size: 50px;")
 
 pres_pain <-pres_val_explained %>% 
@@ -391,19 +392,22 @@ pres_val_specification <- pres_val_elements2 %>%
   ),
   style = "font-size: 40px;"),
   
-  panel(div(div(markdown_to_html("
   
-  Be language agnostic
   
-  Leave details in how to complete task out
   
-  Use specific success measurements
-  
-  "), style = "margin:auto;font-size: 50px; font-weight: 600"), class = "center_content"),
-  style = "font-size: 35px; color: red;"),
+  # panel(div(div(markdown_to_html("
+  # 
+  # Be language agnostic
+  # 
+  # Leave details in how to complete task out
+  # 
+  # Use specific success measurements
+  # 
+  # "), style = "margin:auto;font-size: 50px; font-weight: 600"), class = "center_content"),
+  # style = "font-size: 35px; color: red;"),
   
   panel_markdown("
-  ## How to Record Specifications
+  ## R_ecording specifications
   
   Record Specifications in Rmarkdown
   
@@ -424,7 +428,7 @@ pres_val_specification <- pres_val_elements2 %>%
   #' @section Last updated by:
   #' Ellis Hughes
   #' @section Last update date:
-  #' 2020/01/29
+  #' 2020/01/28
   
   + _Specifications_
     + 1.1 Presentation must explain validation procedure.
@@ -433,6 +437,25 @@ pres_val_specification <- pres_val_elements2 %>%
     + 1.4 (Optional) Fame and Glamour and start branded accessories chain.
   ```
   ",style = "font-size: 40px;"),
+  
+  panel_markdown("
+  ## Example
+  
+  ```{r eval=FALSE, echo = TRUE}
+  #' @title Specifications For RStudio Conf 2020 Success
+  #' @section Last updated by:
+  #' Ellis Hughes
+  #' @section Last update date:
+  #' 2020/01/29
+  
+  + _Specifications_
+    + 1.1 Presentation must explain validation procedure.
+    + 1.2 Inform and document each step necessary for success.
+    + 1.3 Be entertaining by causing at least 3 people to laugh.
+    + 1.4 Fame and Glamour and start branded accessories chain.
+  ```
+  ",style = "font-size: 40px;"),
+  
   panel_markdown("
   ## Modular Specifications
   
@@ -492,7 +515,7 @@ pres_val_code <- pres_val_specification %>%
     - @section Last updated date
   </div>
   </div>
-  ", style = "width:1000px;font-size: 40px"),
+  ", style = "width:1100px;font-size: 40px"),
   
   panel_markdown("
   ```{r eval=FALSE, echo = TRUE}
@@ -845,7 +868,7 @@ pres_final <- pres_conclusion %>%
    <div style = 'margin:auto;padding-top:50px;text-align:left; z-index:21; position: relative;'>
    <br>
    <div style = 'background-color: #ffffff;opacity: .5;border-radius: 10px;width: 900px;padding: 20px;font-size: 40px;margin:auto;color: black;'>
-    <p style = 'margin-bottom: 0; font-size: 50px;'>Slides are available at <br>github.com/thebioengineer/RStudio_conf_2020</p>
+    <p style = 'margin-bottom: 0; font-size: 50px;'>Slides and a sample package are available at <br>github.com/thebioengineer/RStudio_conf_2020</p>
     <br>
     <p style = 'margin-bottom: 0;'><i href = 'https://twitter.com/ellis_hughes' style = 'text-decoration: none;'  class='fa fa-twitter-square'></a> @ellis_hughes</p>
     <p style = 'margin-bottom: 0;'><i href = 'https://linkedin.com/in/ellishughes' style = 'text-decoration: none;' class='fa fa-linkedin-square'></a> linkedin.com/in/ellishughes </p>

@@ -1,0 +1,1 @@
+test_that("tests",{x <- runif(1);expect_true(x > .5)})
