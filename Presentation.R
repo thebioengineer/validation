@@ -32,20 +32,21 @@ pres_title <- pres %>%
     title = tags$div(style = "font-weight:200","Approaches to Assay Processing Package Validation"),
     subtitle = list("Ellis Hughes",
                  HTML("<p class='subtitle_text'><i href = 'https://twitter.com/ellis_hughes' style = 'text-decoration: none; color: white' class='fa fa-twitter'></i> @ellis_hughes</p>"),
-                 "Fred Hutch Cancer Research Center - SCHARP - VISC",
-                 "rstudio::conf(2020L)"
+                 "Fred Hutch Cancer Research Center - SCHARP - VISC"
                  ),
     style = "font-family: 'Darker Grotesque',Arial;
     font-size: 40px;
     font-weight: 300;
     background-image: url(img/rstudio_conf_background.png);
     background-repeat: no-repeat;
-    background-size: cover;"
+    background-size: cover;
+    background-position: center;"
   )
 
 ## Intro to the Pain
 
 pres_val_explained <- pres_title %>% 
+  
   slide_multipanel(title = NULL,
                    
   panel(tags$div(tags$div(style = "font-weight:200;margin:auto;font-size: 80px",
@@ -64,16 +65,16 @@ pres_val_explained <- pres_title %>%
   
   panel(tags$div(tags$div(markdown_to_html("
   Required for FDA submission<br><span style = 'color:orange'>21 CFR 11</span><br>General Principles of Software Validation (FDA 2002)
-  "), style = "margin:auto"),class = "center_content"),
-  style = "width: 1000px; margin-top: 100px;font-size:70px;" ),  
+  "), style = "margin-top:50px"),class = "center_content"),
+  style = "width: 1000px; margin-top: 100px;font-size:60px;" ),  
         
   panel(tags$div(tags$div(markdown_to_html("
   Improved Quality and Safety
   
-  Creates Faster Results
+  Results in Faster Processing
   
   Promotes Trust
-  "), style = "margin:auto"),class = "center_content"),style = "margin-top: 100px;"),
+  "), style = "margin-top:50px"),class = "center_content"),style = "margin-top: 100px;font-size:60px;"),
   
   panel(tags$div(tags$div(markdown_to_html("
   <p style = 'font-size: 60px'>Validation</p>
@@ -85,9 +86,8 @@ pres_val_explained <- pres_title %>%
   <p style = 'font-size: 60px'>Verification</p>
   
     - Do the outputs match between two independent approaches
-  "), style = "margin:auto"),class = "center_content")), 
-  
-  style = "font-size: 50px;")
+  "), style = "margin:auto"),class = "center_content")),
+  style = "font-size: 50px;margin-top:100px;")
 
 pres_pain <-pres_val_explained %>% 
   slide_multipanel(title = tags$div(style = 'width:500px',"Validation in Practice"),
@@ -98,13 +98,16 @@ pres_pain <-pres_val_explained %>%
   
     - Labor-hours
     - Tracking Progess
-  ", style = "margin-top: 100px; font-size: 50px"),
+  ", style = "margin-top: 200px; font-size: 50px"),
   
   panel(
     div(class = "center_content",
         div( style = "margin: auto; height: 130%;",
         img(src = "img/jim_carrey_file.gif", style = "height:100%"),
-        p("https://media1.tenor.com/images/3267a92e265348c0cc435a7989d65e23/tenor.gif", style = "font-size:10px;color:grey")
+        div( style = "bottom:0px;position:absolute",
+        p("Tom Shadyac, et al. BRUCE ALMIGHTY. USA, 2003.", style = "font-size:20px;color:grey;margin-bottom:0px"),
+        p("https://media1.tenor.com/images/3267a92e265348c0cc435a7989d65e23/tenor.gif", style = "font-size:20px;color:grey")
+        )
   ))),
   
   panel(div(div(markdown_to_html("
@@ -147,7 +150,10 @@ pres_pain <-pres_val_explained %>%
     div(class = "center_content",
         div( style = "margin: auto; height: 130%;",
              img(src = "img/mario_game_over.gif", style = "height:100%"),
-             p("https://thumbs.gfycat.com/EarnestGiganticDorado-mobile.mp4", style = "font-size:10px;color:grey")
+             div( style = "bottom:0px;position:absolute",
+                  p("Super Mario Bros., Nintendo, 1985, NES", style = "font-size:20px;color:grey; margin-bottom:0px"),
+                  p("source: https://gfycat.com/earnestgiganticdorado", style = "font-size:20px;color:grey")
+             )
         )),
     style = "padding-left: 500px;padding-right: 500px;")
   )
@@ -170,10 +176,11 @@ pres_Friends <- pres_pain %>%
   
   panel(tags$div(
     tags$div( style = "margin:auto;",
-    tags$img(src = "img/step_brothers_best_friends.webp", 
-             style = "height:450px; margin:auto;"), 
-    tags$p("https://bethgittings.tumblr.com/post/34641171446",
-           style = "font-size:10px;color:grey")),
+              tags$img(src = "img/step_brothers_best_friends.webp", style = "height:450px; margin:auto;"),
+              div( style = "bottom:0px;position:absolute",
+                  p("Adam Mckay, et al. STEP BROTHERS . USA, 2008.",style = "font-size:20px;color:grey;margin-bottom:0px;"),
+                  p("https://bethgittings.tumblr.com/post/34641171446",style = "font-size:20px;color:grey")
+                )),
     class = "center_content")),
   
   panel(tags$div(
@@ -211,7 +218,7 @@ pres_bio <- pres_Friends %>%
                  height: 500px;
                  margin-top: 100px;'/>
         </div>
-      </div>")
+      </div>", style = "margin-top:50px")
 
 ## Fred Hutch and SCHARP ----
 pres_FH_scharp <- pres_bio %>%
@@ -278,49 +285,10 @@ pres_FH_scharp <- pres_bio %>%
    </div>
    ")))
 
-## Prompted Task ----
-# pres_assays <- pres_FH_scharp %>% 
-#   slide_multipanel(title = tags$div(style = 'padding-right: 100px;',"Assay Processing Pipelines"),
-#       panel(tags$div(tags$img(src = 'img/scharp_world.jpeg', style = "height:500px; margin:auto;"), class = "center_content")),
-#       panel(tags$div(tags$img(src = 'img/crowd_of_people.png', style = "height:300px; margin:auto;"), class = "center_content")),
-#       panel(HTML("<img src='img/sample_coll.png'  style='max-height:600px; padding-top:200px'/>")),
-#       panel(tags$div(tags$img(src = 'img/ab.png', style = "height:300px; margin:auto;"), class = "center_content")),
-#       panel(HTML("<img src='img/sample_coll.png'  style='max-height:600px; padding-top:200px; position: relative;z-index: 10;'/>
-#                   <img src='img/sample_coll.png'  style='max-height:600px; padding-top:180px; padding-left: 30px;position: relative;z-index: 8; margin-top:-500px;'/>
-#                   <img src='img/sample_coll.png'  style='max-height:600px; padding-top:180px; padding-left: 60px;position: relative; z-index: 6; margin-top:-500px;'/>")),
-#       panel(tags$div(tags$img(src = 'img/antibody_thinker.PNG', style = "height:600px; margin:auto;"), class = "center_content")),
-#       panel(tags$div(tags$img(src = 'img/assaying_clear.png', style = "height:500px; margin:auto;"), class = "center_content")),
-#       panel(tags$div(tags$img(src = 'img/visc.PNG', style = "height:500px; margin:auto;"), class = "center_content")))
-# 
-# 
-# pres_prompt <- pres_assays %>% 
-#   slide_wide(title = NULL,
-#   markdown_to_html("
-#   Need a validated pipeline
-#   
-#   - -rigid enough to provide form and consistency
-#   - -flexible enough to handle potential changes
-#   
-#   "), style = "font-size: 60px")
-# 
-# pres_assays2 <- pres_prompt %>% 
-#   slide_wide(title = NULL,
-#              tags$div(tags$img(src = 'img/busybusybusy.gif', style = "height:600px; margin:auto;"), class = "center_content"))
-# 
-# pres_prompt2 <- pres_assays2 %>% 
-#   slide_wide(title = NULL,
-#   markdown_to_html("
-#   We need a <span style = 'color:red;font-size: 80px'>validated</span> pipeline
-#   
-#   - -rigid enough to provide form and consistency
-#   - -flexible enough to handle potential changes
-#   
-#   "), style = "font-size: 60px")
-
 
 ## Validation ----
 pres_val_elements <- pres_FH_scharp %>% 
-  slide_markdown(title = tags$div(style = 'width:500px',"Validation"),"
+  slide_markdown(title = tags$div(style = 'width:500px',"Package Validation"),"
   <div style='font-size: 60px;'>
   <br>
   Specifications <br>
@@ -328,7 +296,8 @@ pres_val_elements <- pres_FH_scharp %>%
   Test Cases<br>
   Test Case Code<br>
   Documentation
-  </div>", style = "width:600px;")
+  </div>", style = "width:600px; margin-top: 50px;")
+
 
 pres_val_elements2 <- pres_val_elements %>% 
   slide_multipanel(title = tags$div(style = 'width:500px',"Package Structure"),
@@ -342,7 +311,7 @@ pres_val_elements2 <- pres_val_elements %>%
        |__functions.R
     -- tests
     -- vignettes"), style = "margin: auto;width:400px"),
-  class = "center_content"), style = "width: 600px"))
+  class = "center_content"), style = "width: 800px"))
 
 
 ## Specifications ----
@@ -354,77 +323,38 @@ pres_val_specification <- pres_val_elements2 %>%
   
   - What will the package do?
   - What are the expected ouputs?
+  - What are the high level steps that need to be followed?
 
-  ", style = "font-size: 45px; margin-top: 70px;"),
+  ", style = "font-size: 45px; margin-top: 120px;"),
+  
   panel_markdown("
   
   ```
   - My RStudio::Conf presentation will 
-    - The contents will cover an approach to validation
+    - The contents will cover my teams approach to validation
     - Be 15-20 minutes long
     - Be entertaining 
   
   ```
   ", style = "font-size: 40px; margin-top: 150px;"),
   
-  panel(div(markdown_to_html("
-  
-  Assess current state
-  
-  Processes and Agreements already in place
-  
-  Consult Subject Matter Experts
-  "),
-  div(
-    img(src = 'img/Herc_current_state.webp', style = 'height:400px;'),
-    p(style = 'font-size: 10px; color: grey;', 'https://66.media.tumblr.com/91ad717cd3585e96f22705abe72e6f4b/tumblr_osvrktrJDd1qe6vjyo1_500.gifv'))
-  ),
-  style = "font-size: 40px; width: "),
-  
-  panel(div(markdown_to_html("
-  
-  Detail the goals of the project
-  
-  Set success criteria
-
-  "),
-  div( style = "margin-top:130px;",
-    img(src = 'img/hercules_im_a_hero.gif', style = 'height:400px;'),
-    p(style = 'font-size: 10px; color: grey;', 'https://66.media.tumblr.com/62aa49e2504ed9d1af0253a10ceae0de/tumblr_o2agxpicGU1ub6o1yo1_500.gifv'))
-  ),
-  style = "font-size: 40px;"),
-  
-  
-  
-  
-  # panel(div(div(markdown_to_html("
-  # 
-  # Be language agnostic
-  # 
-  # Leave details in how to complete task out
-  # 
-  # Use specific success measurements
-  # 
-  # "), style = "margin:auto;font-size: 50px; font-weight: 600"), class = "center_content"),
-  # style = "font-size: 35px; color: red;"),
-  
   panel_markdown("
-  ## R_ecording specifications
+  <p style = 'font-size:60px;margin-bottom: 10px;'>Recording specifications</p>
   
-  Record Specifications in Rmarkdown
+  <p style = 'margin-bottom: 0px;'>Record Specifications in Rmarkdown </p>
   
     - 1 file per specification
     - Number specifications and details
   
-  Augment Rmarkdown with Roxygen 
+ <p style = 'margin-bottom: 0px;'> Augment Rmarkdown with Roxygen </p>
   
     - Specification Title
-    - Record who and when
-  ", style = "font-size: 40px;"),
+    - Document who and when
+
+  ", style = "font-size: 50px;"),
   
-  panel_markdown("
-  ## Example
-  
+  panel(
+  div(div(markdown_to_html("
   ```{r eval=FALSE, echo = TRUE}
   #' @title Specifications For RStudio Conf 2020 Success
   #' @section Last updated by:
@@ -434,72 +364,90 @@ pres_val_specification <- pres_val_elements2 %>%
   
   + _Specifications_
     + 1.1 Presentation must explain validation procedure.
-    + 1.2 Inform and document each step necessary for success.
-    + 1.3 Be entertaining by causing at least 3 people to laugh.
+    + 1.2 Presentation will be between 15-20 minutes long
+    + 1.3 Be entertaining, sucess measures by causing at least 3 people to laugh.
     + 1.4 (Optional) Fame and Glamour and start branded accessories chain.
   ```
-  ",style = "font-size: 40px;"),
+  "), 
+  style = "margin:auto"),
+  class = "center_content"),
+  style = "font-size: 40px;"),
+  
   
   panel_markdown("
-  ## Modular Specifications
+  Quickly update
   
-  - Easily shift and update
-  - De-couple Specifications
+    - Specifications
+    - Ownership
+    
+  Close proximity to the task
   
+  De-couple Specifications
+  
+  ", style = "font-size: 50px; margin-top: 100px;"),
+  
+  panel(div(div(markdown_to_html("
   ```
   -- vignettes
          |__Validation
            |__Specifications
              |__specification_001.Rmd
-  ```",style = "font-size: 40px;"))
+  ```"), 
+  style = "margin:auto"),
+  class = "center_content"),
+   style = "font-size: 50px;"))
 
 
 
 ## Coding ----
 pres_val_code <- pres_val_specification %>% 
+  
   slide_multipanel(title = tags$div(style = 'width:500px',"Code"),
+                   
   panel(style = "width:0px"),
+  
   panel(tags$div(tags$div(
-    tags$img(src = "img/I_dont_need_help.gif", 
-             style = "height:500px"),
-    tags$p(style = "font-size:10px;color:grey","https://imgur.com/gallery/QC6Nllw")
-    ,style = "margin:auto;"), 
-    class = "center_content")),
+    tags$img(src = "img/I_dont_need_help.gif", style = "height:500px"),
+    div( style = "bottom:0px;position:absolute",
+         p("Queen - I Want To Break Free, 1984",style = "font-size:20px;color:grey;margin-bottom:0px;"),
+         p("https://imgur.com/gallery/QC6Nllw",style = "font-size:20px;color:grey")
+    ),
+    style = "margin:auto;"), 
+    class = "center_content"), style = "margin-top: 50px;"),
   
   panel(tags$div(tags$div(
     markdown_to_html("
   Dont worry, I won't be telling you how to code            
   "),style= "margin:auto"),class = "center_content"), style = "margin-top: 100px; font-size: 50px;"),
-  # 
-  # panel(div(markdown_to_html("
-  # ## Team Coding Principals
-  # 
-  # - Follow Good Programming Practices
-  # - Define function requirements
-  # 
-  # ")),
-  # # div(img(src= 'img/kondo_calm.gif', style = 'height:400px'),
-  # # p(style = 'font-size: 10px; color: grey;','https://miro.medium.com/max/694/1*G45BFLThPqHFW9C16TNx5Q.gif')))
-  # style = "font-size: 40px"),
   
   panel_markdown("
-  ## Roxygenize
-  <div style = 'display: flex;vertical-align: top;'>
-  <div style = 'display:inline-block; color: grey'>
-  - Standard Roxygen Documentation
-    - @title
-    - @description
-    - @param
-    - @output
-    - @examples
-  </div>
-  <div style = 'display:inline-block;'>
-  - 'Unique' Validation tags
-    - @section Last updated by:
-    - @section Last updated date
-  </div>
-  </div>
-  ", style = "width:1100px;font-size: 40px"),
+  Documenting code ownership
+    
+    - External resource
+      - excel, word, smartsheet
+    - After the fact
+    - Cumbersome
+                 
+  ", style = "margin-top: 100px; font-size: 50px;"),
+  
+  # panel_markdown("
+  # ## Roxygenize
+  # <div style = 'display: flex;vertical-align: top;'>
+  # <div style = 'display:inline-block; color: grey'>
+  # - Standard Roxygen Documentation
+  #   - @title
+  #   - @description
+  #   - @param
+  #   - @output
+  #   - @examples
+  # </div>
+  # <div style = 'display:inline-block;'>
+  # - 'Unique' Validation tags
+  #   - @section Last updated by:
+  #   - @section Last updated date
+  # </div>
+  # </div>
+  # ", style = "width:1200px;font-size: 50px"),
   
   panel_markdown("
   ```{r eval=FALSE, echo = TRUE}
@@ -548,15 +496,15 @@ pres_val_code <- pres_val_specification %>%
   ```
   ", style = "width: 1400px"),
   
-  panel_markdown("
-  ## Unit Tests
-  
-  - As the function author, does it behave as you expect
-  - Protection from accidental changes
-  
-  <img src='https://github.com/r-lib/testthat/raw/master/man/figures/logo.png' style='height:200px;margin:auto'/>
-  
-  ",style = "font-size: 40px"),
+  # panel_markdown("
+  # ## Unit Tests
+  # 
+  # - As the function author, does it behave as you expect
+  # - Protection from accidental changes
+  # 
+  # <img src='https://github.com/r-lib/testthat/raw/master/man/figures/logo.png' style='height:200px;margin:auto'/>
+  # 
+  # ",style = "font-size: 40px"),
 
   # panel_markdown("
   # ## Github
@@ -569,9 +517,8 @@ pres_val_code <- pres_val_specification %>%
   # 
   # ",style = "font-size: 40px"),
   
-  panel_markdown("
-  ## Modular Functions, Documentation and Tests
-  
+  panel(div(div(markdown_to_html("
+
   ```
   -- R
     |__jokes.R
@@ -582,7 +529,7 @@ pres_val_code <- pres_val_specification %>%
     |__testthat
         |__test_joke.R
   ```
-  ",style = "font-size: 40px"))
+  "),style = "font-size: 40px;margin:auto"),class = "center_content")))
 
 
 ## Test Cases ----
@@ -592,9 +539,12 @@ pres_val_test <- pres_val_code %>%
   panel(div(markdown_to_html("
   Draw connections between specifications and functions
   ")),
-   div(img(src = 'img/How-to-find-innovation.jpg',style = 'height:400px;'),
-     p(style = 'font-size: 10px; color: grey;','https://nc3t.com/wp-content/uploads/2014/10/How-to-find-innovation.jpg')),
-   style = "margin-top: 100px;font-size: 50px"),
+   div(
+     img(src = 'img/How-to-find-innovation.jpg',style = 'height:400px;margin:auto'),
+       div( style = "bottom:0px;position:absolute",
+            p("Source: https://nc3t.com/wp-content/uploads/2014/10/How-to-find-innovation.jpg",style = "font-size:20px;color:grey")
+       )),
+   style = "margin-top: 150px;font-size: 50px"),
   
   panel(div(div(markdown_to_html("
   
@@ -609,39 +559,40 @@ pres_val_test <- pres_val_code %>%
   panel_markdown("
   ## How to Document Test Cases
   
+  - Record which Specifications are being met
   - Specify the required data
   - Record the steps needed without writing the code
   - Detail the expectations that need to be tested and how
 
   ",style = "font-size: 40px;"),
   
-  panel(tags$div(
-    tags$div( style = "margin:auto;",
-              tags$img(src = "img/owl_how_to_2.jpg", 
-                       style = "height:450px; margin:auto;"), 
-              tags$p("https://thevirtualinstructor.com/blog/wp-content/uploads/2019/01/how-step-by-step-drawing-tutorials-can-lead-you-astray.jpg",
-                     style = "font-size:10px;color:grey")),
-    class = "center_content")),
-  
-  panel(tags$div(
-    tags$div( style = "margin:auto;",
-              tags$img(src = "img/owl_how_to_good.jpg", 
-                       style = "height:450px; margin:auto;"), 
-              tags$p("https://thegraphicsfairy.com/wp-content/uploads/blogger/-D9oAqKr5JNU/TYocayndzhI/AAAAAAAALY8/T9igMEmEnII/s1600/draw-owls-gfairysm.jpg",
-                     style = "font-size:10px;color:grey")),
-    class = "center_content")),
+  # panel(tags$div(
+  #   tags$div( style = "margin:auto;",
+  #             tags$img(src = "img/owl_how_to_2.jpg", 
+  #                      style = "height:450px; margin:auto;"), 
+  #             tags$p("https://thevirtualinstructor.com/blog/wp-content/uploads/2019/01/how-step-by-step-drawing-tutorials-can-lead-you-astray.jpg",
+  #                    style = "font-size:10px;color:grey")),
+  #   class = "center_content")),
+  # 
+  # panel(tags$div(
+  #   tags$div( style = "margin:auto;",
+  #             tags$img(src = "img/owl_how_to_good.jpg", 
+  #                      style = "height:450px; margin:auto;"), 
+  #             tags$p("https://thegraphicsfairy.com/wp-content/uploads/blogger/-D9oAqKr5JNU/TYocayndzhI/AAAAAAAALY8/T9igMEmEnII/s1600/draw-owls-gfairysm.jpg",
+  #                    style = "font-size:10px;color:grey")),
+  #   class = "center_content")),
   
   panel_markdown("
   ## Documenting Test Cases
   
-  Record Specifications in Rmarkdown
+  Record Test Cases in Rmarkdown
   
     - 1 file per Set of Test Cases
-    - Number Test Cases and Specifications
+    - Number Test Cases
   
   Augment Rmarkdown with Roxygen 
   
-    - Specification Title
+    - Test Case Title
     - Record who and when
   ",style = "font-size: 40px;"),
   
@@ -657,14 +608,16 @@ pres_val_test <- pres_val_code %>%
 
   + Setup: Create RStudio::Conf 2020 Presentation 
     
-  + T 1.1 Test that specifications 1.2, 1.2, and 1.3 are met by practicing presentation on unsuspecting co-workers
+  + T 1.1 Test that specifications 1.1, 1.2, and 1.3 are met by practicing presentation on unsuspecting co-workers
   
     - Present to a captive audience of coworkers and later your significant other
-    +  T 1.1.1 Test that the presentation was informative by asking what your audience learned.
-    +  T 1.1.2 Test that you were entertaining by counting the amount of chuckles (>3)
-        + T 1.1.2.1 Alternatively, groans from your significant other at your jokes (>4)
+    + T 1.1.1 Test that the presentation was informative by asking what your audience learned.
+    + T 1.1.2 Time the presentation and make sure it was between 15 and 20 minutes.
+    + T 1.1.3 Test that you were entertaining by counting the amount of chuckles (>3)
+        + T 1.1.3.1 Alternatively, eye-rolls from your significant other (>4)
   ```
   ", style = "width: 1400px"),
+  
   panel_markdown("
   ## Modular Test Case Documentation
   
@@ -692,9 +645,9 @@ pres_val_test_code <- pres_val_test %>%
   
   Third Party 
   
-  ", style = "margin-top:100px; font-size: 50px;"),
+  ", style = "margin-top:150px; font-size: 50px;"),
   panel_markdown("
-  ## Benefits
+  <p style='font-size:60px'>Benefits</p>
   
   - Resolves interpretation errors
       - documentation
@@ -702,34 +655,17 @@ pres_val_test_code <- pres_val_test %>%
   
   - Identify improvements
                  
-  ",style = "font-size: 40px;"),
+  ",style = "font-size: 50px;margin-top: 150px;"),
   panel_markdown("
-  ## Approach
-  <br>
-  <br>
   <div class = 'center_content'>
   <div style = 'margin:auto; width: 100%;'>
+  <p style='font-size:60px'>Approach</p>
   <img src='https://github.com/r-lib/testthat/raw/master/man/figures/logo.png' style='width: 49%;display:inline-block;'/>
   <img src='https://github.com/r-lib/roxygen2/raw/master/man/figures/logo.png' style='width: 49%;display:inline-block;'/>
   </div></div>
-  ", style = "width: 500px;font-size: 40px;"),
-  
-  panel_markdown("
-  ## Documenting Test Code
-  
-  - 1 file per Set of Test Cases
-  - In the description of the test, record Test Case
-  
-  Augment Rmarkdown with Roxygen 
-  
-    - Specification Title
-    - Record who and when
-  ",style = "font-size: 40px;"),
-  
+  ", style = "width: 500px;font-size: 60px;"),
 
   panel_markdown("
-  ## Documentation
-  
   ```{r eval=FALSE, echo = TRUE}
   context('RStudio Conf 2020 Success')
   
@@ -753,32 +689,48 @@ pres_val_test_code <- pres_val_test %>%
   
   panel_markdown("
   
-  ## testthat 
+  <p style='font-size:60px'>testthat</p>
   
     - Familar framework
     - Can run and developed interactively
     - Automation
     
-  ",style = "font-size: 40px;"),
+  ",style = "font-size: 50px;margin-top: 150px;"),
   
   panel_markdown("
   
-  # Reporter Objects
+  <p style='font-size:60px'>Reporter Objects</p>
   
     - Track each test and expectation
     - Reports Success
     - Records Failure mode
     - Easily access contents
                  
-  ",style = "font-size: 40px;"),
+  ",style = "font-size: 50px;margin-top: 150px;"),
   
   panel_markdown("
   
-  Using a custom print function:
-
-  <img src='img/test_table_example.PNG' style='width: 700px'/>
+  ```{r, eval = FALSE}
+  |  OK F W S | Context
+  |   3       | RStudio Conf 2020 Success [3.2 s]
   
-  ",style = "font-size: 40px;"),
+  ══ Results ═══════════════════════════════════════
+  Duration: 3.2 s
+  
+  OK:       3
+  Failed:   0
+  Warnings: 0
+  Skipped:  0
+  ```           
+  ",style = "font-size: 50px; margin-top:100px;"),
+  
+  panel_markdown("
+  
+  Using a custom print function the Reporter object<br><br>
+
+  <img src='img/test_table_example.PNG' style='width: 700px; margin: auto'/>
+  
+  ",style = "font-size: 50px; margin-top:150px;"),
   
   panel_markdown("
   ## Modular Test Code Documentation
@@ -792,7 +744,7 @@ pres_val_test_code <- pres_val_test %>%
         |__Test_Code
           |__test_code_001.R
   ```
-  ",style = "font-size: 40px;"))
+  ",style = "font-size: 60px;"))
 
 ## Documentation ----
 
@@ -822,13 +774,13 @@ pres_val_doc <- pres_val_test_code %>%
   
   panel(div(HTML("<img src='img/captain_planet.gif' style = 'height:800px;margin:auto' />"),class = "center_content")),
   
-  panel_markdown("
-  # Single Rmarkdown 
-  
-    - gather all the information
-    - run all the tests
-    - Generate the Report
-  ",style = "font-size: 40px;"),
+  # panel_markdown("
+  # # Single Rmarkdown 
+  # 
+  #   - gather all the information
+  #   - run all the tests
+  #   - Generate the Report
+  # ",style = "font-size: 40px;"),
   
   panel(tags$iframe(src = "img/Validate.pdf", style = "width: 1200px; height: 100%", frameborder="0", marginwidth="0")),
   
@@ -865,7 +817,7 @@ pres_val_doc2 <- pres_val_doc %>%
 pres_conclusion <- pres_val_doc2 %>% 
   slide_multipanel(title = NULL,
   panel_markdown("
-  # Many thanks to all involved
+  ### Many thanks to all involved
   
   - Marie Vendettuoli
   - Anthony Williams
@@ -878,7 +830,7 @@ pres_conclusion <- pres_val_doc2 %>%
   - Kate Ostbye
   
   - Many many more people
-  "))
+  ", style = "font-size: 40px;"))
 
 
 ## Final ----
