@@ -41,3 +41,13 @@ a:hover, a:active { text-decoration: none; color:black }
   vertical-align: middle;
 }
 
+.slide_title_container {
+  background-color: #11234596;
+  width: 1600px;
+}
+
+.slide_container{
+  margin: 0px;
+  padding: 0px 30px;
+  height: 100%;
+}
