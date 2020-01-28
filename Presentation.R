@@ -357,9 +357,9 @@ pres_val_specification <- pres_val_elements2 %>%
   div(div(markdown_to_html("
   ```{r eval=FALSE, echo = TRUE}
   #' @title Specifications For RStudio Conf 2020 Success
-  #' @section Last updated by:
+  #' @section Last Updated By:
   #' Ellis Hughes
-  #' @section Last update date:
+  #' @section Last Update Date:
   #' 2020/01/28
   
   + _Specifications_
@@ -443,8 +443,8 @@ pres_val_code <- pres_val_specification %>%
   # </div>
   # <div style = 'display:inline-block;'>
   # - 'Unique' Validation tags
-  #   - @section Last updated by:
-  #   - @section Last updated date
+  #   - @section Last Updated By:
+  #   - @section Last Update Date
   # </div>
   # </div>
   # ", style = "width:1200px;font-size: 50px"),
@@ -456,12 +456,12 @@ pres_val_code <- pres_val_specification %>%
   #'    Deliver jokes with punchlines. Wait 3 seconds for the punchline.
   #' @param Setup Joke setup
   #' @param Punchline Joke punchline
-  #' @example
+  #' @examples
   #' joke('To the person who stole my presentation -','I hope you do not Excel.')
   #'      
-  #' @section Last Edited by:
+  #' @section Last Updated By:
   #' Ellis Hughes
-  #' @section Last updated date:
+  #' @section Last Updated Date:
   #' 2020/01/29
   
   joke <- function(Setup, Punchline){
@@ -485,12 +485,12 @@ pres_val_code <- pres_val_specification %>%
   #' @param Setup Joke setup
   #' @param Punchline Joke punchline
   #' @param wait how long to wait to serve the punchline
-  #' @example
+  #' @examples
   #' joke('To the person who stole my presentation -','I hope you do not Excel.')
   #'      
-  #' @section Last Edited by:
+  #' @section Last Updated By:
   #' Not Ellis Hughes
-  #' @section Last updated date:
+  #' @section Last Update Date:
   #' 2020/01/30
   
   joke <- function(Setup, Punchline, wait = 3){
@@ -567,9 +567,9 @@ pres_val_test <- pres_val_code %>%
   panel_markdown("
   ```{r eval=FALSE, echo = TRUE}
   #' @title RStudio Conf 2020 Success Test Cases 001
-  #' @section Last updated by: 
+  #' @section Last Updated By: 
   #' Ellis Hughes
-  #' @section Last update date:
+  #' @section Last Update Date:
   #' 2020/01/29
 
   + _Test Cases_
@@ -638,9 +638,9 @@ pres_val_test_code <- pres_val_test %>%
   context('RStudio Conf 2020 Success')
   
   #' @title RStudio Conf 2020 Success 
-  #' @section Last updated by: 
+  #' @section Last Updated By: 
   #' Not Ellis Hughes
-  #' @section Last update date:
+  #' @section Last Update Date:
   #' 2020/01/29
   
   test_that('T1.1',{

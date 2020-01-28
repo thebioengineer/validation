@@ -14,14 +14,14 @@ joke(Setup, Punchline)
 \description{
 Deliver jokes with punchlines. Wait 3 seconds for the punchline.
 }
-\section{Last updated by}{
+\section{Last Updated By}{
 
 Ellis Hughes
 }
 
-\section{Last updated date}{
+\section{Last Update Date}{
 
-2020/01/29
+2020/01/28
 }
 
 \examples{
