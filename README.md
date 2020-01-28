@@ -11,8 +11,9 @@ twitter: @ellis_hughes
 This is the respository for the 2020 RStudio::conf presentation `Approaches to Assay Processing Package Validation`.
 
 
-[Slides](https://thebioengineer.github.io/Validation)
-[Sample Package](https://www.github.com/thebioengineer/Validation/sample_package/ValidateMe)
+[Slides](https://thebioengineer.github.io/validation)
+
+[Sample Package](https://www.github.com/thebioengineer/validation/sample_package/ValidateMe)
 
 
 The focus of this presentation is to present an approach to simplify the process of validation of R packages. 

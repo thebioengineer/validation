@@ -817,9 +817,9 @@ pres_final <- pres_conclusion %>%
    <div style = 'margin:auto;padding-top:20px;text-align:left; z-index:21; position: relative;'>
    <br>
    <div style = 'background-color: #ffffff;opacity: .5;border-radius: 10px;width: 900px;padding: 20px;font-size: 60px;margin:auto;color: black;'>
-    <p style = 'margin-bottom: 0; font-size: 70px;'>Presentation available at: <br><a href = 'https://thebioengineer.github.io/Validation' style='text-decoration: none;'>   thebioengineer.github.io/Validation</a></p>
+    <p style = 'margin-bottom: 0; font-size: 70px;'>Presentation available at: <br><a href = 'https://thebioengineer.github.io/validation' style='text-decoration: none;'>   thebioengineer.github.io/validation</a></p>
     <br>
-    <p style = 'margin-bottom: 0;'><i style = 'text-decoration: none;' class='fa fa-github-square'></i> github.com/thebioengineer/Validation</p>
+    <p style = 'margin-bottom: 0;'><i style = 'text-decoration: none;' class='fa fa-github-square'></i> github.com/thebioengineer/validation</p>
     <br>
     <div style = 'margin:auto'>
     <p style = 'margin-bottom: 0;'><i style = 'text-decoration: none;'  class='fa fa-twitter-square'></i> @ellis_hughes</p>
