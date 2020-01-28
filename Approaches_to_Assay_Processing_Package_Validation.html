@@ -5,6 +5,7 @@
 <style>body{background-color:#d7d8d2;;}</style>
 <script src="lib/jquery-1.11.0/jquery-1.11.0.min.js"></script>
 <script src="lib/jquery-1.11.0/jquery-migrate-1.2.1.min.js"></script>
+<script src="lib/jquery_mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <link href="lib/sidescroll-1.0.0/sidescroll.css" rel="stylesheet" />
 <script src="lib/sidescroll-1.0.0/sidescroll.js"></script>
 <link href="lib/slick-1.8.1/slick.css" rel="stylesheet" />
@@ -635,6 +636,17 @@ joke &lt;- function(Setup, Punchline){
     <div>
       <div class="slide_container">
         <div class="multi_panel generic" style="visibility:hidden;">
+          <div class="panel">
+            <div class="center_content">
+              <img src="img/joke_man_page.PNG" style="height:100%; margin:auto"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container">
+        <div class="multi_panel generic" style="visibility:hidden;">
           <div class="panel" style="width: 1400px"><pre class="r"><code>#' @title Deliver Jokes
 #' @description 
 #'    Deliver jokes with punchlines. Wait 3 seconds for the punchline.
@@ -903,17 +915,16 @@ Skipped:  0</code></pre></div>
     <div>
       <div class="slide_container">
         <div class="multi_panel generic" style="visibility:hidden;">
-          <div class="panel" style="font-size: 60px;"><div id="modular-test-code-documentation" class="section level2">
-<h2>Modular Test Code Documentation</h2>
-<ul>
+          <div class="panel" style="font-size: 50px;"><p style="font-size:60px">
+Modular Test Code Documentation
+</p><ul>
 <li>Easily update Test Code and expectations</li>
 <li>Track updates</li>
 </ul>
 <pre><code>-- vignettes
     |__Validation
       |__Test_Code
-        |__test_code_001.R</code></pre>
-</div></div>
+        |__test_code_001.R</code></pre></div>
         </div>
       </div>
     </div>
@@ -927,7 +938,7 @@ Skipped:  0</code></pre></div>
               </h1>
             </div>
           </div>
-          <div class="panel" style="font-size: 40px;"><div id="what-we-have-so-far" class="section level2">
+          <div class="panel" style="font-size: 40px;margin-top: 50px;"><div id="what-we-have-so-far" class="section level2">
 <h2>What we have so far</h2>
 <ul>
 <li>Documents for each Specification in markdown</li>
@@ -942,7 +953,7 @@ Skipped:  0</code></pre></div>
     <div>
       <div class="slide_container">
         <div class="multi_panel generic" style="visibility:hidden;">
-          <div class="panel" style="font-size: 40px;"><div id="roxygen2" class="section level2">
+          <div class="panel" style="font-size: 40px;margin-top: 50px;"><div id="roxygen2" class="section level2">
 <h2>Roxygen2</h2>
 <ul>
 <li>Generate list of ownership of all documentation</li>
@@ -965,8 +976,14 @@ Skipped:  0</code></pre></div>
     <div>
       <div class="slide_container">
         <div class="multi_panel generic" style="visibility:hidden;">
-          <div class="panel">
-            <div class="center_content"><img src='img/captain_planet.gif' style = 'height:800px;margin:auto' /></div>
+          <div class="panel" style="margin-top: 50px;">
+            <div class="center_content">
+              <img src='img/captain_planet.gif' style = 'height:800px;margin:auto' />
+              <div style="bottom:0px;position:absolute">
+                <p style="font-size:20px;color:grey">'Captain Planet and the Planeteers' Theme Song: Turner Broadcasting System</p>
+                <p style="font-size:20px;color:grey">Source: https://www.syfy.com/sites/syfy/files/styles/1100xauto/public/captain-planet.gif</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -974,7 +991,7 @@ Skipped:  0</code></pre></div>
     <div>
       <div class="slide_container">
         <div class="multi_panel generic" style="visibility:hidden;">
-          <div class="panel">
+          <div class="panel" style="margin-top: 50px;">
             <iframe src="img/Validate.pdf" style="width: 1200px; height: 100%" frameborder="0" marginwidth="0"></iframe>
           </div>
         </div>
@@ -983,7 +1000,7 @@ Skipped:  0</code></pre></div>
     <div>
       <div class="slide_container">
         <div class="multi_panel generic" style="visibility:hidden;">
-          <div class="panel" style="font-size: 40px;"><pre><code>-- DESCRIPTION
+          <div class="panel" style="font-size: 40px;margin-top: 50px;"><pre><code>-- DESCRIPTION
 -- man
 -- NAMESPACE
 -- tests
@@ -1037,7 +1054,7 @@ Skipped:  0</code></pre></div>
       </div>
     </div>
     <div>
-      <div class="slide_container fit_content" style="text-align: center;width:1600px; back">
+      <div class="slide_container fit_content" style="text-align: center;width:1600px; margin-top: 50px;">
         <div class="single_panel generic" style="visibility:hidden;">
           <div class="single_panel_title_box title_box">
             <div class="slide_title">
@@ -1046,20 +1063,17 @@ Skipped:  0</code></pre></div>
               </h1>
             </div>
           </div>
-          <div class="panel"><div style="margin:auto;padding-top:50px;text-align:left; z-index:21; position: relative;">
-<br><div style="background-color: #ffffff;opacity: .5;border-radius: 10px;width: 900px;padding: 20px;font-size: 40px;margin:auto;color: black;">
-<p style="margin-bottom: 0; font-size: 50px;">
-Slides and a sample package are available at <br>thebioengineer.github.io/Validation
+          <div class="panel"><div style="margin:auto;padding-top:20px;text-align:left; z-index:21; position: relative;">
+<br><div style="background-color: #ffffff;opacity: .5;border-radius: 10px;width: 900px;padding: 20px;font-size: 60px;margin:auto;color: black;">
+<p style="margin-bottom: 0; font-size: 70px;">
+Presentation available at: <br><a href="https://thebioengineer.github.io/Validation" style="text-decoration: none;"> thebioengineer.github.io/Validation</a>
+</p>
+<br><p style="margin-bottom: 0;">
+<i style="text-decoration: none;" class="fa fa-github-square"></i> github.com/thebioengineer/Validation
 </p>
 <br><div style="margin:auto">
 <p style="margin-bottom: 0;">
 <i style="text-decoration: none;" class="fa fa-twitter-square"></i> <span class="citation">@ellis_hughes</span>
-</p>
-<p style="margin-bottom: 0;">
-<i style="text-decoration: none;" class="fa fa-linkedin-square"></i> linkedin.com/in/ellishughes
-</p>
-<p style="margin-bottom: 0;">
-<i style="text-decoration: none;" class="fa fa-github-square"></i> github.com/thebioengineer
 </p>
 </div>
 </div>

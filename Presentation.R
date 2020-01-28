@@ -472,6 +472,11 @@ pres_val_code <- pres_val_specification %>%
   ```
   ", style = "width: 1400px"),
   
+  panel(div(
+    img(src = "img/joke_man_page.PNG",
+        style = "height:100%; margin:auto"),
+    class = "center_content")),
+  
   panel_markdown("
   ```{r eval=FALSE, echo = TRUE}
   #' @title Deliver Jokes
@@ -495,28 +500,7 @@ pres_val_code <- pres_val_specification %>%
   }
   ```
   ", style = "width: 1400px"),
-  
-  # panel_markdown("
-  # ## Unit Tests
-  # 
-  # - As the function author, does it behave as you expect
-  # - Protection from accidental changes
-  # 
-  # <img src='https://github.com/r-lib/testthat/raw/master/man/figures/logo.png' style='height:200px;margin:auto'/>
-  # 
-  # ",style = "font-size: 40px"),
 
-  # panel_markdown("
-  # ## Github
-  # 
-  # - Branching
-  # - Pull Requests
-  # - Visually Track Progress
-  # 
-  # <img src='img/GitHub-Mark-Light-120px-plus.png' style='height:200px;margin:auto;'/>
-  # 
-  # ",style = "font-size: 40px"),
-  
   panel(div(div(markdown_to_html("
 
   ```
@@ -565,23 +549,7 @@ pres_val_test <- pres_val_code %>%
   - Detail the expectations that need to be tested and how
 
   ",style = "font-size: 40px;"),
-  
-  # panel(tags$div(
-  #   tags$div( style = "margin:auto;",
-  #             tags$img(src = "img/owl_how_to_2.jpg", 
-  #                      style = "height:450px; margin:auto;"), 
-  #             tags$p("https://thevirtualinstructor.com/blog/wp-content/uploads/2019/01/how-step-by-step-drawing-tutorials-can-lead-you-astray.jpg",
-  #                    style = "font-size:10px;color:grey")),
-  #   class = "center_content")),
-  # 
-  # panel(tags$div(
-  #   tags$div( style = "margin:auto;",
-  #             tags$img(src = "img/owl_how_to_good.jpg", 
-  #                      style = "height:450px; margin:auto;"), 
-  #             tags$p("https://thegraphicsfairy.com/wp-content/uploads/blogger/-D9oAqKr5JNU/TYocayndzhI/AAAAAAAALY8/T9igMEmEnII/s1600/draw-owls-gfairysm.jpg",
-  #                    style = "font-size:10px;color:grey")),
-  #   class = "center_content")),
-  
+
   panel_markdown("
   ## Documenting Test Cases
   
@@ -733,7 +701,7 @@ pres_val_test_code <- pres_val_test %>%
   ",style = "font-size: 50px; margin-top:150px;"),
   
   panel_markdown("
-  ## Modular Test Code Documentation
+  <p style='font-size:60px'>Modular Test Code Documentation</p>
   
   - Easily update Test Code and expectations
   - Track updates
@@ -744,7 +712,7 @@ pres_val_test_code <- pres_val_test %>%
         |__Test_Code
           |__test_code_001.R
   ```
-  ",style = "font-size: 60px;"))
+  ",style = "font-size: 50px;"))
 
 ## Documentation ----
 
@@ -758,7 +726,7 @@ pres_val_doc <- pres_val_test_code %>%
   - Roxygen documentation for Code
   - Documents for Test Cases in markdown
   - Test Case Code augmented with Roxygen documentation
-  ",style = "font-size: 40px;"),
+  ",style = "font-size: 40px;margin-top: 50px;"),
   
   panel_markdown("
   ## Roxygen2
@@ -770,9 +738,16 @@ pres_val_doc <- pres_val_test_code %>%
     
   ## Testthat
     - Record results of test code
-  ",style = "font-size: 40px;"),
+  ",style = "font-size: 40px;margin-top: 50px;"),
   
-  panel(div(HTML("<img src='img/captain_planet.gif' style = 'height:800px;margin:auto' />"),class = "center_content")),
+  panel(div(
+    HTML("<img src='img/captain_planet.gif' style = 'height:800px;margin:auto' />"),
+    div( style = "bottom:0px;position:absolute",
+         p("'Captain Planet and the Planeteers' Theme Song: Turner Broadcasting System",style = "font-size:20px;color:grey"),
+         p("Source: https://www.syfy.com/sites/syfy/files/styles/1100xauto/public/captain-planet.gif",style = "font-size:20px;color:grey")
+    ),
+    
+    class = "center_content"),style = "margin-top: 50px;"),
   
   # panel_markdown("
   # # Single Rmarkdown 
@@ -782,7 +757,7 @@ pres_val_doc <- pres_val_test_code %>%
   #   - Generate the Report
   # ",style = "font-size: 40px;"),
   
-  panel(tags$iframe(src = "img/Validate.pdf", style = "width: 1200px; height: 100%", frameborder="0", marginwidth="0")),
+  panel(tags$iframe(src = "img/Validate.pdf", style = "width: 1200px; height: 100%", frameborder="0", marginwidth="0"),style = "margin-top: 50px;"),
   
   panel_markdown("
   ```
@@ -803,7 +778,7 @@ pres_val_doc <- pres_val_test_code %>%
       |__Test_Code
         |__test_code_001.R
   ```               
-  ",style = "font-size: 40px;"))
+  ",style = "font-size: 40px;margin-top: 50px;"))
   
 pres_val_doc2 <- pres_val_doc %>% 
   slide_wide(title = NULL,
@@ -839,15 +814,15 @@ pres_conclusion <- pres_val_doc2 %>%
 pres_final <- pres_conclusion %>%  
   slide_markdown( title = tags$div(style = 'width:1600px; font-size: 120px',"Thank You"),"
   
-   <div style = 'margin:auto;padding-top:50px;text-align:left; z-index:21; position: relative;'>
+   <div style = 'margin:auto;padding-top:20px;text-align:left; z-index:21; position: relative;'>
    <br>
-   <div style = 'background-color: #ffffff;opacity: .5;border-radius: 10px;width: 900px;padding: 20px;font-size: 40px;margin:auto;color: black;'>
-    <p style = 'margin-bottom: 0; font-size: 50px;'>Slides and a sample package are available at <br>thebioengineer.github.io/Validation</p>
+   <div style = 'background-color: #ffffff;opacity: .5;border-radius: 10px;width: 900px;padding: 20px;font-size: 60px;margin:auto;color: black;'>
+    <p style = 'margin-bottom: 0; font-size: 70px;'>Presentation available at: <br><a href = 'https://thebioengineer.github.io/Validation' style='text-decoration: none;'>   thebioengineer.github.io/Validation</a></p>
+    <br>
+    <p style = 'margin-bottom: 0;'><i style = 'text-decoration: none;' class='fa fa-github-square'></i> github.com/thebioengineer/Validation</p>
     <br>
     <div style = 'margin:auto'>
     <p style = 'margin-bottom: 0;'><i style = 'text-decoration: none;'  class='fa fa-twitter-square'></i> @ellis_hughes</p>
-    <p style = 'margin-bottom: 0;'><i style = 'text-decoration: none;' class='fa fa-linkedin-square'></i> linkedin.com/in/ellishughes </p>
-    <p style = 'margin-bottom: 0;'><i style = 'text-decoration: none;' class='fa fa-github-square'></i> github.com/thebioengineer </p>
     </div>
     </div>
    </div>
@@ -858,7 +833,7 @@ pres_final <- pres_conclusion %>%
     <img src='img/FH_logo_improved.png'/>
    </div>
    
-   ", style = "text-align: center;width:1600px; back")
+   ", style = "text-align: center;width:1600px; margin-top: 50px;")
 
 ## Save Presentation ----
 
