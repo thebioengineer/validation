@@ -170,4 +170,7 @@ pre {
     border-radius: 4px;
 }
 
+.ui-loader {
+  display: none !important;
+}
 
