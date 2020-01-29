@@ -97,7 +97,7 @@ pres_pain <-pres_val_explained %>%
   <p style = 'font-size: 60px'>Validation can be a high bar</p>
   
     - Labor-hours
-    - Tracking Progess
+    - Tracking Progress
   ", style = "margin-top: 200px; font-size: 50px"),
   
   panel(
