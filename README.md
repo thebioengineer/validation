@@ -13,7 +13,7 @@ This is the respository for the 2020 RStudio::conf presentation `Approaches to A
 
 📰: [Slides](https://thebioengineer.github.io/validation)
 
-📦: [Sample Package](https://www.github.com/thebioengineer/validation/sample_package/ValidateMe)
+📦: [Sample Package](https://www.github.com/thebioengineer/validation/tree/master/sample_package/ValidateMe)
 
 🎥: [Recording](https://resources.rstudio.com/rstudio-conf-2020/approaches-to-assay-processing-package-validation-ellis-hughes)
 
